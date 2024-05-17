@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class player : MonoBehaviour
@@ -10,6 +11,10 @@ public class player : MonoBehaviour
     float horizontal;
     public bool groundCheck;
     public Transform foot;
+    public int escalarr = 5, descer = -5;
+    public float vertical;
+    public Transform hand;
+    public bool naEscada;
     void Start()
     {
         
@@ -20,6 +25,7 @@ public class player : MonoBehaviour
     {
         // movimentação
         horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
         body.velocity = new Vector2 (horizontal * speed, body.velocity.y);
 
         //pulo
@@ -28,5 +34,35 @@ public class player : MonoBehaviour
         {
             body.AddForce  (new Vector2(0, jumpstrengh * 100));
         }
+
+
+
+        //escada
+        naEscada = Physics2D.OverlapCircle(hand.position, 0.05f);
+
+        if (Input.GetButton("Vertical") && naEscada)
+        {
+
+            body.velocity = new Vector2(0, escalarr);
+
+           
+        }
+        
+       if (naEscada == true)
+        {
+            body.gravityScale = 0;
+            if (Input.GetButtonDown("Vertical"))
+            {
+
+                body.velocity = new Vector2(0, escalarr);
+
+
+            }
+        }
+       else
+        {
+            body.gravityScale = 1;
+        }
     }
+   
 }
