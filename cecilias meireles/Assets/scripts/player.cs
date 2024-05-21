@@ -40,24 +40,41 @@ public class player : MonoBehaviour
         //escada
         naEscada = Physics2D.OverlapCircle(hand.position, 0.05f);
 
-        if (Input.GetButton("Vertical") && naEscada)
-        {
-
-            body.velocity = new Vector2(0, escalarr);
-
-           
-        }
+        
+        
         
        if (naEscada == true)
         {
             body.gravityScale = 0;
-            if (Input.GetButtonDown("Vertical"))
+            if (Input.GetKey(KeyCode.W))
             {
 
                 body.velocity = new Vector2(0, escalarr);
 
 
             }
+            if (Input.GetKey(KeyCode.S))
+            {
+
+                body.velocity = new Vector2(0, descer);
+
+
+            }
+            if (Input.GetKeyUp(KeyCode.W))
+            {
+
+                body.velocity = new Vector2(0, 0);
+
+
+            }
+            if (Input.GetKeyUp(KeyCode.S))
+            {
+
+                body.velocity = new Vector2(0, 0);
+
+
+            }
+
         }
        else
         {
