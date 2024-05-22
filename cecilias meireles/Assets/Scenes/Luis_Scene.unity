@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 643106723}
   - component: {fileID: 643106722}
   - component: {fileID: 643106725}
+  - component: {fileID: 643106726}
   m_Layer: 0
   m_Name: player_test
   m_TagString: player
@@ -328,6 +329,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   faseParaCarregar: menu
   fase1: fase1
+--- !u!114 &643106726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643106719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 816be035974778940a4fad034f4091a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plat: {fileID: 1723454151884984493, guid: 12e0af3dbb9c83545b6802fe6ceaf90b, type: 3}
 --- !u!1 &1098832169
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +511,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

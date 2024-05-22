@@ -20,12 +20,20 @@ public class carregarCenas : MonoBehaviour
         {
             SceneManager.LoadScene(faseParaCarregar);
         }
-        if (Input.GetKeyDown(KeyCode.F) && CompareTag("porta"))
-        {
-            SceneManager.LoadScene(fase1);
-        }
+       
 
     }
 
-    
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("player"))
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                SceneManager.LoadScene(fase1);
+            }
+        }
+    }
+
+
 }

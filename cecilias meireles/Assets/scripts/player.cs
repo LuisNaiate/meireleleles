@@ -38,7 +38,8 @@ public class player : MonoBehaviour
 
 
         //escada
-        naEscada = Physics2D.OverlapCircle(hand.position, 0.05f);
+
+        naEscada = Physics2D.OverlapCircle(hand.position, 0.05f) && CompareTag("escada");
 
         
         
@@ -80,6 +81,7 @@ public class player : MonoBehaviour
         {
             body.gravityScale = 1;
         }
+
     }
    
 }
