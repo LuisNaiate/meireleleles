@@ -26,62 +26,78 @@ public class player : MonoBehaviour
         // movimentação
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
-        body.velocity = new Vector2 (horizontal * speed, body.velocity.y);
+        body.velocity = new Vector2(horizontal * speed, body.velocity.y);
 
         //pulo
         groundCheck = Physics2D.OverlapCircle(foot.position, 0.05f);
         if (Input.GetButtonDown("Jump") && groundCheck)
         {
-            body.AddForce  (new Vector2(0, jumpstrengh * 100));
+            body.AddForce(new Vector2(0, jumpstrengh * 100));
         }
+
+
 
 
 
         //escada
 
-        naEscada = Physics2D.OverlapCircle(hand.position, 0.05f) && CompareTag("escada");
 
-        
-        
-        
-       if (naEscada == true)
+    }
+   
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("escada") && groundCheck == true)
+        {
+            groundCheck = false;
+        }
+
+        if (collision.gameObject.CompareTag("escada"))
+        {
+            naEscada = true;
+        }
+        else 
+        {
+            naEscada = false;
+        }
+
+        if( naEscada == true)
         {
             body.gravityScale = 0;
-            if (Input.GetKey(KeyCode.W))
-            {
-
-                body.velocity = new Vector2(0, escalarr);
-
-
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-
-                body.velocity = new Vector2(0, descer);
-
-
-            }
-            if (Input.GetKeyUp(KeyCode.W))
-            {
-
-                body.velocity = new Vector2(0, 0);
-
-
-            }
-            if (Input.GetKeyUp(KeyCode.S))
-            {
-
-                body.velocity = new Vector2(0, 0);
-
-
-            }
-
         }
-       else
+        else if (naEscada == false)
         {
             body.gravityScale = 1;
         }
 
+        if (Input.GetKeyDown(KeyCode.W) && naEscada == true)
+        {
+
+            body.velocity = new Vector2(0, escalarr );
+
+
+        }
+        if (Input.GetKeyDown(KeyCode.S) && naEscada == true)
+        {
+
+            body.velocity = new Vector2(0, descer);
+
+
+        }
+        if (Input.GetKeyUp(KeyCode.W) && naEscada == true)
+        {
+
+            body.velocity = new Vector2(0, 0);
+
+
+        }
+        if (Input.GetKeyUp(KeyCode.S) && naEscada == true)
+        {
+
+            body.velocity = new Vector2(0, 0);
+
+
+        }
     }
-   
+
 }

@@ -26,7 +26,7 @@ public class carregarCenas : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("player"))
+        if (collision.gameObject.CompareTag("porta"))
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
