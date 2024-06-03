@@ -15,6 +15,7 @@ public class player : MonoBehaviour
     public float vertical;
     public Transform hand;
     public bool naEscada;
+    public GameObject spawn;
     void Start()
     {
         
@@ -39,7 +40,6 @@ public class player : MonoBehaviour
 
 
 
-        //escada
 
 
     }
@@ -47,57 +47,11 @@ public class player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("escada") && groundCheck == true)
+        if(collision.gameObject.CompareTag("caiuvoltar"))
         {
-            groundCheck = false;
+            body.MovePosition(spawn.transform.position);
         }
 
-        if (collision.gameObject.CompareTag("escada"))
-        {
-            naEscada = true;
-        }
-        else 
-        {
-            naEscada = false;
-        }
-
-        if( naEscada == true)
-        {
-            body.gravityScale = 0;
-        }
-        else if (naEscada == false)
-        {
-            body.gravityScale = 1;
-        }
-
-        if (Input.GetKeyDown(KeyCode.W) && naEscada == true)
-        {
-
-            body.velocity = new Vector2(0, escalarr );
-
-
-        }
-        if (Input.GetKeyDown(KeyCode.S) && naEscada == true)
-        {
-
-            body.velocity = new Vector2(0, descer);
-
-
-        }
-        if (Input.GetKeyUp(KeyCode.W) && naEscada == true)
-        {
-
-            body.velocity = new Vector2(0, 0);
-
-
-        }
-        if (Input.GetKeyUp(KeyCode.S) && naEscada == true)
-        {
-
-            body.velocity = new Vector2(0, 0);
-
-
-        }
     }
 
 }

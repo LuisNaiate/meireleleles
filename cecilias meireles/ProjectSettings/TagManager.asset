@@ -9,6 +9,7 @@ TagManager:
   - escada
   - hand
   - porta
+  - caiuvolta
   layers:
   - Default
   - TransparentFX
