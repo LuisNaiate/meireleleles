@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour
 {
@@ -11,10 +12,6 @@ public class player : MonoBehaviour
     float horizontal;
     public bool groundCheck;
     public Transform foot;
-    public int escalarr = 5, descer = -5;
-    public float vertical;
-    public Transform hand;
-    public bool naEscada;
     public GameObject spawn;
     void Start()
     {
@@ -26,22 +23,15 @@ public class player : MonoBehaviour
     {
         // movimentação
         horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
         body.velocity = new Vector2(horizontal * speed, body.velocity.y);
 
         //pulo
         groundCheck = Physics2D.OverlapCircle(foot.position, 0.05f);
-        if (Input.GetButtonDown("Jump") && groundCheck)
+
+        if (Input.GetButtonDown("Jump") && groundCheck == true)
         {
             body.AddForce(new Vector2(0, jumpstrengh * 100));
         }
-
-
-
-
-
-
-
     }
    
 
@@ -52,6 +42,17 @@ public class player : MonoBehaviour
             body.MovePosition(spawn.transform.position);
         }
 
+       
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("porta"))
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                SceneManager.LoadScene("menu");
+            }
+        }
     }
 
 }
