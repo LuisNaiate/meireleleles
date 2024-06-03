@@ -10,7 +10,7 @@ public class menuPrincipal : MonoBehaviour
     public GameObject painelOpcoes;
     public void jogar()
     {
-        SceneManager.LoadScene("Luis_Scene");
+        SceneManager.LoadScene("Hub");
         
     }
 
