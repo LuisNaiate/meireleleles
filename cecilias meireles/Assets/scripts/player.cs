@@ -47,7 +47,7 @@ public class player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("caiuvoltar"))
+        if(collision.gameObject.CompareTag("caiuvolta"))
         {
             body.MovePosition(spawn.transform.position);
         }

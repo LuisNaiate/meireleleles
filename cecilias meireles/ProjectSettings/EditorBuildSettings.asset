@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/menu.unity
     guid: d6959c7c070ab0241bf730bdefc58b16
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Luis_Scene.unity
     guid: df953825ef29ab34db17a338c3c29eec
   - enabled: 0
