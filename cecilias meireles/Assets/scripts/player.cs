@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 
 using UnityEngine;
@@ -13,9 +14,15 @@ public class player : MonoBehaviour
     public bool groundCheck;
     public Transform foot;
     public GameObject spawn;
+   
+    
+
     void Start()
     {
+       
         
+
+
     }
 
     // Update is called once per frame
@@ -32,9 +39,12 @@ public class player : MonoBehaviour
         {
             body.AddForce(new Vector2(0, jumpstrengh * 100));
         }
+
+        
+        
     }
    
-
+    //caiuvoltar
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("caiuvolta"))
@@ -44,11 +54,13 @@ public class player : MonoBehaviour
 
        
     }
-    private void OnTriggerStay2D(Collider2D collision)
+
+    //entrar nas portas
+    private static void OnTriggerStay2D(Collider2D collider)
     {
-        if (collision.gameObject.CompareTag("porta"))
+        if (collider.gameObject.CompareTag("porta"))
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.W))
             {
                 SceneManager.LoadScene("menu");
             }
