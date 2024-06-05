@@ -14,10 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/menu.unity
     guid: d6959c7c070ab0241bf730bdefc58b16
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Luis_Scene.unity
     guid: df953825ef29ab34db17a338c3c29eec
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Hub.unity
     guid: 8d2c2f0f48b46fe439413c351be5c1b1
   m_configObjects: {}

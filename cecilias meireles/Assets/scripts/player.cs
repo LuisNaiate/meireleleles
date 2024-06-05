@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour
 {
@@ -11,13 +13,16 @@ public class player : MonoBehaviour
     float horizontal;
     public bool groundCheck;
     public Transform foot;
-    public int escalarr = 5, descer = -5;
-    public float vertical;
-    public Transform hand;
-    public bool naEscada;
+    public GameObject spawn;
+   
+    
+
     void Start()
     {
+       
         
+
+
     }
 
     // Update is called once per frame
@@ -25,78 +30,40 @@ public class player : MonoBehaviour
     {
         // movimentação
         horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
         body.velocity = new Vector2(horizontal * speed, body.velocity.y);
 
         //pulo
         groundCheck = Physics2D.OverlapCircle(foot.position, 0.05f);
-        if (Input.GetButtonDown("Jump") && groundCheck)
+
+        if (Input.GetButtonDown("Jump") && groundCheck == true)
         {
             body.AddForce(new Vector2(0, jumpstrengh * 100));
         }
 
-
-
-
-
-        //escada
-
-
+        
+        
     }
    
-
+    //caiuvoltar
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("escada") && groundCheck == true)
+        if(collision.gameObject.CompareTag("caiuvolta"))
         {
-            groundCheck = false;
+            body.MovePosition(spawn.transform.position);
         }
 
-        if (collision.gameObject.CompareTag("escada"))
+       
+    }
+
+    //entrar nas portas
+    private static void OnTriggerStay2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("porta"))
         {
-            naEscada = true;
-        }
-        else 
-        {
-            naEscada = false;
-        }
-
-        if( naEscada == true)
-        {
-            body.gravityScale = 0;
-        }
-        else if (naEscada == false)
-        {
-            body.gravityScale = 1;
-        }
-
-        if (Input.GetKeyDown(KeyCode.W) && naEscada == true)
-        {
-
-            body.velocity = new Vector2(0, escalarr );
-
-
-        }
-        if (Input.GetKeyDown(KeyCode.S) && naEscada == true)
-        {
-
-            body.velocity = new Vector2(0, descer);
-
-
-        }
-        if (Input.GetKeyUp(KeyCode.W) && naEscada == true)
-        {
-
-            body.velocity = new Vector2(0, 0);
-
-
-        }
-        if (Input.GetKeyUp(KeyCode.S) && naEscada == true)
-        {
-
-            body.velocity = new Vector2(0, 0);
-
-
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                SceneManager.LoadScene("menu");
+            }
         }
     }
 

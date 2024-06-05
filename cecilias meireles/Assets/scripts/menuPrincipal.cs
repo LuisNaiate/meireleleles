@@ -12,6 +12,7 @@ public class menuPrincipal : MonoBehaviour
     {
         SceneManager.LoadScene("Hub");
         
+
     }
 
     public void Opcoes()
