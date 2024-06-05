@@ -8,7 +8,14 @@ using UnityEngine.SceneManagement;
 public class menuNoJogo : MonoBehaviour
 {
     public GameObject painel;
-    public GameObject painelOpcoes;
+    public GameObject botão1;
+    public GameObject botão2;
+    public GameObject botão3;
+    public GameObject voltar;
+    public GameObject slider;
+
+
+
 
 
 
@@ -16,18 +23,32 @@ public class menuNoJogo : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            gameObject.SetActive(true);
+            painel.SetActive(true);
         }
     }
     public void Back()
     {
-        gameObject.SetActive(false);
+        painel.SetActive(false);
     }
 
     public void Options()
     {
-        painel.SetActive(false);
-        painelOpcoes.SetActive(true);
+        botão1.SetActive(false);
+        botão2.SetActive(false);
+        botão3.SetActive(false);
+
+        voltar.SetActive(true);
+        slider.SetActive(true);
+
+    }
+    public void OptionsBack()
+    {
+        botão1.SetActive(true);
+        botão2.SetActive(true);
+        botão3.SetActive(true);
+
+        voltar.SetActive(false);
+        slider.SetActive(false);
     }
 
     public void BackToMenu()
