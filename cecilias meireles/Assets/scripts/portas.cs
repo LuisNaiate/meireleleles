@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +15,7 @@ public class portas : MonoBehaviour
     public bool completo3;
     public bool completo4;
     public bool completoFinal;
+    public TagAttribute bloqueada;
     void Start()
     {
         porta2.tag = "bloqueada";
