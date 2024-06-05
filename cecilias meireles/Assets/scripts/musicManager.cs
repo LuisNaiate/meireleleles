@@ -7,6 +7,7 @@ public class musicManager : MonoBehaviour
 {
 
     public AudioSource musicMenu;
+    public AudioSource musicHub;
     
     
     void Start()
@@ -22,7 +23,9 @@ public class musicManager : MonoBehaviour
     public void VolumeMusical(float value)
     {
         musicMenu.volume = value;
-        
+        musicHub.volume = value;
+
+
     }
     
 }
