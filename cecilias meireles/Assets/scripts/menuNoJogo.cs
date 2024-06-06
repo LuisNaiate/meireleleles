@@ -15,7 +15,7 @@ public class menuNoJogo : MonoBehaviour
     public GameObject slider;
 
 
-
+   
 
 
 
@@ -24,6 +24,11 @@ public class menuNoJogo : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             painel.SetActive(true);
+        }
+
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            SceneManager.LoadScene("hub");
         }
     }
     public void Back()

@@ -11,6 +11,13 @@ TagManager:
   - porta
   - caiuvolta
   - bloqueada
+  - fase1
+  - fase2
+  - fase3
+  - fase4
+  - faseFinal
+  - porta2
+  - enemy
   layers:
   - Default
   - TransparentFX

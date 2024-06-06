@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
-
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 
 public class player : MonoBehaviour
 {
@@ -14,18 +14,12 @@ public class player : MonoBehaviour
     public bool groundCheck;
     public Transform foot;
     public GameObject spawn;
-   
-    
+    public string faseParaCarregar;
 
     void Start()
-    {
-       
-        
-
+    { 
 
     }
-
-    // Update is called once per frame
     void Update()
     {
         // movimentação
@@ -39,9 +33,6 @@ public class player : MonoBehaviour
         {
             body.AddForce(new Vector2(0, jumpstrengh * 100));
         }
-
-        
-        
     }
    
     //caiuvoltar
@@ -52,19 +43,52 @@ public class player : MonoBehaviour
             body.MovePosition(spawn.transform.position);
         }
 
-       
+        //sistema de respawn
+        if (collision.gameObject.CompareTag("fase1"))
+        {
+            faseParaCarregar = "fase1";
+        }
+        if (collision.gameObject.CompareTag("fase2"))
+        {
+            faseParaCarregar = "fase2";
+        }
+        if (collision.gameObject.CompareTag("fase3"))
+        {
+            faseParaCarregar = "fase3";
+        }
+        if (collision.gameObject.CompareTag("fase4"))
+        {
+            faseParaCarregar = "fase4";
+        }
+        if (collision.gameObject.CompareTag("faseFinal"))
+        {
+            faseParaCarregar = "faseFinal";
+        }
+
     }
 
     //entrar nas portas
-    private static void OnTriggerStay2D(Collider2D collider)
+    private  void OnTriggerStay2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("porta"))
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                SceneManager.LoadScene("menu");
+                SceneManager.LoadScene("fase1");
             }
         }
+
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.CompareTag("enemy"))
+        {
+            SceneManager.LoadScene(faseParaCarregar);
+        }
+
+    }
+
+   
 }
