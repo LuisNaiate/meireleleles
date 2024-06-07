@@ -6,16 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class portas : MonoBehaviour
 {
-    public static GameObject porta2;
-    public static GameObject porta3;
-    public static GameObject porta4;
-    public static GameObject portaFinal;
+    public  GameObject porta2;
+    public  GameObject porta3;
+    public  GameObject porta4;
+    public  GameObject portaFinal;
     public bool completo1;
     public bool completo2;
     public bool completo3;
     public bool completo4;
     public bool completoFinal;
     public TagAttribute bloqueada;
+    public string tagPorta2;
+    public string tagPorta3;
+    public string tagPorta4;
+    public string tagPortaFinal;
     void Start()
     {
        
@@ -27,22 +31,22 @@ public class portas : MonoBehaviour
     {
         if (completo1 == true)
         {
-            
+            porta2.tag = tagPorta2;
          
         }
         if (completo2 == true)
         {
-            porta3.tag = "porta3";
+            porta3.tag = tagPorta3;
             
         }
         if (completo3 == true)
         {
-            porta4.tag = "porta4";
+            porta4.tag = tagPorta4;
             
         }
         if (completo4== true)
         {
-            portaFinal.tag = "portaFinal";
+            portaFinal.tag = tagPortaFinal;
             
         }
      

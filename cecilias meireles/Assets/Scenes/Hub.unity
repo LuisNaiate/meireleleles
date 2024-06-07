@@ -3013,11 +3013,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b503bd8911b75874d98686e05bd976ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  porta2: {fileID: 212652006}
+  porta3: {fileID: 1309624958}
+  porta4: {fileID: 390193804}
+  portaFinal: {fileID: 1161601698}
   completo1: 0
   completo2: 0
   completo3: 0
   completo4: 0
   completoFinal: 0
+  tagPorta2: porta2
+  tagPorta3: porta3
+  tagPorta4: porta4
+  tagPortaFinal: potaFinal
 --- !u!4 &1324961036
 Transform:
   m_ObjectHideFlags: 0

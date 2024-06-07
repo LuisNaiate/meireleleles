@@ -18,6 +18,9 @@ TagManager:
   - faseFinal
   - porta2
   - enemy
+  - porta3
+  - porta4
+  - portaFinal
   layers:
   - Default
   - TransparentFX
