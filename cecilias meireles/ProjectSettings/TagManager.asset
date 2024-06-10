@@ -21,6 +21,8 @@ TagManager:
   - porta3
   - porta4
   - portaFinal
+  - bullet
+  - livroPowerUp
   layers:
   - Default
   - TransparentFX

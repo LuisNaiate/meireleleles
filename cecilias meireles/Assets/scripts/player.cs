@@ -9,12 +9,16 @@ using UnityEngine.SceneManagement;
 public class player : MonoBehaviour
 {
     public Rigidbody2D body;
-    public float speed = 5, jumpstrengh = 5;
+    public float speed = 5, jumpstrengh = 5, bulletSpeed = 50;
     float horizontal;
     public bool groundCheck;
     public Transform foot;
     public GameObject spawn;
     public string faseParaCarregar;
+    public GameObject bullet;
+    int direction = 1;
+    public bool comLivro = false;
+
 
     void Start()
     { 
@@ -29,9 +33,26 @@ public class player : MonoBehaviour
         //pulo
         groundCheck = Physics2D.OverlapCircle(foot.position, 0.05f);
 
+        if (horizontal < 0)
+        {
+            direction = -1;
+        }
+        else if (horizontal > 0)
+        {
+            direction = 1;
+        }
+
+
+        
         if (Input.GetButtonDown("Jump") && groundCheck == true)
         {
             body.AddForce(new Vector2(0, jumpstrengh * 100));
+        }
+
+        if (Input.GetButtonDown("Fire1") && comLivro == true) 
+        {
+            GameObject temp = Instantiate(bullet, transform.position, transform.rotation);
+            temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed * direction, 0);
         }
     }
    
@@ -63,6 +84,12 @@ public class player : MonoBehaviour
         if (collision.gameObject.CompareTag("faseFinal"))
         {
             faseParaCarregar = "faseFinal";
+        }
+
+        if(collision.gameObject.CompareTag("livroPowerUp"))
+        {
+            comLivro = true;
+            Destroy(collision.gameObject);
         }
 
     }
