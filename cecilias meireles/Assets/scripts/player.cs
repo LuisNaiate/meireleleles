@@ -18,11 +18,12 @@ public class player : MonoBehaviour
     public GameObject bullet;
     int direction = 1;
     public bool comLivro = false;
+    bool olhandoDireita;
 
 
     void Start()
     { 
-
+        olhandoDireita = true;
     }
     void Update()
     {
@@ -30,6 +31,8 @@ public class player : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(horizontal * speed, body.velocity.y);
 
+
+        Flip();
         //pulo
         groundCheck = Physics2D.OverlapCircle(foot.position, 0.05f);
 
@@ -93,7 +96,7 @@ public class player : MonoBehaviour
         }
 
     }
-
+   
     //entrar nas portas
     private  void OnTriggerStay2D(Collider2D collider)
     {
@@ -117,5 +120,16 @@ public class player : MonoBehaviour
 
     }
 
-   
+
+    void Flip()
+    {
+        if (horizontal > 0 && !olhandoDireita || horizontal < 0 && olhandoDireita)
+        {
+            olhandoDireita = !olhandoDireita;
+            Vector2 localscale = transform.localScale;
+            localscale.x *= -1;
+            transform.localScale = localscale;
+        }
+    }
+
 }

@@ -1310,8 +1310,8 @@ MonoBehaviour:
   groundCheck: 0
   foot: {fileID: 1948581204}
   spawn: {fileID: 295423844}
-  faseParaCarregar: 
-  bullet: {fileID: 0}
+  faseParaCarregar: fase1
+  bullet: {fileID: 5499054264433052245, guid: fd8b1d9e1032d3d429846fe3c6717f6a, type: 3}
   comLivro: 0
 --- !u!61 &738329642
 BoxCollider2D:
