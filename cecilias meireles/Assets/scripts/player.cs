@@ -101,7 +101,7 @@ public class player : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                SceneManager.LoadScene("fase1");
+                SceneManager.LoadScene(faseParaCarregar);
             }
         }
 

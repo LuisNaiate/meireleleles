@@ -1306,10 +1306,13 @@ MonoBehaviour:
   body: {fileID: 738329640}
   speed: 5
   jumpstrengh: 4
+  bulletSpeed: 50
   groundCheck: 0
   foot: {fileID: 1948581204}
   spawn: {fileID: 295423844}
   faseParaCarregar: 
+  bullet: {fileID: 0}
+  comLivro: 0
 --- !u!61 &738329642
 BoxCollider2D:
   m_ObjectHideFlags: 0
