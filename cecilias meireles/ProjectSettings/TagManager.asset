@@ -23,6 +23,9 @@ TagManager:
   - portaFinal
   - bullet
   - livroPowerUp
+  - "bot\xE3o1"
+  - "bot\xE3o2"
+  - "bot\xE3o3"
   layers:
   - Default
   - TransparentFX
