@@ -6,8 +6,9 @@ public class bullet : MonoBehaviour
 {
 
     public static int damage = 1;
-    public GameObject platTrigger;
-    public GameObject quadroDes;
+    public  GameObject platTrigger;
+    public  GameObject quadroDes;
+    public  GameObject botao1;
 
 
     // Start is called before the first frame update
@@ -27,15 +28,19 @@ public class bullet : MonoBehaviour
         Destroy(gameObject, 1);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("botão1"))
+        if (collision.gameObject.CompareTag("botão1"))
         {
-            Destroy(collision.gameObject);
+            Destroy(botao1);
         }
         if (collision.gameObject.CompareTag("botão2"))
         {
-           platTrigger.SetActive(true);
+            platTrigger.SetActive(true);
+        }
+        if (collision.gameObject.CompareTag("botão3"))
+        {
+            quadroDes.SetActive(false);
         }
     }
 }

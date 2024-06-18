@@ -146,3 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621828a53e81c344c8e276e2961d61e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platTrigger: {fileID: 2118138629059234789, guid: 577a84818367f0a4dbbee7b89932cce1, type: 3}
+  quadroDes: {fileID: 9089054615802275981, guid: f403dd81159e1034fad4b5c7009da7bd, type: 3}

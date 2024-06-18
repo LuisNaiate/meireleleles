@@ -19,6 +19,9 @@ public class player : MonoBehaviour
     int direction = 1;
     public bool comLivro = false;
     bool olhandoDireita;
+    public GameObject portal1;
+    public GameObject portal2;
+
 
 
     void Start()
@@ -108,6 +111,15 @@ public class player : MonoBehaviour
             }
         }
 
+        if(collider.gameObject.CompareTag("portal1") && Input.GetKeyDown(KeyCode.W))
+        {
+            transform.position = new Vector2(-415.5f, 4.5f); 
+        }
+        
+        if (collider.gameObject.CompareTag("portal2") && Input.GetKeyDown(KeyCode.W))
+        {
+         transform.position = new Vector2(-421.589996f, 4.53000021f);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -132,4 +144,11 @@ public class player : MonoBehaviour
         }
     }
 
+   
+
+
+    public void anotações()
+    {
+        //arrumar os botoes e o foot do player para que possa pular nas plataformas
+    }
 }
