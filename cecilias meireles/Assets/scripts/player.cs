@@ -149,6 +149,6 @@ public class player : MonoBehaviour
 
     public void anotações()
     {
-        //arrumar os botoes e o foot do player para que possa pular nas plataformas
+        //arrumar os botoes 
     }
 }

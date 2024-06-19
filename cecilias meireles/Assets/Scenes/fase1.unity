@@ -2023,8 +2023,9 @@ GameObject:
   - component: {fileID: 602162100}
   - component: {fileID: 602162101}
   - component: {fileID: 602162102}
+  - component: {fileID: 602162103}
   m_Layer: 0
-  m_Name: botao2
+  m_Name: botao1
   m_TagString: "bot\xE3o1"
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2124,6 +2125,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &602162103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602162099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d06f8605a675b774fa13895c8f6b6aeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &622076121
 GameObject:
   m_ObjectHideFlags: 0
@@ -2441,8 +2454,9 @@ GameObject:
   - component: {fileID: 693560197}
   - component: {fileID: 693560198}
   - component: {fileID: 693560199}
+  - component: {fileID: 693560200}
   m_Layer: 0
-  m_Name: botaos
+  m_Name: botao2
   m_TagString: "bot\xE3o2"
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2541,6 +2555,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &693560200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693560196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9815a1f0f9ceef34a829259e53bf48bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platFalse: {fileID: 7050884150217494037}
 --- !u!1 &736140662
 GameObject:
   m_ObjectHideFlags: 0
@@ -3999,8 +4026,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1178762058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -535.5, y: -1.1, z: 0}
-  m_LocalScale: {x: 1.1843418, y: 1.1843418, z: 1.2225072}
+  m_LocalPosition: {x: -535.5, y: -1.0994, z: 0}
+  m_LocalScale: {x: 0.9842268, y: 0.9842268, z: 1.0159436}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 857507448}
@@ -4130,6 +4157,7 @@ GameObject:
   - component: {fileID: 1197627455}
   - component: {fileID: 1197627456}
   - component: {fileID: 1197627457}
+  - component: {fileID: 1197627458}
   m_Layer: 0
   m_Name: botao3
   m_TagString: "bot\xE3o3"
@@ -4230,6 +4258,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1197627458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197627454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214c93136075db14d887cbbbcdd47ba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  livro: {fileID: 1663897561}
 --- !u!1 &1197908820
 GameObject:
   m_ObjectHideFlags: 0

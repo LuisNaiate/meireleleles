@@ -28,19 +28,5 @@ public class bullet : MonoBehaviour
         Destroy(gameObject, 1);
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("botão1"))
-        {
-            Destroy(botao1);
-        }
-        if (collision.gameObject.CompareTag("botão2"))
-        {
-            platTrigger.SetActive(true);
-        }
-        if (collision.gameObject.CompareTag("botão3"))
-        {
-            quadroDes.SetActive(false);
-        }
-    }
+    
 }
