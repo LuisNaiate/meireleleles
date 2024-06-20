@@ -21,7 +21,7 @@ public class player : MonoBehaviour
     bool olhandoDireita;
     public GameObject portal1;
     public GameObject portal2;
-
+    Collider2D footCollision;
 
 
     void Start()
@@ -37,7 +37,21 @@ public class player : MonoBehaviour
 
         Flip();
         //pulo
-        groundCheck = Physics2D.OverlapCircle(foot.position, 0.05f);
+        // groundCheck = Physics2D.OverlapCircle(foot.position, 0.05f);
+        footCollision = Physics2D.OverlapCircle(foot.position, 0.05f);
+        groundCheck = footCollision;
+
+        if (footCollision != null)
+        {
+            if (footCollision.CompareTag("enemy"))
+            {
+                // Mathf.Pow(2, 5);
+                //Mathf.PI;
+                //Mathf.Infinity;
+                body.AddForce(new Vector2(0, jumpstrengh * 120));
+                Destroy(footCollision.gameObject);
+            }
+        }
 
         if (horizontal < 0)
         {

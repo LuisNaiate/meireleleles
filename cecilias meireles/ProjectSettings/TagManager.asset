@@ -29,6 +29,9 @@ TagManager:
   - portal1
   - portal2
   - finalfase1
+  - ground
+  - wall
+  - precipicio
   layers:
   - Default
   - TransparentFX

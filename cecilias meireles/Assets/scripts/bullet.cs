@@ -28,5 +28,11 @@ public class bullet : MonoBehaviour
         Destroy(gameObject, 1);
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("wall"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
