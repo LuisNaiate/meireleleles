@@ -12,6 +12,7 @@ public class quadro1 : MonoBehaviour
         if ( collision.gameObject.CompareTag("player"))
         {
             pegou1 = true;
+            Destroy(gameObject);
         }
     }
 }

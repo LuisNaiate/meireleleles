@@ -12,6 +12,7 @@ public class livro2 : MonoBehaviour
         if (collision.gameObject.CompareTag("player"))
         {
             pegou2 = true;
+            Destroy(gameObject);
         }
     }
 }
