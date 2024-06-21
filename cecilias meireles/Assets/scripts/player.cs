@@ -112,6 +112,14 @@ public class player : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
+        if (collision.gameObject.CompareTag("cannonBall"))
+        {
+            SceneManager.LoadScene(faseParaCarregar);
+        }
+        if (collision.gameObject.CompareTag("queda"))
+        {
+            SceneManager.LoadScene(faseParaCarregar);
+        }
     }
    
     //entrar nas portas
@@ -139,6 +147,7 @@ public class player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
+
         if (collision.gameObject.CompareTag("enemy"))
         {
             SceneManager.LoadScene(faseParaCarregar);
@@ -163,6 +172,6 @@ public class player : MonoBehaviour
 
     public void anotações()
     {
-        //arrumar os botoes 
+        //script do canhão e brabuleta
     }
 }

@@ -2,13 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bullet : MonoBehaviour
+public class cannonBall : MonoBehaviour
 {
-
-    public static int damage = 1;
-    
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +15,7 @@ public class bullet : MonoBehaviour
     {
         
     }
+
     private void OnBecameInvisible()
     {
 
@@ -28,7 +24,7 @@ public class bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("wall"))
+        if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("wall"))
         {
             Destroy(gameObject);
         }

@@ -7,6 +7,7 @@ public class livros : MonoBehaviour
     public GameObject livro1;
     public GameObject quadro2;
     public GameObject quadro3;
+    public GameObject text;
 
 
     private void Update()
@@ -14,14 +15,17 @@ public class livros : MonoBehaviour
         if (quadro1.pegou1 == true)
         {
             livro1.SetActive(true);
+            text.SetActive(true);
         }
         if (livro2.pegou2 == true)
         { 
             quadro2.SetActive(true);
+            text.SetActive(true);
         }
         if (livro3.pegou3 == true)
         {
             quadro3.SetActive(true);
+            text.SetActive(true);
         }
     }
 }

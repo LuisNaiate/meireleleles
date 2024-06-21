@@ -22,8 +22,10 @@ public class gomba : MonoBehaviour
         if (collision.gameObject.CompareTag("bullet"))
         {
             life -= bullet.damage;
-            Destroy(collision.gameObject);
-
+            if (life <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
 
         if(collision.gameObject.CompareTag("precipicio"))
