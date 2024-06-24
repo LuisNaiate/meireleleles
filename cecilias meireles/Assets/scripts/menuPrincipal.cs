@@ -8,11 +8,12 @@ public class menuPrincipal : MonoBehaviour
     
     public GameObject painelMenuInicial;
     public GameObject painelOpcoes;
+   
     public void jogar()
     {
         SceneManager.LoadScene("Hub");
         
-
+      
     }
 
     public void Opcoes()

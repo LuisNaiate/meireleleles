@@ -22,6 +22,7 @@ public class player : MonoBehaviour
     public GameObject portal1;
     public GameObject portal2;
     Collider2D footCollision;
+    public static bool fase1 = false;
 
 
     void Start()
@@ -125,11 +126,17 @@ public class player : MonoBehaviour
     //entrar nas portas
     private  void OnTriggerStay2D(Collider2D collider)
     {
+
+        if (collider.gameObject.CompareTag("hub"))
+        {
+            fase1 = false;
+        }
         if (collider.gameObject.CompareTag("porta"))
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
                 SceneManager.LoadScene(faseParaCarregar);
+                fase1 = true;
             }
         }
 
@@ -172,6 +179,6 @@ public class player : MonoBehaviour
 
     public void anotações()
     {
-        //script do canhão e brabuleta
+        //FASES
     }
 }

@@ -15,6 +15,7 @@ public class botão : MonoBehaviour
         if(collision.gameObject.CompareTag("bullet"))
         {
             Destroy(gameObject);
+            
         }
     }
 }

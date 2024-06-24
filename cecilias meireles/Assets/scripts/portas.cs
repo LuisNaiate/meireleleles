@@ -50,10 +50,7 @@ public class portas : MonoBehaviour
             
         }
      
-        if(Input.GetKeyDown(KeyCode.V))
-        {
-            completo1 = true;
-        }
+       
     }
    
 

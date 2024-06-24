@@ -34,6 +34,10 @@ TagManager:
   - precipicio
   - queda
   - cannonBall
+  - areaCannon
+  - areaCannon1
+  - areaCannon3
+  - hub
   layers:
   - Default
   - TransparentFX

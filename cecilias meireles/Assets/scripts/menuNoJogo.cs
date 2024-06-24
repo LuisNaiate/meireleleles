@@ -56,5 +56,10 @@ public class menuNoJogo : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene("menu");
+
+        if (player.fase1 == true)
+        {
+            SceneManager.LoadScene("Hub");
+        }
     }
 }
