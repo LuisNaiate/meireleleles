@@ -26,10 +26,7 @@ public class menuNoJogo : MonoBehaviour
             painel.SetActive(true);
         }
 
-        if(Input.GetKeyDown(KeyCode.H))
-        {
-            SceneManager.LoadScene("hub");
-        }
+        
     }
     public void Back()
     {

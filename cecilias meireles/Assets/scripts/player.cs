@@ -18,11 +18,15 @@ public class player : MonoBehaviour
     public GameObject bullet;
     int direction = 1;
     public bool comLivro = false;
+    bool olhandoDireita;
+    public GameObject portal1;
+    public GameObject portal2;
+    Collider2D footCollision;
 
 
     void Start()
     { 
-
+        olhandoDireita = true;
     }
     void Update()
     {
@@ -30,8 +34,24 @@ public class player : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(horizontal * speed, body.velocity.y);
 
+
+        Flip();
         //pulo
-        groundCheck = Physics2D.OverlapCircle(foot.position, 0.05f);
+        // groundCheck = Physics2D.OverlapCircle(foot.position, 0.05f);
+        footCollision = Physics2D.OverlapCircle(foot.position, 0.05f);
+        groundCheck = footCollision;
+
+        if (footCollision != null)
+        {
+            if (footCollision.CompareTag("enemy"))
+            {
+                // Mathf.Pow(2, 5);
+                //Mathf.PI;
+                //Mathf.Infinity;
+                body.AddForce(new Vector2(0, jumpstrengh * 120));
+                Destroy(footCollision.gameObject);
+            }
+        }
 
         if (horizontal < 0)
         {
@@ -92,8 +112,16 @@ public class player : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
+        if (collision.gameObject.CompareTag("cannonBall"))
+        {
+            SceneManager.LoadScene(faseParaCarregar);
+        }
+        if (collision.gameObject.CompareTag("queda"))
+        {
+            SceneManager.LoadScene(faseParaCarregar);
+        }
     }
-
+   
     //entrar nas portas
     private  void OnTriggerStay2D(Collider2D collider)
     {
@@ -105,10 +133,20 @@ public class player : MonoBehaviour
             }
         }
 
+        if(collider.gameObject.CompareTag("portal1") && Input.GetKeyDown(KeyCode.W))
+        {
+            transform.position = new Vector2(-415.5f, 4.5f); 
+        }
+        
+        if (collider.gameObject.CompareTag("portal2") && Input.GetKeyDown(KeyCode.W))
+        {
+         transform.position = new Vector2(-421.589996f, 4.53000021f);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
 
         if (collision.gameObject.CompareTag("enemy"))
         {
@@ -117,5 +155,23 @@ public class player : MonoBehaviour
 
     }
 
+
+    void Flip()
+    {
+        if (horizontal > 0 && !olhandoDireita || horizontal < 0 && olhandoDireita)
+        {
+            olhandoDireita = !olhandoDireita;
+            Vector2 localscale = transform.localScale;
+            localscale.x *= -1;
+            transform.localScale = localscale;
+        }
+    }
+
    
+
+
+    public void anotações()
+    {
+        //script do canhão e brabuleta
+    }
 }
