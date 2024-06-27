@@ -149,6 +149,11 @@ public class player : MonoBehaviour
         {
          transform.position = new Vector2(-421.589996f, 4.53000021f);
         }
+
+        if(collider.gameObject.CompareTag("FINAL1"))
+        {
+            body.velocity = new Vector2(0, 100);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

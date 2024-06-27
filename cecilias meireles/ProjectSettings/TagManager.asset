@@ -38,6 +38,7 @@ TagManager:
   - areaCannon1
   - areaCannon3
   - hub
+  - FINAL1
   layers:
   - Default
   - TransparentFX
