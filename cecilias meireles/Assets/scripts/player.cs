@@ -23,6 +23,7 @@ public class player : MonoBehaviour
     public GameObject portal2;
     Collider2D footCollision;
     public static bool fase1 = false;
+    public bool noPortal = false;
 
 
     void Start()
@@ -65,7 +66,7 @@ public class player : MonoBehaviour
 
 
         
-        if (Input.GetButtonDown("Jump") && groundCheck == true)
+        if (Input.GetButtonDown("Jump") && groundCheck == true && noPortal == false)
         {
             body.AddForce(new Vector2(0, jumpstrengh * 100));
         }
@@ -80,7 +81,16 @@ public class player : MonoBehaviour
     //caiuvoltar
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("caiuvolta"))
+
+        if (collision.gameObject.CompareTag("portal1") || collision.gameObject.CompareTag("portal2"))
+        {
+            noPortal = true;
+        }
+        else
+        {
+            noPortal = false;
+        }
+        if (collision.gameObject.CompareTag("caiuvolta"))
         {
             body.MovePosition(spawn.transform.position);
         }
