@@ -82,14 +82,7 @@ public class player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.CompareTag("portal1") || collision.gameObject.CompareTag("portal2"))
-        {
-            noPortal = true;
-        }
-        else
-        {
-            noPortal = false;
-        }
+      
         if (collision.gameObject.CompareTag("caiuvolta"))
         {
             body.MovePosition(spawn.transform.position);
