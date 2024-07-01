@@ -155,7 +155,7 @@ public class player : MonoBehaviour
 
         if(collider.gameObject.CompareTag("FINAL1"))
         {
-            body.velocity = new Vector2(0, 100);
+            body.velocity = new Vector2(0, 2);
         }
     }
 
