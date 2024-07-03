@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class player : MonoBehaviour
 {
     public Rigidbody2D body;
-    public float speed = 5, jumpstrengh = 5, bulletSpeed = 50;
+    public float speed = 5, jumpstrengh = 5, bulletSpeed = 20;
     float horizontal;
     public bool groundCheck;
     public Transform foot;
@@ -24,6 +24,7 @@ public class player : MonoBehaviour
     Collider2D footCollision;
     public static bool fase1 = false;
     public bool noPortal = false;
+    public bool hub;
 
 
     void Start()
@@ -66,7 +67,7 @@ public class player : MonoBehaviour
 
 
         
-        if (Input.GetButtonDown("Jump") && groundCheck == true && noPortal == false)
+        if (Input.GetButtonDown("Jump") && groundCheck == true )
         {
             body.AddForce(new Vector2(0, jumpstrengh * 100));
         }
