@@ -33,7 +33,7 @@ public class player : MonoBehaviour
     }
     void Update()
     {
-        // movimentação
+        // movimentaÃ§Ã£o
         horizontal = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(horizontal * speed, body.velocity.y);
 
@@ -186,7 +186,7 @@ public class player : MonoBehaviour
    
 
 
-    public void anotações()
+    public void anotaÃ§Ãµes()
     {
         //FASES
     }

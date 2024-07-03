@@ -5847,6 +5847,7 @@ MonoBehaviour:
   portal1: {fileID: 0}
   portal2: {fileID: 0}
   noPortal: 0
+  hub: 0
 --- !u!61 &1178762061
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10387,7 +10388,7 @@ Transform:
   m_GameObject: {fileID: 1891087369}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -53.96, y: -7.08, z: 0}
-  m_LocalScale: {x: 11.589426, y: 5.575393, z: 3.3511}
+  m_LocalScale: {x: 13.472708, y: 5.575393, z: 3.3511}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 285820555}
