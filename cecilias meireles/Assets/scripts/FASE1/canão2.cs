@@ -7,7 +7,7 @@ public class canão2 : MonoBehaviour
 {
     public float time;
     public GameObject cannonBall;
-    private int bulletSpeed = -50;
+    private int bulletSpeed = -15;
     public GameObject area;
     // Start is called before the first frame update
     void Start()

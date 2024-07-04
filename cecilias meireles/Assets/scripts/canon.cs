@@ -6,7 +6,7 @@ public class canon : MonoBehaviour
 {
     public float time;
     public GameObject cannonBall;
-   private int bulletSpeed = -50;
+   private int bulletSpeed = -15;
     public static bool atirar;
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class canon : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if ( time  >= 2) 
+        if ( time  >= 3) 
         {
             GameObject temp = Instantiate(cannonBall, transform.position, transform.rotation);
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed , 0);
