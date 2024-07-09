@@ -9,9 +9,9 @@ using UnityEngine.SceneManagement;
 public class player : MonoBehaviour
 {
     public Rigidbody2D body;
-    public float speed = 5, jumpstrengh = 5, bulletSpeed = 20;
+    [SerializeField] private float speed = 5, jumpstrengh = 5, bulletSpeed = 15;
     float horizontal;
-    public bool groundCheck;
+    [SerializeField]private  bool groundCheck;
     public Transform foot;
     public GameObject spawn;
     public string faseParaCarregar;

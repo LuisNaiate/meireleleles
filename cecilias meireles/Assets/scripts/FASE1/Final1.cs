@@ -25,7 +25,7 @@ public class Final1 : MonoBehaviour
 
             if (time >=1)
             {
-                SceneManager.LoadScene("Hub");
+                SceneManager.LoadSceneAsync("Hub");
                 time = 0;
 
             }
