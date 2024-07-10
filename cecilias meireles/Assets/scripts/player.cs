@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -26,7 +27,7 @@ public class player : MonoBehaviour
     public bool noPortal = false;
     public bool hub;
     public float time;
-
+   
 
 
     void Start()
@@ -40,6 +41,8 @@ public class player : MonoBehaviour
     }
     void Update()
     {
+        
+
         // movimentação
         horizontal = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(horizontal * speed, body.velocity.y);
@@ -47,6 +50,7 @@ public class player : MonoBehaviour
 
         Flip();
         //pulo
+
         // groundCheck = Physics2D.OverlapCircle(foot.position, 0.05f);
         footCollision = Physics2D.OverlapCircle(foot.position, 0.05f);
         groundCheck = footCollision;
@@ -62,7 +66,7 @@ public class player : MonoBehaviour
                 Destroy(footCollision.gameObject);
             }
         }
-
+        //direção
         if (horizontal < 0)
         {
             direction = -1;
@@ -73,12 +77,13 @@ public class player : MonoBehaviour
         }
 
 
-        
+        //pular
         if (Input.GetButtonDown("Jump") && groundCheck == true )
         {
             body.AddForce(new Vector2(0, jumpstrengh * 100));
         }
 
+        //atirar
         if (Input.GetButtonDown("Fire1") && comLivro == true) 
         {
             GameObject temp = Instantiate(bullet, transform.position, transform.rotation);
@@ -118,16 +123,20 @@ public class player : MonoBehaviour
             faseParaCarregar = "faseFinal";
         }
 
+        //pegar livro power up
         if(collision.gameObject.CompareTag("livroPowerUp"))
         {
             comLivro = true;
             Destroy(collision.gameObject);
         }
 
+        //morrer pro canhão
         if (collision.gameObject.CompareTag("cannonBall"))
         {
             SceneManager.LoadScene(faseParaCarregar);
         }
+
+        //caiu no void
         if (collision.gameObject.CompareTag("queda"))
         {
             SceneManager.LoadScene(faseParaCarregar);
@@ -151,7 +160,7 @@ public class player : MonoBehaviour
                 fase1 = true;
             }
         }
-
+        //entrar nos portais da fase 1
         if(collider.gameObject.CompareTag("portal1"))
         {
             t1me();
@@ -172,12 +181,14 @@ public class player : MonoBehaviour
             }
         }
 
+        // entrar no final 1
         if(collider.gameObject.CompareTag("FINAL1"))
         {
             body.velocity = new Vector2(0, 2);
         }
     }
 
+    // morrer pros inimigos
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
@@ -189,7 +200,7 @@ public class player : MonoBehaviour
 
     }
 
-
+// virar o sprite
     void Flip()
     {
         if (horizontal > 0 && !olhandoDireita || horizontal < 0 && olhandoDireita)
