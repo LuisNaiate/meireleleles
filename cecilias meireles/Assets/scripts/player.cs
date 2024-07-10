@@ -25,11 +25,18 @@ public class player : MonoBehaviour
     public static bool fase1 = false;
     public bool noPortal = false;
     public bool hub;
+    public float time;
+
 
 
     void Start()
     { 
         olhandoDireita = true;
+        
+    }
+    public void t1me()
+    {
+        time += Time.deltaTime;
     }
     void Update()
     {
@@ -137,6 +144,7 @@ public class player : MonoBehaviour
         }
         if (collider.gameObject.CompareTag("porta"))
         {
+
             if (Input.GetKeyDown(KeyCode.W))
             {
                 SceneManager.LoadScene(faseParaCarregar);
@@ -144,14 +152,24 @@ public class player : MonoBehaviour
             }
         }
 
-        if(collider.gameObject.CompareTag("portal1") && Input.GetKeyDown(KeyCode.W))
+        if(collider.gameObject.CompareTag("portal1"))
         {
-            transform.position = new Vector2(-415.5f, 4.5f); 
+            t1me();
+            if (time >= 1)
+            {
+                transform.position = new Vector2(-415.5f, 4.5f);
+                time = 0;
+            }
         }
         
-        if (collider.gameObject.CompareTag("portal2") && Input.GetKeyDown(KeyCode.W))
+        if (collider.gameObject.CompareTag("portal2") )
         {
-         transform.position = new Vector2(-421.589996f, 4.53000021f);
+            t1me();
+            if (time >= 1)
+            {
+                transform.position = new Vector2(-421.589996f, 4.53000021f);
+                time = 0;
+            }
         }
 
         if(collider.gameObject.CompareTag("FINAL1"))

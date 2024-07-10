@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class gomba : MonoBehaviour
 {
-    public int life = 3;
+   
     public int damage = 2;
     public Rigidbody2D body;
     public float speed = 2;
@@ -21,11 +21,9 @@ public class gomba : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("bullet"))
         {
-            life -= bullet.damage;
-            if (life <= 0)
-            {
+            
                 Destroy(gameObject);
-            }
+            
         }
 
         if(collision.gameObject.CompareTag("precipicio"))

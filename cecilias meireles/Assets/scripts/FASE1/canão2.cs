@@ -20,7 +20,7 @@ public class canão2 : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if (time >= 2 )
+        if (time >= 3 )
         {
             GameObject temp = Instantiate(cannonBall, transform.position, transform.rotation);
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed, 0);
