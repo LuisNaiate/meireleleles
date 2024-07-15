@@ -15,14 +15,22 @@ public class Final1 : MonoBehaviour
     {
        
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("player"))
+        {
+            SceneManager.LoadSceneAsync("Hub");
+        }
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
 
         time += Time.deltaTime;
         if (collision.gameObject.CompareTag("player"))
         {
-          
 
+            
             if (time >=1)
             {
                 SceneManager.LoadScene("Hub");

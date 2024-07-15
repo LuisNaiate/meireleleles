@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -9,9 +10,9 @@ using UnityEngine.SceneManagement;
 public class player : MonoBehaviour
 {
     public Rigidbody2D body;
-    public float speed = 5, jumpstrengh = 5, bulletSpeed = 20;
+    [SerializeField] private float speed = 5, jumpstrengh = 5, bulletSpeed = 15;
     float horizontal;
-    public bool groundCheck;
+    [SerializeField]private  bool groundCheck;
     public Transform foot;
     public GameObject spawn;
     public string faseParaCarregar;
@@ -25,14 +26,23 @@ public class player : MonoBehaviour
     public static bool fase1 = false;
     public bool noPortal = false;
     public bool hub;
+    public float time;
+   
 
 
     void Start()
     { 
         olhandoDireita = true;
+        
+    }
+    public void t1me()
+    {
+        time += Time.deltaTime;
     }
     void Update()
     {
+        
+
         // movimentação
         horizontal = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(horizontal * speed, body.velocity.y);
@@ -40,6 +50,7 @@ public class player : MonoBehaviour
 
         Flip();
         //pulo
+
         // groundCheck = Physics2D.OverlapCircle(foot.position, 0.05f);
         footCollision = Physics2D.OverlapCircle(foot.position, 0.05f);
         groundCheck = footCollision;
@@ -55,7 +66,7 @@ public class player : MonoBehaviour
                 Destroy(footCollision.gameObject);
             }
         }
-
+        //direção
         if (horizontal < 0)
         {
             direction = -1;
@@ -66,12 +77,13 @@ public class player : MonoBehaviour
         }
 
 
-        
+        //pular
         if (Input.GetButtonDown("Jump") && groundCheck == true )
         {
             body.AddForce(new Vector2(0, jumpstrengh * 100));
         }
 
+        //atirar
         if (Input.GetButtonDown("Fire1") && comLivro == true) 
         {
             GameObject temp = Instantiate(bullet, transform.position, transform.rotation);
@@ -111,16 +123,20 @@ public class player : MonoBehaviour
             faseParaCarregar = "faseFinal";
         }
 
+        //pegar livro power up
         if(collision.gameObject.CompareTag("livroPowerUp"))
         {
             comLivro = true;
             Destroy(collision.gameObject);
         }
 
+        //morrer pro canhão
         if (collision.gameObject.CompareTag("cannonBall"))
         {
             SceneManager.LoadScene(faseParaCarregar);
         }
+
+        //caiu no void
         if (collision.gameObject.CompareTag("queda"))
         {
             SceneManager.LoadScene(faseParaCarregar);
@@ -137,29 +153,42 @@ public class player : MonoBehaviour
         }
         if (collider.gameObject.CompareTag("porta"))
         {
+
             if (Input.GetKeyDown(KeyCode.W))
             {
                 SceneManager.LoadScene(faseParaCarregar);
                 fase1 = true;
             }
         }
-
-        if(collider.gameObject.CompareTag("portal1") && Input.GetKeyDown(KeyCode.W))
+        //entrar nos portais da fase 1
+        if(collider.gameObject.CompareTag("portal1"))
         {
-            transform.position = new Vector2(-415.5f, 4.5f); 
+            t1me();
+            if (time >= 1)
+            {
+                transform.position = new Vector2(-415.5f, 4.5f);
+                time = 0;
+            }
         }
         
-        if (collider.gameObject.CompareTag("portal2") && Input.GetKeyDown(KeyCode.W))
+        if (collider.gameObject.CompareTag("portal2") )
         {
-         transform.position = new Vector2(-421.589996f, 4.53000021f);
+            t1me();
+            if (time >= 1)
+            {
+                transform.position = new Vector2(-421.589996f, 4.53000021f);
+                time = 0;
+            }
         }
 
+        // entrar no final 1
         if(collider.gameObject.CompareTag("FINAL1"))
         {
             body.velocity = new Vector2(0, 2);
         }
     }
 
+    // morrer pros inimigos
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
@@ -171,7 +200,7 @@ public class player : MonoBehaviour
 
     }
 
-
+// virar o sprite
     void Flip()
     {
         if (horizontal > 0 && !olhandoDireita || horizontal < 0 && olhandoDireita)

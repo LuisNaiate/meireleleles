@@ -19,7 +19,7 @@ public class cannonBall : MonoBehaviour
     private void OnBecameInvisible()
     {
 
-        Destroy(gameObject);
+        Destroy(gameObject, 1);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
