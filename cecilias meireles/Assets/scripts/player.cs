@@ -89,6 +89,7 @@ public class player : MonoBehaviour
         if (Input.GetButtonDown("Jump") && groundCheck == true && podePular == true)
         {
            pulo();
+
         }
 
         //atirar
