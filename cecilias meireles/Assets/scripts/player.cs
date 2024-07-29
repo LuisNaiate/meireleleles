@@ -159,7 +159,8 @@ public class player : MonoBehaviour
         {
             podePular = true;
         }
-       
+        
+
     }
    
     //entrar nas portas
@@ -170,17 +171,20 @@ public class player : MonoBehaviour
         {
             fase1 = false;
         }
+
         if (collider.gameObject.CompareTag("porta"))
         {
+            t1me();
 
-            if (Input.GetKeyDown(KeyCode.W))
+            if (time >= 1)
             {
-                SceneManager.LoadScene(faseParaCarregar);
+                SceneManager.LoadScene("fase1");
                 fase1 = true;
+                time = 0;
             }
         }
         //entrar nos portais da fase 1
-        if(collider.gameObject.CompareTag("portal1"))
+        if (collider.gameObject.CompareTag("portal1"))
         {
             t1me();
             if (time >= 1)

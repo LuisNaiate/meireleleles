@@ -1190,7 +1190,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 475711114}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1243,8 +1243,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 475711114}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.0338514, y: -1.5607877, z: 0.086112894}
-  m_LocalScale: {x: 0.79671, y: 0.79671, z: 0.79671}
+  m_LocalPosition: {x: -3.0534, y: -1.2872, z: 0.086112894}
+  m_LocalScale: {x: 0.9660561, y: 1.487056, z: 0.79671}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1859908509}
@@ -1599,6 +1599,8 @@ MonoBehaviour:
   portal2: {fileID: 0}
   noPortal: 0
   hub: 0
+  time: 0
+  podePular: 1
 --- !u!61 &738329642
 BoxCollider2D:
   m_ObjectHideFlags: 0
