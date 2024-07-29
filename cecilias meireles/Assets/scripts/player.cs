@@ -176,7 +176,7 @@ public class player : MonoBehaviour
         {
             t1me();
 
-            if (time >= 1)
+            if (time >= 0.5f)
             {
                 SceneManager.LoadScene("fase1");
                 fase1 = true;
