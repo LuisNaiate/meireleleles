@@ -13,18 +13,30 @@ public class menuNoJogo : MonoBehaviour
     public GameObject botão3;
     public GameObject voltar;
     public GameObject slider;
+    float time;
 
-
+    
    
 
 
 
     public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            painel.SetActive(true);
-        }
+            time += Time.deltaTime;
+
+            if (Input.GetButtonDown("Cancel"))
+            {
+                painel.SetActive(true);
+                 
+                if (Time.timeScale == 0)
+                {
+                    Time.timeScale = 1;
+                }
+                else
+                {
+                    Time.timeScale = 0;
+                }
+            }
 
         
     }
