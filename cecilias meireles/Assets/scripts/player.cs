@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,7 +28,9 @@ public class player : MonoBehaviour
     public bool noPortal = false;
     public bool hub;
     public float time;
+    public bool podePular = true;
    
+    
 
 
     void Start()
@@ -38,6 +41,11 @@ public class player : MonoBehaviour
     public void t1me()
     {
         time += Time.deltaTime;
+    }
+
+    void pulo()
+    {
+        body.AddForce(new Vector2(0, jumpstrengh * 100));
     }
     void Update()
     {
@@ -78,9 +86,10 @@ public class player : MonoBehaviour
 
 
         //pular
-        if (Input.GetButtonDown("Jump") && groundCheck == true )
+        if (Input.GetButtonDown("Jump") && groundCheck == true && podePular == true)
         {
-            body.AddForce(new Vector2(0, jumpstrengh * 100));
+           pulo();
+
         }
 
         //atirar
@@ -141,6 +150,17 @@ public class player : MonoBehaviour
         {
             SceneManager.LoadScene(faseParaCarregar);
         }
+
+        if(collision.gameObject == portal1 && collision.gameObject == portal2)
+        {
+            podePular = false;
+        }
+       else
+        {
+            podePular = true;
+        }
+        
+
     }
    
     //entrar nas portas
@@ -151,17 +171,20 @@ public class player : MonoBehaviour
         {
             fase1 = false;
         }
+
         if (collider.gameObject.CompareTag("porta"))
         {
+            t1me();
 
-            if (Input.GetKeyDown(KeyCode.W))
+            if (time >= 0.5f)
             {
-                SceneManager.LoadScene(faseParaCarregar);
+                SceneManager.LoadScene("fase1");
                 fase1 = true;
+                time = 0;
             }
         }
         //entrar nos portais da fase 1
-        if(collider.gameObject.CompareTag("portal1"))
+        if (collider.gameObject.CompareTag("portal1"))
         {
             t1me();
             if (time >= 1)
@@ -227,6 +250,6 @@ public class player : MonoBehaviour
 
     public void anotações()
     {
-        //FASES
+        //arrumando portal
     }
 }

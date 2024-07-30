@@ -621,7 +621,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c619546d63ebd50478cef2ad763fef51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 3
   damage: 2
   body: {fileID: 87293869}
   speed: 2
@@ -801,8 +800,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 120523838}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 23.300005, y: -74.5, z: 0}
-  m_LocalScale: {x: 9, y: 5.65, z: 1}
+  m_LocalPosition: {x: 30.2775, y: -74.5, z: 0}
+  m_LocalScale: {x: 5.5477386, y: 5.65, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 332301039}
@@ -5848,6 +5847,8 @@ MonoBehaviour:
   portal2: {fileID: 0}
   noPortal: 0
   hub: 0
+  time: 0
+  podePular: 1
 --- !u!61 &1178762061
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8891,7 +8892,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c619546d63ebd50478cef2ad763fef51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 3
   damage: 2
   body: {fileID: 1630588008}
   speed: 2
@@ -9514,7 +9514,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c619546d63ebd50478cef2ad763fef51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 3
   damage: 2
   body: {fileID: 1704679033}
   speed: 2
@@ -11026,7 +11025,7 @@ Transform:
   m_GameObject: {fileID: 2041655136}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -11.290001, y: -0.07, z: 0}
-  m_LocalScale: {x: 17.913654, y: 17.913654, z: 17.913654}
+  m_LocalScale: {x: 17.913654, y: 17.913654, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 960969431}
