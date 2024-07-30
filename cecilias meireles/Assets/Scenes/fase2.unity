@@ -311,7 +311,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95474595}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.76795334, y: 0.95630807, z: -10}
+  m_LocalPosition: {x: 2.94, y: 0.95630807, z: -1}
   m_LocalScale: {x: 0.65621096, y: 0.6363347, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -355,7 +355,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c619546d63ebd50478cef2ad763fef51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 3
   damage: 2
   body: {fileID: 113356899}
   speed: 6
@@ -1719,10 +1718,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 738474207}
-  speed: 5
+  speed: 6
   jumpstrengh: 5
   bulletSpeed: 20
-  groundCheck: 0
+  groundCheck: 1
   foot: {fileID: 1847761839}
   spawn: {fileID: 1342228745}
   faseParaCarregar: 
@@ -1732,6 +1731,7 @@ MonoBehaviour:
   portal2: {fileID: 0}
   noPortal: 0
   hub: 1
+  time: 0
 --- !u!212 &738474210
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1791,8 +1791,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738474206}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -35.32, y: 12.49, z: 0}
+  m_LocalRotation: {x: -0, y: -0.008727774, z: 0, w: 0.9999619}
+  m_LocalPosition: {x: -1.3, y: 13.5, z: 0.7}
   m_LocalScale: {x: 2.4443357, y: 2.5403297, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1800,7 +1800,7 @@ Transform:
   - {fileID: 1847761839}
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -1, z: 0}
 --- !u!1 &893803191
 GameObject:
   m_ObjectHideFlags: 0
@@ -2718,9 +2718,10 @@ GameObject:
   - component: {fileID: 1176067406}
   - component: {fileID: 1176067408}
   - component: {fileID: 1176067407}
+  - component: {fileID: 1176067409}
   m_Layer: 0
   m_Name: Square (10)
-  m_TagString: Untagged
+  m_TagString: plataform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2818,6 +2819,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1176067409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176067405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5212575f93633e4f98987b38799d101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  plataform1: 1
+  plataform2: 0
+  moveRight: 1
+  moveUp: 1
 --- !u!4 &1189869351 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3598651734500444193, guid: 8758f53287a7dec49871e86f9962a86d, type: 3}
@@ -3183,7 +3201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238005852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.01, y: 12.8, z: 0}
+  m_LocalPosition: {x: -17.75, y: 12.8, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 0.96464}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3240,7 +3258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c619546d63ebd50478cef2ad763fef51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 3
   damage: 2
   body: {fileID: 1309763453}
   speed: 6
@@ -4011,6 +4028,7 @@ GameObject:
   - component: {fileID: 1545439806}
   - component: {fileID: 1545439808}
   - component: {fileID: 1545439807}
+  - component: {fileID: 1545439809}
   m_Layer: 0
   m_Name: Square (3)
   m_TagString: Untagged
@@ -4026,7 +4044,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545439805}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.5, y: -1.4, z: 10.450801}
+  m_LocalPosition: {x: 17.1, y: -1.7, z: 10.450801}
   m_LocalScale: {x: 7.8875, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4111,6 +4129,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1545439809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545439805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5212575f93633e4f98987b38799d101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  plataform1: 0
+  plataform2: 0
+  moveRight: 1
+  moveUp: 1
 --- !u!4 &1566916769 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3598651734500444193, guid: 8758f53287a7dec49871e86f9962a86d, type: 3}
@@ -4142,7 +4177,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582928955}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.77, y: -11.63, z: 0.2536058}
+  m_LocalPosition: {x: 0.77, y: -11.68, z: 0.2536058}
   m_LocalScale: {x: 1, y: 4.8852806, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4714,9 +4749,10 @@ GameObject:
   - component: {fileID: 1895469887}
   - component: {fileID: 1895469888}
   - component: {fileID: 1895469889}
+  - component: {fileID: 1895469890}
   m_Layer: 0
   m_Name: Square (12)_MOVEU
-  m_TagString: Untagged
+  m_TagString: plataform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4729,8 +4765,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895469886}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3, y: -10.9, z: 10.450801}
-  m_LocalScale: {x: 7.8875, y: 1, z: 1}
+  m_LocalPosition: {x: -0.85, y: -2.2, z: 10.450801}
+  m_LocalScale: {x: 6.31, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1591447524}
@@ -4814,6 +4850,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1895469890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895469886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5212575f93633e4f98987b38799d101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  plataform1: 0
+  plataform2: 1
+  moveRight: 1
+  moveUp: 1
 --- !u!1 &2094092451
 GameObject:
   m_ObjectHideFlags: 0

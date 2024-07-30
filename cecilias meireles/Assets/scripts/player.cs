@@ -197,10 +197,20 @@ public class player : MonoBehaviour
         {
             SceneManager.LoadScene(faseParaCarregar);
         }
+        if (collision.gameObject.tag == "plataform")
+        {
+            gameObject.transform.parent = collision.transform;
+        }
 
     }
-
-// virar o sprite
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "plataform")
+        {
+            gameObject.transform.parent = null;
+        }
+    }
+    // virar o sprite
     void Flip()
     {
         if (horizontal > 0 && !olhandoDireita || horizontal < 0 && olhandoDireita)
