@@ -1150,7 +1150,7 @@ GameObject:
   - component: {fileID: 475711117}
   - component: {fileID: 475711116}
   - component: {fileID: 475711115}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: porta1
   m_TagString: porta
   m_Icon: {fileID: 0}
@@ -1545,7 +1545,7 @@ GameObject:
   - component: {fileID: 738329642}
   - component: {fileID: 738329641}
   - component: {fileID: 738329640}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Aido
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1600,6 +1600,11 @@ MonoBehaviour:
   noPortal: 0
   hub: 0
   time: 0
+  podePular: 1
+  doubleJump: 2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 55
 --- !u!61 &738329642
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4721,7 +4726,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1948581204}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: foot
   m_TagString: foot
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}

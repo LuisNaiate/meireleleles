@@ -23,7 +23,7 @@ public class player : MonoBehaviour
     bool olhandoDireita;
     public GameObject portal1;
     public GameObject portal2;
-    public Collider2D footCollision;
+         Collider2D footCollision;
     public static bool fase1 = false;
     public bool noPortal = false;
     public bool hub;
