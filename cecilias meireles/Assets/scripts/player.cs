@@ -23,12 +23,14 @@ public class player : MonoBehaviour
     bool olhandoDireita;
     public GameObject portal1;
     public GameObject portal2;
-    Collider2D footCollision;
+    public Collider2D footCollision;
     public static bool fase1 = false;
     public bool noPortal = false;
     public bool hub;
     public float time;
     public bool podePular = true;
+    public float doubleJump = 2;
+    public LayerMask layerMask;
    
     
 
@@ -60,7 +62,7 @@ public class player : MonoBehaviour
         //pulo
 
         // groundCheck = Physics2D.OverlapCircle(foot.position, 0.05f);
-        footCollision = Physics2D.OverlapCircle(foot.position, 0.05f);
+        footCollision = Physics2D.OverlapCircle(foot.position, 0.05f, layerMask);
         groundCheck = footCollision;
 
         if (footCollision != null)
@@ -86,9 +88,10 @@ public class player : MonoBehaviour
 
 
         //pular
-        if (Input.GetButtonDown("Jump") && groundCheck == true && podePular == true)
+        if (Input.GetButtonDown("Jump") && groundCheck == true)
         {
            pulo();
+            
 
         }
 

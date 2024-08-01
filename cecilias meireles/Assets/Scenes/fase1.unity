@@ -3674,7 +3674,7 @@ GameObject:
   - component: {fileID: 736140663}
   - component: {fileID: 736140665}
   - component: {fileID: 736140664}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: portal (1)
   m_TagString: portal2
   m_Icon: {fileID: 0}
@@ -3978,7 +3978,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 755966426}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lugar da camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4234,7 +4234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 857507448}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: foot
   m_TagString: foot
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -5758,7 +5758,7 @@ GameObject:
   - component: {fileID: 1178762061}
   - component: {fileID: 1178762060}
   - component: {fileID: 1178762059}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: player
   m_TagString: player
   m_Icon: {fileID: 0}
@@ -5810,10 +5810,15 @@ MonoBehaviour:
   comLivro: 0
   portal1: {fileID: 0}
   portal2: {fileID: 0}
+  footCollision: {fileID: 0}
   noPortal: 0
   hub: 0
   time: 0
   podePular: 1
+  doubleJump: 2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 55
 --- !u!61 &1178762061
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8617,7 +8622,7 @@ GameObject:
   - component: {fileID: 1624817078}
   m_Layer: 0
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: plataform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10518,7 +10523,7 @@ GameObject:
   - component: {fileID: 1934831892}
   m_Layer: 0
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: plataform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10998,7 +11003,7 @@ GameObject:
   - component: {fileID: 2041655137}
   - component: {fileID: 2041655139}
   - component: {fileID: 2041655138}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: portal
   m_TagString: portal1
   m_Icon: {fileID: 0}
