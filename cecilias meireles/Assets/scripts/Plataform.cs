@@ -5,7 +5,7 @@ using UnityEngine;
 public class Plataform : MonoBehaviour
 {
     public float moveSpeed = 2f;
-    public bool plataform1, plataform2;
+    public bool plataform1, plataform2, plataform3, plataform4;
     public bool moveRight = true, moveUp = true;
     // Start is called before the first frame update
     void Start()
@@ -54,5 +54,44 @@ public class Plataform : MonoBehaviour
                 transform.Translate(Vector2.up * -moveSpeed * Time.deltaTime);
             }
         }
+        if (plataform3)
+        {
+            if (transform.position.y > 3)
+            {
+                moveUp = false;
+            }
+            else if (transform.position.y < -3)
+            {
+                moveUp = true;
+            }
+            if (moveUp)
+            {
+                transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
+            }
+            else
+            {
+                transform.Translate(Vector2.up * -moveSpeed * Time.deltaTime);
+            }
+        }
+        if (plataform4)
+        {
+            if (transform.position.y > 5)
+            {
+                moveUp = false;
+            }
+            else if (transform.position.y < -0.5)
+            {
+                moveUp = true;
+            }
+            if (moveUp)
+            {
+                transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
+            }
+            else
+            {
+                transform.Translate(Vector2.up * -moveSpeed * Time.deltaTime);
+            }
+        }
     }
 }
+ 
