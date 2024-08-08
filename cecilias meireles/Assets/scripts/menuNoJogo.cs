@@ -3,75 +3,116 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
+using UnityEngine.Audio;
 
 
 public class menuNoJogo : MonoBehaviour
 {
-    public GameObject painel;
-    public GameObject botão1;
-    public GameObject botão2;
-    public GameObject botão3;
-    public GameObject voltar;
-    public GameObject slider;
-    float time;
 
-    
-   
+    public UnityEvent Pause, UnPause, opcoes, sairOpcoes;
+    public AudioMixer audiomixer;
 
-
-
-    public void Update()
+    private void Update()
     {
-            time += Time.deltaTime;
 
-            if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown("Cancel"))
+        {
+
+            if (Time.timeScale == 1)
             {
-                painel.SetActive(true);
-                 
-                if (Time.timeScale == 0)
-                {
-                    Time.timeScale = 1;
-                }
-                else
-                {
-                    Time.timeScale = 0;
-                }
+                Pausar();
+
+            }
+            else
+            {
+
+                Despausar();
+
             }
 
-        
-    }
-    public void Back()
-    {
-        painel.SetActive(false);
-    }
 
-    public void Options()
-    {
-        botão1.SetActive(false);
-        botão2.SetActive(false);
-        botão3.SetActive(false);
-
-        voltar.SetActive(true);
-        slider.SetActive(true);
-
-    }
-    public void OptionsBack()
-    {
-        botão1.SetActive(true);
-        botão2.SetActive(true);
-        botão3.SetActive(true);
-
-        voltar.SetActive(false);
-        slider.SetActive(false);
-    }
-
-    public void BackToMenu()
-    {
-        SceneManager.LoadScene("menu");
-
-        if (player.fase1 == true)
-        {
-            SceneManager.LoadScene("Hub");
         }
+
+
+
     }
+    public void Pausar()
+    {
+        Pause.Invoke();
+        Time.timeScale = 0;
+
+    }
+    public void Despausar()
+    {
+        UnPause.Invoke();
+        Time.timeScale = 1;
+
+    }
+    public void Opcoes()
+    {
+        opcoes.Invoke();
+
+    }
+    public void SairOpcoes()
+    {
+        sairOpcoes.Invoke();
+
+
+
+    }
+    public void Sair()
+    {
+        SceneManager.LoadScene("Menu");
+        Time.timeScale = 1;
+
+
+    }
+    public void voltar()
+    {
+
+        SceneManager.LoadScene("Menu");
+        Time.timeScale = 1;
+
+
+    }
+    public void recomeçar()
+    {
+        SceneManager.LoadScene("Teste1");
+    }
+    public void PausarBotao()
+    {
+
+
+
+
+
+
+        if (Time.timeScale == 1)
+        {
+            Pausar();
+
+        }
+        else if (Time.timeScale == 0)
+        {
+
+            Despausar();
+            sairOpcoes.Invoke();
+        }
+
+
+    }
+    public void SetVolume(float volume)
+    {
+        audiomixer.SetFloat("Master", volume);
+    }
+    public void SetVolumeMusic(float volume)
+    {
+        audiomixer.SetFloat("Music", volume);
+    }
+    public void SetVolumeSFX(float volume)
+    {
+        audiomixer.SetFloat("SFX", volume);
+    }
+
 }
