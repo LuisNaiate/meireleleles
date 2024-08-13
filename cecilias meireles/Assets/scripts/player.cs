@@ -31,6 +31,7 @@ public class player : MonoBehaviour
     public bool podePular = true;
     public float doubleJump = 2;
     public LayerMask layerMask;
+     Animator animator;
    
     
 
@@ -38,7 +39,7 @@ public class player : MonoBehaviour
     void Start()
     { 
         olhandoDireita = true;
-        
+        animator = GetComponent<Animator>();
     }
     public void t1me()
     {
@@ -48,6 +49,7 @@ public class player : MonoBehaviour
     void pulo()
     {
         body.AddForce(new Vector2(0, jumpstrengh * 100));
+        animator.SetBool("Is jumping", true);
     }
     void Update()
     {
@@ -56,6 +58,7 @@ public class player : MonoBehaviour
         // movimentação
         horizontal = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(horizontal * speed, body.velocity.y);
+        animator.SetFloat("speed", horizontal);
 
 
         Flip();
