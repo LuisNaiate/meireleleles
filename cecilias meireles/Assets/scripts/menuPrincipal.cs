@@ -15,7 +15,7 @@ public class menuPrincipal : MonoBehaviour
    
     public void jogar()
     {
-        SceneManager.LoadScene("Hub");
+        SceneManager.LoadScene("Fase1");
         
       
     }

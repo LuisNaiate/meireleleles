@@ -68,40 +68,8 @@ public class menuNoJogo : MonoBehaviour
 
 
     }
-    public void voltar()
-    {
-
-        SceneManager.LoadScene("Menu");
-        Time.timeScale = 1;
-
-
-    }
-    public void recomeçar()
-    {
-        SceneManager.LoadScene("Teste1");
-    }
-    public void PausarBotao()
-    {
-
-
-
-
-
-
-        if (Time.timeScale == 1)
-        {
-            Pausar();
-
-        }
-        else if (Time.timeScale == 0)
-        {
-
-            Despausar();
-            sairOpcoes.Invoke();
-        }
-
-
-    }
+    
+   
     public void SetVolume(float volume)
     {
         audiomixer.SetFloat("Master", volume);

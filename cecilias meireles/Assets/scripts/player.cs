@@ -49,7 +49,9 @@ public class player : MonoBehaviour
     void pulo()
     {
         body.AddForce(new Vector2(0, jumpstrengh * 100));
-        animator.SetBool("Is jumping", true);
+        
+
+        
     }
     void Update()
     {
@@ -58,7 +60,26 @@ public class player : MonoBehaviour
         // movimentação
         horizontal = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(horizontal * speed, body.velocity.y);
-        animator.SetFloat("speed", horizontal);
+        
+        if(horizontal != 0) 
+        {
+            animator.SetBool("andando", true);
+        }
+        else
+        {
+            animator.SetBool("andando", false);
+
+        }
+
+        if(body.velocity.y != 0)
+        {
+            animator.SetBool("Is jumping", true);
+        }
+        else
+        {
+            animator.SetBool("Is jumping", false);
+
+        }
 
 
         Flip();
@@ -78,6 +99,7 @@ public class player : MonoBehaviour
                 body.AddForce(new Vector2(0, jumpstrengh * 120));
                 Destroy(footCollision.gameObject);
             }
+            
         }
         //direção
         if (horizontal < 0)
@@ -195,7 +217,7 @@ public class player : MonoBehaviour
             t1me();
             if (time >= 1)
             {
-                transform.position = new Vector2(-415.5f, 4.5f);
+                transform.position = new Vector2(-0.21f, -0.7f);
                 time = 0;
             }
         }
@@ -205,7 +227,7 @@ public class player : MonoBehaviour
             t1me();
             if (time >= 1)
             {
-                transform.position = new Vector2(-421.589996f, 4.53000021f);
+                transform.position = new Vector2(-11.29f, -0.7f);
                 time = 0;
             }
         }
