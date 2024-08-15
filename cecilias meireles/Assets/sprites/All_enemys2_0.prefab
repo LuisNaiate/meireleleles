@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3436485771950682189}
   - component: {fileID: 2776853611708818520}
   - component: {fileID: 8863295269427186342}
+  - component: {fileID: 5393817549235276001}
   m_Layer: 0
   m_Name: All_enemys2_0
-  m_TagString: Untagged
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,3 +123,16 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.0123145785}
   m_Size: {x: 0.28, y: 0.36302269}
   m_Direction: 0
+--- !u!114 &5393817549235276001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2283372711903569663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b68233e3aa036459313e35895571ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TrapPrefab: {fileID: 0}

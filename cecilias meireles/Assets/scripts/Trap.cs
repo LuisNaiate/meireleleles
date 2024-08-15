@@ -5,6 +5,7 @@ using UnityEngine;
 public class Trap : MonoBehaviour
 {
     public GameObject TrapPrefab;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +20,9 @@ public class Trap : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Trap"))
+        if (collision.gameObject.CompareTag("player"))
         {
-            GameObject.Destroy(collision.gameObject);
+            Destroy(collision.gameObject);
         }
     }
 }
