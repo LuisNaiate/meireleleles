@@ -8,6 +8,8 @@ public class canon : MonoBehaviour
     public GameObject cannonBall;
    private int bulletSpeed = -15;
     public static bool atirar;
+    public int life = 2;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +28,19 @@ public class canon : MonoBehaviour
             time = 0;
         }
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("bullet"))
+        {
+            life -= bullet.damage;
+
+            if (life <= 0)
+            {
+                Destroy(collision.gameObject);
+                Destroy(gameObject);
+            }
+        }
+    }
+
 }
