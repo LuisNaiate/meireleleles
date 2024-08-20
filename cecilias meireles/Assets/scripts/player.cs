@@ -217,7 +217,7 @@ public class player : MonoBehaviour
             t1me();
             if (time >= 1)
             {
-                transform.position = new Vector2(-0.21f, -0.7f);
+                transform.position = new Vector2(-414.7f, 4f);
                 time = 0;
             }
         }
@@ -227,7 +227,7 @@ public class player : MonoBehaviour
             t1me();
             if (time >= 1)
             {
-                transform.position = new Vector2(-11.29f, -0.7f);
+                transform.position = new Vector2(-420.61f, 4f);
                 time = 0;
             }
         }
