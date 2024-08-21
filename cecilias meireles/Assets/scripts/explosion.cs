@@ -25,11 +25,15 @@ public class explosion : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject == s)
+        if (collision.gameObject == s)
         {
             booom.PlayOneShot(boom);
             parede.SetActive(false);
-            animator.SetBool("kjk",true);
+            animator.SetBool("kjk", true);
+        }
+        else 
+        {
+            animator.SetBool("kjk", false);
         }
     }
 }
