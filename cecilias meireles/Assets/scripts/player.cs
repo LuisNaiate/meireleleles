@@ -251,7 +251,7 @@ public class player : MonoBehaviour
 
         if (collision.gameObject.CompareTag("enemy"))
         {
-            SceneManager.LoadScene(faseParaCarregar);
+            SceneManager.LoadScene("fase1");
         }
         if (collision.gameObject.tag == "plataform")
         {
