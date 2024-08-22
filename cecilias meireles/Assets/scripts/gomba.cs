@@ -9,21 +9,40 @@ public class gomba : MonoBehaviour
     public Rigidbody2D body;
     public float speed = 2;
     int direction = -1;
+    private SpriteRenderer spriteRenderer;
+   
 
 
-
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        
+    }
     void Update()
     {
+       
         body.velocity = new Vector2(speed * direction, body.velocity.y);
+        
     }
 
+    void morte()
+    {
+        speed = 0;
+        direction = 0;
+        damage = 0;
+        spriteRenderer.color = Color.red;
+        gameObject.transform.Rotate(0, 0, -90);
+        Destroy(gameObject, 1);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("bullet"))
         {
             
                 Destroy(collision.gameObject);
-            Destroy(gameObject);
+
+            morte();
+            
 
         }
 

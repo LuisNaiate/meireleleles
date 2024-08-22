@@ -29,6 +29,7 @@ public class explosion : MonoBehaviour
         {
             booom.PlayOneShot(boom);
             parede.SetActive(false);
+            Destroy(gameObject, 2);
             animator.SetBool("kjk", true);
         }
         else 

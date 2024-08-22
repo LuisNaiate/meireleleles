@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour
 {
-    public Rigidbody2D body;
+     Rigidbody2D body;
     [SerializeField] private float speed = 5, jumpstrengh = 5, bulletSpeed = 15;
     float horizontal;
     [SerializeField]private  bool groundCheck;
@@ -32,6 +32,7 @@ public class player : MonoBehaviour
     public float doubleJump = 2;
     public LayerMask layerMask;
      Animator animator;
+    
    
     
 
@@ -40,6 +41,7 @@ public class player : MonoBehaviour
     { 
         olhandoDireita = true;
         animator = GetComponent<Animator>();
+        body = GetComponent<Rigidbody2D>();
     }
     public void t1me()
     {
@@ -81,6 +83,7 @@ public class player : MonoBehaviour
 
         }
 
+        
 
         Flip();
         //pulo
@@ -96,6 +99,8 @@ public class player : MonoBehaviour
                 // Mathf.Pow(2, 5);
                 //Mathf.PI;
                 //Mathf.Infinity;
+               
+              
                 body.AddForce(new Vector2(0, jumpstrengh * 120));
                 Destroy(footCollision.gameObject);
             }
