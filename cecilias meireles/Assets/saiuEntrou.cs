@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class saiuEntrou : MonoBehaviour
 {
-    public Animator animator;
+  
     bool jaSaiu;
+    public GameObject luz;
+    public GameObject luzDungeon;
+    public GameObject luzPlayer;
+    public GameObject player;
+
     void Start()
     {
         
@@ -19,15 +24,19 @@ public class saiuEntrou : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("player"))
+        if(collision.gameObject == player)
         {
-            animator.SetBool("saiu", true);
+            luz.SetActive(false);
+            luzDungeon.SetActive(true);
+            luzPlayer.SetActive(true);
             jaSaiu = true;
         }
 
-        if (collision.gameObject.CompareTag("player") && jaSaiu == true)
+        if (collision.gameObject == player && jaSaiu == true)
         {
-            animator.SetBool("saiu", false);
+            luz.SetActive(true);
+            luzDungeon.SetActive(false);
+            luzPlayer.SetActive(false);
             jaSaiu = false;
         }
     }
