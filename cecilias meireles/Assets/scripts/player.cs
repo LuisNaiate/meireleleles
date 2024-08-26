@@ -31,7 +31,9 @@ public class player : MonoBehaviour
     public bool podePular = true;
     public float doubleJump = 2;
     public LayerMask layerMask;
-     Animator animator;
+     private Animator animator;
+    private int maxJump = 2;
+    private int jumpsLeft;
     
    
     
@@ -42,6 +44,7 @@ public class player : MonoBehaviour
         olhandoDireita = true;
         animator = GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
+        jumpsLeft = maxJump;
     }
     public void t1me()
     {
@@ -118,11 +121,17 @@ public class player : MonoBehaviour
 
 
         //pular
-        if (Input.GetButtonDown("Jump") && groundCheck == true)
+        if (Input.GetButtonDown("Jump") && jumpsLeft > 0)
         {
            pulo();
+            jumpsLeft -= 1;
             
 
+        }
+
+        if(body.velocity.y < 0 && groundCheck == true)
+        {
+            jumpsLeft = maxJump;
         }
 
         //atirar
