@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour
 {
+    public ParticleSystem dust;
      Rigidbody2D body;
     [SerializeField] private float speed = 5, jumpstrengh = 5, bulletSpeed = 15;
     float horizontal;
@@ -54,6 +55,7 @@ public class player : MonoBehaviour
     void pulo()
     {
         body.AddForce(new Vector2(0, jumpstrengh * 100));
+        CreateDust();
         
 
         
@@ -65,6 +67,7 @@ public class player : MonoBehaviour
         // movimentação
         horizontal = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(horizontal * speed, body.velocity.y);
+       
         
         if(horizontal != 0) 
         {
@@ -287,11 +290,9 @@ public class player : MonoBehaviour
         }
     }
 
-   
 
-
-    public void anotações()
+    void CreateDust()
     {
-        //arrumando portal
+            dust.Play();
     }
 }
