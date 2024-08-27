@@ -32,16 +32,16 @@ public class gomba : MonoBehaviour
         damage = 0;
         spriteRenderer.color = Color.red;
         gameObject.transform.Rotate(0, 0, -90);
-        Destroy(gameObject, 1);
+        Destroy(gameObject, 0.8f);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("bullet"))
         {
-            
-                Destroy(collision.gameObject);
-
             morte();
+            Destroy(collision.gameObject);
+
+          
             
 
         }

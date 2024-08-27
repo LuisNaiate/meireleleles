@@ -291,7 +291,7 @@ public class player : MonoBehaviour
         if (collision.gameObject.CompareTag("Pulo"))
         {
             Doublejum = true;
-            Destroy(collision.gameObject);
+            Destroy(gameObject);
         }
 
     }
