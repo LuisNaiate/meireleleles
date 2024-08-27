@@ -41,6 +41,8 @@ TagManager:
   - FINAL1
   - Trap
   - plataform
+  - plataform
+  - Pulo
   layers:
   - Default
   - TransparentFX

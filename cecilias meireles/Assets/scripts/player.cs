@@ -35,6 +35,7 @@ public class player : MonoBehaviour
      private Animator animator;
     private int maxJump = 2;
     private int jumpsLeft;
+    public bool Doublejum;
     
    
     
@@ -54,11 +55,15 @@ public class player : MonoBehaviour
 
     void pulo()
     {
-        body.AddForce(new Vector2(0, jumpstrengh * 100));
-        CreateDust();
+        
         
 
         
+    }
+
+    void PuloDuplo()
+    {
+
     }
     void Update()
     {
@@ -124,15 +129,28 @@ public class player : MonoBehaviour
 
 
         //pular
-        if (Input.GetButtonDown("Jump") && jumpsLeft > 0)
+        if (Input.GetButtonDown("Jump"))
         {
-           pulo();
-            jumpsLeft -= 1;
+
+            if (!Doublejum && groundCheck)
+            {
+                body.AddForce(new Vector2(0, jumpstrengh * 100));
+                CreateDust();
+
+            }
+            else if(Doublejum && jumpsLeft >0)
+            {
+                body.AddForce(new Vector2(0, jumpstrengh * 100));
+                CreateDust();
+                jumpsLeft -= 1;
+
+            }
             
 
         }
+        
 
-        if(body.velocity.y < 0 && groundCheck == true)
+        if (body.velocity.y < 0 && groundCheck == true)
         {
             jumpsLeft = maxJump;
         }
@@ -154,6 +172,7 @@ public class player : MonoBehaviour
         {
             body.MovePosition(spawn.transform.position);
         }
+        
 
         //sistema de respawn
         if (collision.gameObject.CompareTag("fase1"))
@@ -268,6 +287,11 @@ public class player : MonoBehaviour
         if (collision.gameObject.tag == "plataform")
         {
             gameObject.transform.parent = collision.transform;
+        }
+        if (collision.gameObject.CompareTag("Pulo"))
+        {
+            Doublejum = true;
+            Destroy(collision.gameObject);
         }
 
     }
