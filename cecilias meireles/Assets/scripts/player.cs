@@ -166,8 +166,12 @@ public class player : MonoBehaviour
     //caiuvoltar
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("Pulo"))
+        {
+            Doublejum = true;
+            Destroy(collision.gameObject);
+        }
 
-      
         if (collision.gameObject.CompareTag("caiuvolta"))
         {
             body.MovePosition(spawn.transform.position);
@@ -288,11 +292,7 @@ public class player : MonoBehaviour
         {
             gameObject.transform.parent = collision.transform;
         }
-        if (collision.gameObject.CompareTag("Pulo"))
-        {
-            Doublejum = true;
-            Destroy(gameObject);
-        }
+
 
     }
     private void OnCollisionExit2D(Collision2D collision)

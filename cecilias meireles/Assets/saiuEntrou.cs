@@ -27,6 +27,7 @@ public class saiuEntrou : MonoBehaviour
         if(collision.gameObject == player)
         {
             luz.SetActive(false);
+            Debug.Log("saiu");
             luzDungeon.SetActive(true);
             luzPlayer.SetActive(true);
             jaSaiu = true;
@@ -38,6 +39,7 @@ public class saiuEntrou : MonoBehaviour
             luzDungeon.SetActive(false);
             luzPlayer.SetActive(false);
             jaSaiu = false;
+            Debug.Log("entrou   ");
         }
     }
 }
