@@ -1,26 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 
-public class livro3 : MonoBehaviour
+public class quadro3 : MonoBehaviour
 {
-    public static bool pegou3 = false;
-    public GameObject a3;
+    public GameObject b3;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("player"))
         {
-            pegou3 = true;
-            a3.SetActive(true);
+            
+            b3.SetActive(true);
             TimeStop();
-            Destroy(gameObject, 2);
-
-
+            Destroy(gameObject, 1.5f);
         }
     }
+
     public void TimeStop()
     {
         Time.timeScale = 0.0f;
@@ -29,6 +26,6 @@ public class livro3 : MonoBehaviour
     public void TimeRun()
     {
         Time.timeScale = 1.0f;
-        a3.SetActive(false);
+        b3.SetActive(false);
     }
 }

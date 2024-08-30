@@ -57,7 +57,7 @@ public class player : MonoBehaviour
     {
         
         
-
+        //OI professor, se tiver lendo os meus códigos, por favor, não chore de desgosto :3 
         
     }
 

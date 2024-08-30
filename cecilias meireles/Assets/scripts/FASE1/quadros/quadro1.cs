@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class quadro1 : MonoBehaviour
 {
+    //esse não é o quadro certo, é o livro 1, coloquei o nome errado kk lol @_@
     public static bool pegou1 = false;
     public GameObject a1;
     
