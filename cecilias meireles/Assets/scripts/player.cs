@@ -10,6 +10,11 @@ using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour
 {
+    [Header("coisas da beta")]
+    public GameObject fimDaBeta;
+    public GameObject Texto;
+
+    [Header("resto(vou arrumar depois)")]
     public ParticleSystem dust;
      Rigidbody2D body;
     [SerializeField] private float speed = 5, jumpstrengh = 5, bulletSpeed = 15;
@@ -175,6 +180,11 @@ public class player : MonoBehaviour
         if (collision.gameObject.CompareTag("caiuvolta"))
         {
             body.MovePosition(spawn.transform.position);
+        }
+
+        if(collision.gameObject == fimDaBeta)
+        {
+            Texto.SetActive(true);
         }
         
 

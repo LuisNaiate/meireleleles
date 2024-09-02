@@ -14,7 +14,7 @@ public class quadro3 : MonoBehaviour
             
             b3.SetActive(true);
             TimeStop();
-            Destroy(gameObject, 1.5f);
+            Destroy(gameObject, 0.5f);
         }
     }
 

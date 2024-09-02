@@ -13,7 +13,7 @@ public class explosion : MonoBehaviour
     Animator animator;
    
     public float time;
-    public bool luz;
+    //public bool luz;
     
     void Start()
     {

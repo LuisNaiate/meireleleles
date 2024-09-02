@@ -5,7 +5,7 @@ using UnityEngine;
 public class saiuEntrou : MonoBehaviour
 {
   
-    bool jaSaiu;
+    /*bool jaSaiu;
     public GameObject luz;
     public GameObject luzDungeon;
     public GameObject luzPlayer;
@@ -42,4 +42,5 @@ public class saiuEntrou : MonoBehaviour
             Debug.Log("entrou   ");
         }
     }
+    */
 }

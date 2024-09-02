@@ -14,7 +14,7 @@ public class quadro2 : MonoBehaviour
 
             b2.SetActive(true);
             TimeStop();
-            Destroy(gameObject, 1.5f);
+            Destroy(gameObject, 0.5f);
         }
     }
 

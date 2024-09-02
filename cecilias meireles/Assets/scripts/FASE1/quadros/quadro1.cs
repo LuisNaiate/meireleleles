@@ -16,7 +16,7 @@ public class quadro1 : MonoBehaviour
             pegou1 = true;
             a1.SetActive(true);
             TimeStop();
-            Destroy(gameObject,2);
+            Destroy(gameObject, 0.5f);
         }
     }
 
