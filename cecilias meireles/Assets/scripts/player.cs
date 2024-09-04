@@ -46,7 +46,8 @@ public class player : MonoBehaviour
     private Animator animator_;
 
 
-
+    public string fasePraCarregar;
+    
 
 
     private void Awake()
@@ -55,10 +56,16 @@ public class player : MonoBehaviour
         animator_ = GetComponent<Animator>();
         body_ = GetComponent<Rigidbody2D>();
         jumpsLeft = maxJump_;
+        
+        fasePraCarregar = SceneManager.GetActiveScene().name;
     }
 
     void Start()
     { 
+        //if(SceneManager == fasePraCarregar && CheckPoint.chegouCheckpoint == true)
+        //{
+        //    gameObject.transform.position = CheckPoint.checkpoint.position;
+       // }
     }
 
     public void t1me()
@@ -163,6 +170,11 @@ public class player : MonoBehaviour
     //caiuvoltar
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Checkpoint"))
+        {
+            CheckPoint.checkpoint.position = gameObject.transform.position;
+            CheckPoint.chegouCheckpoint = true;
+        }
         if (collision.gameObject.CompareTag("Pulo"))
         {
             doublejum = true;
@@ -242,4 +254,12 @@ public class player : MonoBehaviour
     {
        dust.Play();
     }
+
+
+}
+
+public static class CheckPoint 
+{
+    public static Transform checkpoint;
+    public static bool chegouCheckpoint; 
 }
