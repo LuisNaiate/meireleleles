@@ -31,13 +31,13 @@ public class player : MonoBehaviour
     private int maxJump_ = 2;
     private int jumpsLeft;
     public float doubleJump = 2;
-    public bool doublejum;
+
     public bool podePular = true;
 
 
     [Header("tiro")]
     public GameObject bullet;
-    public bool comLivro = false;
+  
 
     [Header("tempo")]
     public float time;
@@ -45,8 +45,13 @@ public class player : MonoBehaviour
     [Header("animação")]
     private Animator animator_;
 
-
+    [Header("checkPointSystem")]
     public string fasePraCarregar;
+    public Transform checkPoint;
+
+    [Header("powerUpsObjects")]
+
+    public GameObject tiro, puloDuplo;
     
 
 
@@ -58,22 +63,32 @@ public class player : MonoBehaviour
         jumpsLeft = maxJump_;
         
         fasePraCarregar = SceneManager.GetActiveScene().name;
+        CheckPoint.checkpoint = checkPoint;
     }
 
     void Start()
     { 
-        //if(SceneManager == fasePraCarregar && CheckPoint.chegouCheckpoint == true)
-        //{
-        //    gameObject.transform.position = CheckPoint.checkpoint.position;
-       // }
+        if(fasePraCarregar == "fase1" && CheckPoint.chegouCheckpoint == true)
+        {
+           gameObject.transform.position = CheckPoint.checkpoint.position;
+        }
+
+        if (CheckPoint.comLivro == true)
+        {
+            tiro.SetActive(false);
+        }
+        if (CheckPoint.doublejum == true)
+        {
+            puloDuplo.SetActive(false);
+        }
     }
 
-    public void t1me()
+    public void T1me()
     {
         time += Time.deltaTime;
     }
 
-    void pulo()
+    void Pulo()
     {
     }
 
@@ -83,6 +98,10 @@ public class player : MonoBehaviour
     void Update()
     {
         
+
+
+
+        checkPoint = CheckPoint.checkpoint;
 
         // movimentação
         horizontal_ = Input.GetAxis("Horizontal");
@@ -137,13 +156,13 @@ public class player : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
 
-            if (!doublejum && groundCheck_)
+            if (!CheckPoint.doublejum && groundCheck_)
             {
                 body_.AddForce(new Vector2(0, jumpstrengh_ * 100));
                 CreateDust();
 
             }
-            else if(doublejum && jumpsLeft >0)
+            else if(CheckPoint.doublejum && jumpsLeft >0)
             {
                 body_.AddForce(new Vector2(0, jumpstrengh_ * 100));
                 CreateDust();
@@ -160,7 +179,7 @@ public class player : MonoBehaviour
         }
 
         //atirar
-        if (Input.GetButtonDown("Fire1") && comLivro == true) 
+        if (Input.GetButtonDown("Fire1") && CheckPoint.comLivro == true) 
         {
             GameObject temp = Instantiate(bullet, transform.position, transform.rotation);
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed_ * direction_, 0);
@@ -177,7 +196,7 @@ public class player : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Pulo"))
         {
-            doublejum = true;
+            CheckPoint.doublejum = true;
             Destroy(collision.gameObject);
         }
 
@@ -194,7 +213,7 @@ public class player : MonoBehaviour
         //pegar livro power up
         if(collision.gameObject.CompareTag("livroPowerUp"))
         {
-            comLivro = true;
+            CheckPoint.comLivro = true;
             Destroy(collision.gameObject);
         }
 
@@ -261,5 +280,7 @@ public class player : MonoBehaviour
 public static class CheckPoint 
 {
     public static Transform checkpoint;
-    public static bool chegouCheckpoint; 
+    public static bool chegouCheckpoint;
+    public static bool doublejum;
+    public static bool comLivro = false;
 }

@@ -43,6 +43,7 @@ TagManager:
   - plataform
   - plataform
   - Pulo
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
