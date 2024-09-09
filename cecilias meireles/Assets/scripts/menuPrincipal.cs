@@ -12,7 +12,13 @@ public class menuPrincipal : MonoBehaviour
     public AudioMixer audiomixer;
     
 
-   
+
+
+    private void Start()
+    {
+      
+    }
+
     public void jogar()
     {
         SceneManager.LoadScene("Fase1");

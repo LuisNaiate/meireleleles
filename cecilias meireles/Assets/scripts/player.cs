@@ -46,7 +46,7 @@ public class player : MonoBehaviour
     private Animator animator_;
 
     [Header("checkPointSystem")]
-    public string fasePraCarregar;
+    public  string fasePraCarregar;
     public Transform checkPoint;
 
     [Header("powerUpsObjects")]

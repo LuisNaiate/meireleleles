@@ -64,6 +64,7 @@ public class menuNoJogo : MonoBehaviour
     public void Sair()
     {
         SceneManager.LoadScene("Menu");
+    
         Time.timeScale = 1;
 
 
