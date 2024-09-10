@@ -164,7 +164,7 @@ public class player : MonoBehaviour
             }
             else if(CheckPoint.doublejum && jumpsLeft >0)
             {
-                body_.AddForce(new Vector2(0, jumpstrengh_ * 100));
+                body_.AddForce(new Vector2(0, jumpstrengh_ * 75));
                 CreateDust();
                 jumpsLeft -= 1;
 

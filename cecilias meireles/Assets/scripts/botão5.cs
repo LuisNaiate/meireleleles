@@ -11,6 +11,7 @@ public class botão5 : MonoBehaviour
         if (collision.gameObject.CompareTag("bullet"))
         {
             Destroy(gameObject);
+            Destroy(coisaPraDestruir);
 
         }
     }
