@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Audio;
 public class canon : MonoBehaviour
 {
     public float time;
@@ -10,7 +10,7 @@ public class canon : MonoBehaviour
     public static bool atirar;
     public int life = 2;
     public ParticleSystem dust1;
-    
+    public AudioSource audioSource;
     public Transform dust;
     
     // Start is called before the first frame update
@@ -30,7 +30,7 @@ public class canon : MonoBehaviour
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed , 0);
             time = 0;
             CreateDust();
-
+            audioSource.Play();
         }
     }
 
