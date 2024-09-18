@@ -54,6 +54,7 @@ public class player : MonoBehaviour
     [Header("textos")]
     public TMP_Text coletaveisQtdTxt;
     public int qtdOfColetaveis;
+    
 
     [Header("gameObjects")]
     public GameObject paredeFinal;
@@ -69,7 +70,7 @@ public class player : MonoBehaviour
         
         fasePraCarregar = SceneManager.GetActiveScene().name;
         CheckPoint.checkpoint = checkPoint;
-        coletaveisQtdTxt.text = qtdOfColetaveis.ToString();
+        coletaveisQtdTxt.text = qtdOfColetaveis.ToString() ;
     }
 
     void Start()
