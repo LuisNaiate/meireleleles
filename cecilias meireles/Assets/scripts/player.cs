@@ -3,16 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
-
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
 public class player : MonoBehaviour
 {
-    [Header("coisas da beta")]
-    public GameObject fimDaBeta;
-    public GameObject Texto;
+    
 
     [Header("player")]
     public Transform foot;
@@ -52,8 +50,15 @@ public class player : MonoBehaviour
     [Header("powerUpsObjects")]
 
     public GameObject tiro, puloDuplo;
-    
 
+    [Header("textos")]
+    public TMP_Text coletaveisQtdTxt;
+    public int qtdOfColetaveis;
+
+    [Header("gameObjects")]
+    public GameObject paredeFinal;
+
+    // estou fazendo o sistema de quando chegar no final aparecer a qtd de livros e quadros que tem
 
     private void Awake()
     {
@@ -64,10 +69,16 @@ public class player : MonoBehaviour
         
         fasePraCarregar = SceneManager.GetActiveScene().name;
         CheckPoint.checkpoint = checkPoint;
+        coletaveisQtdTxt.text = qtdOfColetaveis.ToString();
     }
 
     void Start()
     { 
+
+        if(qtdOfColetaveis >= 6)
+        {
+            Destroy(paredeFinal);
+        }
         if(fasePraCarregar == "fase1" && CheckPoint.chegouCheckpoint == true)
         {
            gameObject.transform.position = CheckPoint.checkpoint.position;
@@ -189,6 +200,11 @@ public class player : MonoBehaviour
     //caiuvoltar
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        if(collision.gameObject.CompareTag("cole"))
+        {
+            qtdOfColetaveis++;
+        }
         if (collision.CompareTag("Checkpoint"))
         {
             CheckPoint.checkpoint.position = gameObject.transform.position;
@@ -205,10 +221,7 @@ public class player : MonoBehaviour
             body_.MovePosition(spawn.transform.position);
         } talvez eu use para checkpont, criar uma variavel public gameObject spawn;
         */
-        if(collision.gameObject == fimDaBeta)
-        {
-            Texto.SetActive(true);
-        }
+      
        
         //pegar livro power up
         if(collision.gameObject.CompareTag("livroPowerUp"))
