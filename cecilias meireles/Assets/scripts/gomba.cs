@@ -10,13 +10,15 @@ public class gomba : MonoBehaviour
     public float speed = 2;
     int direction = -1;
     private SpriteRenderer spriteRenderer;
-   
+    private BoxCollider2D boxCollider;
 
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        
+        boxCollider = GetComponent<BoxCollider2D>();
+
+
     }
     void Update()
     {
@@ -32,6 +34,8 @@ public class gomba : MonoBehaviour
         damage = 0;
         spriteRenderer.color = Color.red;
         gameObject.transform.Rotate(0, 0, -90);
+        body.gravityScale = 0;
+        boxCollider.isTrigger = true;
         Destroy(gameObject, 0.8f);
     }
     private void OnTriggerEnter2D(Collider2D collision)

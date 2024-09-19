@@ -12,11 +12,13 @@ public class canon : MonoBehaviour
     public ParticleSystem dust1;
     public AudioSource audioSource;
     public Transform dust;
-    
+    // private SpriteRenderer SpriteRenderer;
+    // private Animator animator_;
     // Start is called before the first frame update
     void Start()
     {
-        
+        // SpriteRenderer = GetComponent<SpriteRenderer>();
+        //  animator_ = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,11 +28,14 @@ public class canon : MonoBehaviour
 
         if ( time  >= 3) 
         {
+            // if(SpriteRenderer  != null) 
+            //  {
             GameObject temp = Instantiate(cannonBall, dust.position, dust.rotation);
-            temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed , 0);
-            time = 0;
-            CreateDust();
-            audioSource.Play();
+                temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed, 0);
+                time = 0;
+                CreateDust();
+                audioSource.Play();
+            // }
         }
     }
 
@@ -43,7 +48,11 @@ public class canon : MonoBehaviour
             if (life <= 0)
             {
                 Destroy(collision.gameObject);
+                //  SpriteRenderer = null;
+                //  animator_.SetBool("morreu", true);
                 Destroy(gameObject);
+
+            
             }
         }
     }
