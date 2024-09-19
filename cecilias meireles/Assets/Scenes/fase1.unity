@@ -51394,7 +51394,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '  /6
+  m_text: '
 
 '
   m_isRightToLeft: 0
@@ -58721,6 +58721,7 @@ MonoBehaviour:
   puloDuplo: {fileID: 1453466785}
   coletaveisQtdTxt: {fileID: 971990478}
   qtdOfColetaveis: 0
+  qtd: 
   paredeFinal: {fileID: 0}
 --- !u!61 &1178762061
 BoxCollider2D:

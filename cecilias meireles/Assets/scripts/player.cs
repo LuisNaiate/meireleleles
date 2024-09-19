@@ -54,12 +54,13 @@ public class player : MonoBehaviour
     [Header("textos")]
     public TMP_Text coletaveisQtdTxt;
     public int qtdOfColetaveis;
+    public string qtd;
     
 
     [Header("gameObjects")]
     public GameObject paredeFinal;
 
-    // estou fazendo o sistema de quando chegar no final aparecer a qtd de livros e quadros que tem
+    //Anotações: estou fazendo o sistema de quando chegar no final aparecer a qtd de livros e quadros que tem, continuar a fazer isso e depois fazer a boss fight
 
     private void Awake()
     {
@@ -70,7 +71,8 @@ public class player : MonoBehaviour
         
         fasePraCarregar = SceneManager.GetActiveScene().name;
         CheckPoint.checkpoint = checkPoint;
-        coletaveisQtdTxt.text = qtdOfColetaveis.ToString() ;
+        qtd = qtdOfColetaveis + "/6";
+        coletaveisQtdTxt.text = qtd; //qtdOfColetaveis.ToString() ;
     }
 
     void Start()
