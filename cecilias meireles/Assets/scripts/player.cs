@@ -143,6 +143,8 @@ public class player : MonoBehaviour
 
         if (footCollision != null)
         {
+
+            
             if (footCollision.CompareTag("enemy"))
             {
                 // Mathf.Pow(2, 5);
@@ -155,6 +157,7 @@ public class player : MonoBehaviour
             }
             
         }
+        
         //direção
         if (horizontal_ < 0)
         {

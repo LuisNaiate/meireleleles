@@ -5,7 +5,7 @@ using UnityEngine;
 public class botão : MonoBehaviour
 {
     //botão1
-
+    public GameObject coisaPraDestruir;
     
 
     //vai destruir o botão 1 que ta barrando a passagem
@@ -15,6 +15,7 @@ public class botão : MonoBehaviour
         if(collision.gameObject.CompareTag("bullet"))
         {
             Destroy(gameObject);
+            Destroy(coisaPraDestruir);
             
         }
     }

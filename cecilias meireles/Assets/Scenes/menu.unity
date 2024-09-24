@@ -937,15 +937,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 5924045469954393139, guid: a219f60992c629a4aaee7dcb91ff3e4a, type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: b95fc0dcc5f4c814bbcfac9d1c4c23bb, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.747
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 93
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1050,9 +1050,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6424e71eea3783043942679ccee7f15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 727809756}
   musicas:
-  - {fileID: 8300000, guid: dd8041f40204bdb46a2894173ddbe56d, type: 3}
+  - {fileID: 8300000, guid: b95fc0dcc5f4c814bbcfac9d1c4c23bb, type: 3}
   - {fileID: 8300000, guid: 3ae6ac071f570bc4ca7bcfbc3beb5d1a, type: 3}
   - {fileID: 0}
 --- !u!1 &769086397

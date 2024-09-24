@@ -7,9 +7,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
+
 public class ControladorDeMusicas : MonoBehaviour
 {
-    public AudioSource audioSource;
+     AudioSource audioSource;
     public AudioClip[] musicas;  // Array com as músicas para diferentes cenas.
 
     private static ControladorDeMusicas instance;
@@ -17,6 +18,7 @@ public class ControladorDeMusicas : MonoBehaviour
 
     void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         // Verifica se já existe uma instância deste controlador e a destrói se houver outra.
         if (instance == null)
         {
@@ -73,7 +75,7 @@ public class ControladorDeMusicas : MonoBehaviour
         }
 
         // Toca a música apenas se for diferente da anterior e não for nula.
-        if (audioSource.clip != null && audioSource.clip != audioSource.clip)
+        if (audioSource.clip != null )
         {
             musicaAtualIndex = sceneIndex; // Atualiza o índice da música atual.
             audioSource.Play();
