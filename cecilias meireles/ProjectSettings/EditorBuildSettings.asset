@@ -8,12 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/menu.unity
     guid: d6959c7c070ab0241bf730bdefc58b16
-  - enabled: 0
-    path: Assets/Scenes/Hub.unity
-    guid: 8d2c2f0f48b46fe439413c351be5c1b1
   - enabled: 1
     path: Assets/Scenes/fase1.unity
     guid: 95869b1832a754940bcacb786e3d96f9
+  - enabled: 1
+    path: Assets/Scenes/Bonelli_Scene.unity
+    guid: d4253989613bd34499fa2fed8f678ba7
+  - enabled: 0
+    path: Assets/Scenes/Hub.unity
+    guid: 8d2c2f0f48b46fe439413c351be5c1b1
   - enabled: 0
     path: Assets/Scenes/fase2.unity
     guid: df17f581608d9734ab0b1478ca1414ea
