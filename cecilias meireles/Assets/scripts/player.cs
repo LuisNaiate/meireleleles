@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour
 {
-    
+    public LayerMask filtro;
 
     [Header("player")]
     public Transform foot;
@@ -138,7 +138,7 @@ public class player : MonoBehaviour
         //pulo
 
         
-        footCollision = Physics2D.OverlapCircle(foot.position, 0.05f);
+        footCollision = Physics2D.OverlapCircle(foot.position, 0.05f, filtro);
         groundCheck_ = footCollision;
 
         if (footCollision != null)
@@ -175,13 +175,13 @@ public class player : MonoBehaviour
 
             if (!CheckPoint.doublejum && groundCheck_)
             {
-                body_.AddForce(new Vector2(0, jumpstrengh_ * 100));
+                body_.AddForce(new Vector2(0, jumpstrengh_ * 120));
                 CreateDust();
 
             }
             else if(CheckPoint.doublejum && jumpsLeft >0)
             {
-                body_.AddForce(new Vector2(0, jumpstrengh_ * 75));
+                body_.AddForce(new Vector2(0, jumpstrengh_ * 100));
                 CreateDust();
                 jumpsLeft -= 1;
 
@@ -210,6 +210,7 @@ public class player : MonoBehaviour
         if(collision.gameObject.CompareTag("cole"))
         {
             qtdOfColetaveis++;
+            print("pegou");
         }
         if (collision.CompareTag("Checkpoint"))
         {
