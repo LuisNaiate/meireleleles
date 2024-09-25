@@ -72,16 +72,13 @@ public class player : MonoBehaviour
         fasePraCarregar = SceneManager.GetActiveScene().name;
         CheckPoint.checkpoint = checkPoint;
         qtd = qtdOfColetaveis + "/6";
-        coletaveisQtdTxt.text = qtd; //qtdOfColetaveis.ToString() ;
+        coletaveisQtdTxt.text = qtd.ToString(); //qtdOfColetaveis.ToString() ;
     }
 
     void Start()
     { 
 
-        if(qtdOfColetaveis >= 6)
-        {
-            Destroy(paredeFinal);
-        }
+        
         if(fasePraCarregar == "fase1" && CheckPoint.chegouCheckpoint == true)
         {
            gameObject.transform.position = CheckPoint.checkpoint.position;
@@ -111,7 +108,10 @@ public class player : MonoBehaviour
     }
     void Update()
     {
-        
+        if (qtdOfColetaveis >= 6)
+        {
+            Destroy(paredeFinal);
+        }
 
 
 
