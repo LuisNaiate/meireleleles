@@ -35,7 +35,9 @@ public class player : MonoBehaviour
 
     [Header("tiro")]
     public GameObject bullet;
-  
+    bool podeAtirar = true;
+    public float cooldownTiro = 0.5f;
+
 
     [Header("tempo")]
     public float time;
@@ -196,13 +198,19 @@ public class player : MonoBehaviour
         }
 
         //atirar
-        if (Input.GetButtonDown("Fire1") && CheckPoint.comLivro == true) 
+        if (Input.GetButtonDown("Fire1") && CheckPoint.comLivro == true && podeAtirar) 
         {
             GameObject temp = Instantiate(bullet, transform.position, transform.rotation);
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed_ * direction_, 0);
+            podeAtirar = false;
+            StartCoroutine(CooldownTiro());
         }
     }
-   
+    IEnumerator CooldownTiro()
+    {
+        yield return new WaitForSeconds(cooldownTiro);
+        podeAtirar = true;
+    }
     //caiuvoltar
     private void OnTriggerEnter2D(Collider2D collision)
     {

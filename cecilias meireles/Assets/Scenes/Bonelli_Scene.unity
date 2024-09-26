@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 92935165}
   m_Layer: 0
   m_Name: Square (2)
-  m_TagString: ground
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 132805528}
   m_Layer: 0
   m_Name: Square (1)
-  m_TagString: ground
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -467,9 +467,9 @@ GameObject:
   - component: {fileID: 716528180}
   - component: {fileID: 716528185}
   - component: {fileID: 716528184}
-  - component: {fileID: 716528183}
   - component: {fileID: 716528182}
   - component: {fileID: 716528181}
+  - component: {fileID: 716528186}
   m_Layer: 0
   m_Name: player
   m_TagString: player
@@ -486,7 +486,7 @@ Transform:
   m_GameObject: {fileID: 716528179}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 524.8106, y: 7.1458, z: -2.21}
-  m_LocalScale: {x: 1.9540501, y: 1.9935, z: 1.0159436}
+  m_LocalScale: {x: 1.833153, y: 1.8701622, z: 0.9530872}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1025789978}
@@ -537,39 +537,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &716528183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 716528179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 841b004ebf3aeb94eb0a6f3f78cd8220, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  filtro:
-    serializedVersion: 2
-    m_Bits: 0
-  foot: {fileID: 1025789978}
-  dust: {fileID: 1713255192}
-  speed_: 5
-  jumpstrengh_: 4
-  bulletSpeed_: 15
-  groundCheck_: 0
-  doubleJump: 2
-  podePular: 1
-  bullet: {fileID: 5499054264433052245, guid: fd8b1d9e1032d3d429846fe3c6717f6a, type: 3}
-  time: 0
-  fasePraCarregar: 
-  checkPoint: {fileID: 0}
-  tiro: {fileID: 0}
-  puloDuplo: {fileID: 0}
-  coletaveisQtdTxt: {fileID: 0}
-  qtdOfColetaveis: 0
-  qtd: 
-  paredeFinal: {fileID: 0}
 --- !u!61 &716528184
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -583,7 +550,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0049498677, y: 0.00008738041}
+  m_Offset: {x: 0.0049498677, y: -0.03736919}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -594,7 +561,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.83517385, y: 1.2713034}
+  m_Size: {x: 0.83517385, y: 1.3462166}
   m_EdgeRadius: 0
 --- !u!212 &716528185
 SpriteRenderer:
@@ -648,6 +615,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &716528186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716528179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f409293e13374f40be35b5de8c22938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filtro:
+    serializedVersion: 2
+    m_Bits: 0
+  foot: {fileID: 1025789978}
+  dust: {fileID: 1713255192}
+  speed_: 5
+  jumpstrengh_: 5
+  bulletSpeed_: 15
+  groundCheck_: 0
+  doubleJump: 2
+  podePular: 1
+  bullet: {fileID: 5499054264433052245, guid: fd8b1d9e1032d3d429846fe3c6717f6a, type: 3}
+  cooldownTiro: 0.5
+  time: 0
 --- !u!1 &737256772
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,7 +928,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025789977}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -0.71, z: 0.0051702}
+  m_LocalPosition: {x: 0.01, y: -0.838, z: 0.0051702}
   m_LocalScale: {x: 0.1514588, y: 0.1514588, z: 0.1514588}
   m_ConstrainProportionsScale: 0
   m_Children: []
