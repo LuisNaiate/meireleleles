@@ -56,12 +56,17 @@ public class player : MonoBehaviour
     [Header("textos")]
     public TMP_Text coletaveisQtdTxt;
     public int qtdOfColetaveis;
-    public string qtd;
     
 
     [Header("gameObjects")]
     public GameObject paredeFinal;
 
+    [Header("bossFight")]
+    public GameObject final;
+    public string faseFinal;
+
+    [Header("audio")]
+    public AudioSource audioSourceTiro;
     //Anotações: estou fazendo o sistema de quando chegar no final aparecer a qtd de livros e quadros que tem, continuar a fazer isso e depois fazer a boss fight
 
     private void Awake()
@@ -73,8 +78,7 @@ public class player : MonoBehaviour
         
         fasePraCarregar = SceneManager.GetActiveScene().name;
         CheckPoint.checkpoint = checkPoint;
-        qtd = qtdOfColetaveis + "/6";
-        coletaveisQtdTxt.text = qtd.ToString(); //qtdOfColetaveis.ToString() ;
+        coletaveisQtdTxt.text = qtdOfColetaveis + "/6"; //qtdOfColetaveis.ToString() ;
     }
 
     void Start()
@@ -200,6 +204,7 @@ public class player : MonoBehaviour
         //atirar
         if (Input.GetButtonDown("Fire1") && CheckPoint.comLivro == true && podeAtirar) 
         {
+            audioSourceTiro.Play();
             GameObject temp = Instantiate(bullet, transform.position, transform.rotation);
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed_ * direction_, 0);
             podeAtirar = false;
@@ -214,11 +219,15 @@ public class player : MonoBehaviour
     //caiuvoltar
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        if(collision.gameObject == final)
+        {
+            SceneManager.LoadScene(faseFinal);
+        }
         if(collision.gameObject.CompareTag("cole"))
         {
             qtdOfColetaveis++;
-            print("pegou");
+            coletaveisQtdTxt.text = qtdOfColetaveis + "/6"; //qtdOfColetaveis.ToString() ;
+            
         }
         if (collision.CompareTag("Checkpoint"))
         {
