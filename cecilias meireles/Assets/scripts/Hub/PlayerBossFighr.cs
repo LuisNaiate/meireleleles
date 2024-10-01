@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerBossFight : MonoBehaviour
 {
-    public LayerMask filtro;
+    
 
     [Header("player")]
     public Transform foot;
@@ -132,14 +132,19 @@ public class PlayerBossFight : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
 
-            if ( groundCheck_ && jumpsLeft > 0) 
+            if (!CheckPoint1.doublejum1 && groundCheck_)
+            {
+                body_.AddForce(new Vector2(0, jumpstrengh_ * 90));
+                CreateDust();
+
+            }
+            else if (CheckPoint1.doublejum1 && jumpsLeft > 0)
             {
                 body_.AddForce(new Vector2(0, jumpstrengh_ * 75));
                 CreateDust();
                 jumpsLeft -= 1;
 
             }
-           
 
         }
 
@@ -204,7 +209,12 @@ public class PlayerBossFight : MonoBehaviour
     {
         dust.Play();
     }
-
+    public static class CheckPoint1
+    {
+       
+        public static bool doublejum1;
+        
+    }
 
 }
 

@@ -189,7 +189,7 @@ public class player : MonoBehaviour
             {
                 body_.AddForce(new Vector2(0, jumpstrengh_ * 100));
                 CreateDust();
-                jumpsLeft -= 1;
+                jumpsLeft --;
 
             }
        
