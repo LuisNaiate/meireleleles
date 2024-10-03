@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: pegou1
+    m_ConditionEvent: pegou4
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4884658677503190073}
@@ -61,7 +61,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: pegou1
+    m_ConditionEvent: pegou4
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3880516654169865825}
@@ -86,7 +86,7 @@ AnimatorController:
   m_Name: Livro4
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: pegou1
+  - m_Name: pegou4
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0

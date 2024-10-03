@@ -6,7 +6,7 @@ public class quadro3 : MonoBehaviour
 {
     public GameObject b3;
     public Animator animator;
-
+    
     void Animar()
     {
         animator.SetBool("pegou", true);
@@ -21,7 +21,7 @@ public class quadro3 : MonoBehaviour
             
             b3.SetActive(true);
             //Time.timeScale = 0.0f;
-            Destroy(gameObject, 0.5f);
+           
             animator.SetBool("pegou6", true);
         }
     }
@@ -31,5 +31,6 @@ public class quadro3 : MonoBehaviour
     {
        // Time.timeScale = 1.0f;
         b3.SetActive(false);
+        Destroy(gameObject);
     }
 }

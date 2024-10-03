@@ -25,7 +25,8 @@ public class quadro1Original : MonoBehaviour
     
     public void TimeRun()
     {
-        Time.timeScale = 1.0f;
+        
         b1.SetActive(false);
+        Destroy(gameObject);
     }
 }

@@ -18,7 +18,7 @@ public class livro3 : MonoBehaviour
             pegou3 = true;
             a3.SetActive(true);
            // Time.timeScale = 0.0f;
-            Destroy(gameObject, 0.5f);
+           
             animator.SetBool("pegou3", true);
 
         }
@@ -28,5 +28,6 @@ public class livro3 : MonoBehaviour
     {
        // Time.timeScale = 1.0f;
         a3.SetActive(false);
+        Destroy(gameObject);
     }
 }

@@ -17,7 +17,7 @@ public class quadro2 : MonoBehaviour
 
             b2.SetActive(true);
           //  Time.timeScale = 0.0f;
-            Destroy(gameObject, 0.5f);
+         
             animator.SetBool("pegou5", true);
         }
     }
@@ -27,5 +27,6 @@ public class quadro2 : MonoBehaviour
     {
         //Time.timeScale = 1.0f;
         b2.SetActive(false);
+        Destroy(gameObject);
     }
 }

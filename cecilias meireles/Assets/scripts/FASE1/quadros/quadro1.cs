@@ -8,7 +8,7 @@ public class quadro1 : MonoBehaviour
     public static bool pegou1 = false;
     public GameObject a1;
     public Animator animationb;
-    
+    public GameObject aa1;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,7 +17,7 @@ public class quadro1 : MonoBehaviour
             pegou1 = true;
             a1.SetActive(true);
             //Time.timeScale = 0.0f;
-            Destroy(gameObject, 0.5f);
+            
            animationb.SetBool("pegou1", true);
             
         }
@@ -32,6 +32,10 @@ public class quadro1 : MonoBehaviour
     public void TimeRun()
     {
         //Time.timeScale = 1.0f;
-        a1.SetActive (false);
+        aa1.SetActive(false);
+        a1.SetActive(false);
+        Destroy(gameObject);
+        
     }
+    
 }

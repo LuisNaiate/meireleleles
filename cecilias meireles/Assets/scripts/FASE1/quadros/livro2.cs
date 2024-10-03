@@ -18,7 +18,7 @@ public class livro2 : MonoBehaviour
          
             a2.SetActive(true);
             //Time.timeScale = 0.0f;
-            Destroy(gameObject, 0.5f);
+            
             animator.SetBool("pegou2", true);
         }
     }
@@ -27,5 +27,6 @@ public class livro2 : MonoBehaviour
     {
         //Time.timeScale = 1.0f;
         a2.SetActive(false);
+        Destroy(gameObject);
     }
 }
