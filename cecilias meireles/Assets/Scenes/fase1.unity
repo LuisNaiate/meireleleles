@@ -19978,6 +19978,7 @@ GameObject:
   - component: {fileID: 459416214}
   - component: {fileID: 459416217}
   - component: {fileID: 459416216}
+  - component: {fileID: 459416218}
   m_Layer: 0
   m_Name: Quadro de cecilia Meireles
   m_TagString: cole
@@ -20092,6 +20093,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   b1: {fileID: 856390202}
   animator: {fileID: 948790201}
+--- !u!95 &459416218
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459416213}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2469c24a41f37464f99b92e31a83de83, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!43 &467553614
 Mesh:
   m_ObjectHideFlags: 0
@@ -25350,6 +25371,7 @@ GameObject:
   - component: {fileID: 637143522}
   - component: {fileID: 637143525}
   - component: {fileID: 637143524}
+  - component: {fileID: 637143526}
   m_Layer: 0
   m_Name: Quadro de cecilia Meireles 1
   m_TagString: cole
@@ -25464,6 +25486,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4017944, y: 1.9213018}
   m_EdgeRadius: 0
+--- !u!95 &637143526
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637143521}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2469c24a41f37464f99b92e31a83de83, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &638736776
 GameObject:
   m_ObjectHideFlags: 0
@@ -58265,6 +58307,7 @@ GameObject:
   - component: {fileID: 1108936109}
   - component: {fileID: 1108936112}
   - component: {fileID: 1108936111}
+  - component: {fileID: 1108936113}
   m_Layer: 0
   m_Name: Quadro de cecilia Meireles 2
   m_TagString: cole
@@ -58379,6 +58422,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   b2: {fileID: 927008710}
   animator: {fileID: 86639644}
+--- !u!95 &1108936113
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108936108}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2469c24a41f37464f99b92e31a83de83, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1116016824
 GameObject:
   m_ObjectHideFlags: 0
@@ -58592,6 +58655,7 @@ GameObject:
   - component: {fileID: 1123374735}
   - component: {fileID: 1123374736}
   - component: {fileID: 1123374737}
+  - component: {fileID: 1123374738}
   m_Layer: 0
   m_Name: livro1
   m_TagString: cole
@@ -58707,6 +58771,26 @@ MonoBehaviour:
   a1: {fileID: 2123503343}
   animationb: {fileID: 603581026}
   aa1: {fileID: 603581023}
+--- !u!95 &1123374738
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123374733}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2469c24a41f37464f99b92e31a83de83, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1131709213
 GameObject:
   m_ObjectHideFlags: 0
@@ -59392,7 +59476,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1178762058}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 70.78, y: 16.48, z: 0}
+  m_LocalPosition: {x: 2.8, y: 8.18, z: 0}
   m_LocalScale: {x: 1.327635, y: 1.327635, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -63741,6 +63825,7 @@ GameObject:
   - component: {fileID: 1554105440}
   - component: {fileID: 1554105441}
   - component: {fileID: 1554105442}
+  - component: {fileID: 1554105443}
   m_Layer: 0
   m_Name: livro2
   m_TagString: cole
@@ -63855,6 +63940,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   a2: {fileID: 1514869909}
   animator: {fileID: 1759120953}
+--- !u!95 &1554105443
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554105438}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2469c24a41f37464f99b92e31a83de83, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!43 &1565384323
 Mesh:
   m_ObjectHideFlags: 0
@@ -66009,6 +66114,7 @@ GameObject:
   - component: {fileID: 1663897562}
   - component: {fileID: 1663897563}
   - component: {fileID: 1663897564}
+  - component: {fileID: 1663897565}
   m_Layer: 0
   m_Name: livro3
   m_TagString: cole
@@ -66108,6 +66214,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   a3: {fileID: 1116016824}
   animator: {fileID: 930235339}
+--- !u!95 &1663897565
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663897561}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2469c24a41f37464f99b92e31a83de83, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1683814310
 GameObject:
   m_ObjectHideFlags: 0
@@ -69742,7 +69868,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 616, y: -427.0001}
+  m_AnchoredPosition: {x: 615.9999, y: -427.0001}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2035137969
