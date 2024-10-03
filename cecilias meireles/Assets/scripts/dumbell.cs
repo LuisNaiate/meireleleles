@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class dumbell : MonoBehaviour
 {
+    public float timer;
     public GameObject player;
     public float horizontal;
     public float speed;
@@ -12,6 +12,7 @@ public class dumbell : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        timer = 0;
         body.velocity = new Vector2(horizontal * speed, body.velocity.y);
         player = GameObject.FindWithTag("player");
     }
@@ -26,6 +27,10 @@ public class dumbell : MonoBehaviour
         if (collision.gameObject.CompareTag("player"))
         {
             Destroy(player);
+        }
+        if (collision.gameObject.CompareTag("wall"))
+        {
+            Destroy(gameObject);
         }
     }
 }

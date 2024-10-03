@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class machista : MonoBehaviour
 {
+    public float timer;
     public int[] attacks;
     public GameObject dumbell;
     public GameObject player;
@@ -12,15 +13,20 @@ public class machista : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       timer = 3;
        rb = GetComponent<Rigidbody2D>();
-       Attack();
-        player = GameObject.FindWithTag("player");
+       player = GameObject.FindWithTag("player");
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        timer += Time.deltaTime;
+        if (timer >= 5)
+        {
+            Attack();
+            timer = 0;
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -31,22 +37,20 @@ public class machista : MonoBehaviour
     }
     void Attack()
     {
-        for (int i = 0; i < attacks.Length; i++)
-        {
-            Random.Range(i, 2);
-            if (attacks[i] == 0)
+           int ahido = Random.Range(0, attacks.Length);
+         
+            if (ahido == 0)
             {
                 Instantiate(dumbell);
                 print("PESO");
             }
-            if (attacks[i] == 1)
+            if (ahido == 1)
             {
-
+                print("FALA");
             }
-            if (attacks[i] == 2)
+            if (ahido == 2)
             {
-
+                print("DISSOLVER");
             }
-        }
     }
 }
