@@ -7,11 +7,7 @@ public class quadro2 : MonoBehaviour
     public GameObject b2;
     public Animator animator;
 
-    void Animar()
-    {
-        animator.SetBool("pegou", true);
-
-    }
+    
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,16 +16,16 @@ public class quadro2 : MonoBehaviour
         {
 
             b2.SetActive(true);
-            Time.timeScale = 0.0f;
+          //  Time.timeScale = 0.0f;
             Destroy(gameObject, 0.5f);
-            Animar();
+            animator.SetBool("pegou5", true);
         }
     }
 
    
     public void TimeRun()
     {
-        Time.timeScale = 1.0f;
+        //Time.timeScale = 1.0f;
         b2.SetActive(false);
     }
 }

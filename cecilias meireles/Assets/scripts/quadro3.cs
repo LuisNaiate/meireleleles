@@ -20,16 +20,16 @@ public class quadro3 : MonoBehaviour
         {
             
             b3.SetActive(true);
-            Time.timeScale = 0.0f;
+            //Time.timeScale = 0.0f;
             Destroy(gameObject, 0.5f);
-            Animar();
+            animator.SetBool("pegou6", true);
         }
     }
 
     
     public void TimeRun()
     {
-        Time.timeScale = 1.0f;
+       // Time.timeScale = 1.0f;
         b3.SetActive(false);
     }
 }

@@ -7,7 +7,7 @@ public class quadro1 : MonoBehaviour
     //esse não é o quadro certo, é o livro 1, coloquei o nome errado kk lol @_@
     public static bool pegou1 = false;
     public GameObject a1;
-    //public Animation animationb;
+    public Animator animationb;
     
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -16,9 +16,9 @@ public class quadro1 : MonoBehaviour
         {
             pegou1 = true;
             a1.SetActive(true);
-            Time.timeScale = 0.0f;
+            //Time.timeScale = 0.0f;
             Destroy(gameObject, 0.5f);
-           // animationb.Play();
+           animationb.SetBool("pegou1", true);
             
         }
 
@@ -31,7 +31,7 @@ public class quadro1 : MonoBehaviour
     }
     public void TimeRun()
     {
-        Time.timeScale = 1.0f;
+        //Time.timeScale = 1.0f;
         a1.SetActive (false);
     }
 }
