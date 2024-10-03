@@ -1,8 +1,4 @@
-using JetBrains.Annotations;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -29,15 +25,12 @@ public class player : MonoBehaviour
     private int maxJump_ = 2;
     private int jumpsLeft;
     public float doubleJump = 2;
-
     public bool podePular = true;
-
 
     [Header("tiro")]
     public GameObject bullet;
     bool podeAtirar = true;
     public float cooldownTiro = 0.5f;
-
 
     [Header("tempo")]
     public float time;
@@ -67,11 +60,13 @@ public class player : MonoBehaviour
 
     [Header("audio")]
     public AudioSource audioSourceTiro;
-    //Anotações: estou fazendo o sistema de quando chegar no final aparecer a qtd de livros e quadros que tem, continuar a fazer isso e depois fazer a boss fight
 
+    //Anotações: colocar as animações de levitação no livro
     private void Awake()
     {
         olhandoDireita_ = true;
+       
+        
         animator_ = GetComponent<Animator>();
         body_ = GetComponent<Rigidbody2D>();
         jumpsLeft = maxJump_;
@@ -81,11 +76,12 @@ public class player : MonoBehaviour
         coletaveisQtdTxt.text = qtdOfColetaveis + "/6"; //qtdOfColetaveis.ToString() ;
     }
 
+    
+        #region CheckPointSystem ---------------------
     void Start()
-    { 
+    {
 
-        
-        if(fasePraCarregar == "fase1" && CheckPoint.chegouCheckpoint == true)
+        if (fasePraCarregar == "fase1" && CheckPoint.chegouCheckpoint == true)
         {
            gameObject.transform.position = CheckPoint.checkpoint.position;
         }
@@ -98,22 +94,20 @@ public class player : MonoBehaviour
         {
             puloDuplo.SetActive(false);
         }
-    }
 
+        checkPoint = CheckPoint.checkpoint;
+    }
+    #endregion
+
+    #region tempo-------
     public void T1me()
     {
         time += Time.deltaTime;
     }
-
-    void Pulo()
-    {
-    }
-
-    void PuloDuplo()
-    {
-    }
+    #endregion
     void Update()
     {
+
         if (qtdOfColetaveis >= 6)
         {
             Destroy(paredeFinal);
@@ -121,8 +115,7 @@ public class player : MonoBehaviour
 
 
 
-        checkPoint = CheckPoint.checkpoint;
-
+        #region movimentação e sprites ----------
         // movimentação
         horizontal_ = Input.GetAxis("Horizontal");
         body_.velocity = new Vector2(horizontal_ * speed_, body_.velocity.y);
@@ -139,11 +132,11 @@ public class player : MonoBehaviour
         }
 
         Flip();
-
+        #endregion
 
         //pulo
 
-        
+
         footCollision = Physics2D.OverlapCircle(foot.position, 0.05f, filtro);
         groundCheck_ = footCollision;
 
@@ -175,7 +168,7 @@ public class player : MonoBehaviour
         }
 
 
-        //pular
+        #region sistemaDePulo------------
         if (Input.GetButtonDown("Jump"))
         {
 
@@ -200,7 +193,7 @@ public class player : MonoBehaviour
         {
             jumpsLeft = maxJump_;
         }
-
+        #endregion
         //atirar
         if (Input.GetButtonDown("Fire1") && CheckPoint.comLivro == true && podeAtirar) 
         {
@@ -240,13 +233,7 @@ public class player : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
-        /*if (collision.gameObject.CompareTag("caiuvolta"))
-        {
-            body_.MovePosition(spawn.transform.position);
-        } talvez eu use para checkpont, criar uma variavel public gameObject spawn;
-        */
       
-       
         //pegar livro power up
         if(collision.gameObject.CompareTag("livroPowerUp"))
         {
@@ -295,7 +282,8 @@ public class player : MonoBehaviour
             gameObject.transform.parent = null;
         }
     }
-    // virar o sprite
+
+   
     void Flip()
     {
         if (horizontal_ > 0 && !olhandoDireita_ || horizontal_ < 0 && olhandoDireita_)
@@ -305,11 +293,11 @@ public class player : MonoBehaviour
             localscale.x *= -1;
             transform.localScale = localscale;
         }
-    }
+    }  // virar o sprite
     void CreateDust()
     {
        dust.Play();
-    }
+    } // cirar fumaça quando pula
 
 
 }
