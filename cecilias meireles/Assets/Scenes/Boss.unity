@@ -6124,7 +6124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 840e963d3764fee43bce1f4a0f47c118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attacks: 000000000100000002000000
+  speechBox: {fileID: 5028648513041118346, guid: b53d131e8b0888a4296abf2e4d8d75cc, type: 3}
+  speechBox2: {fileID: 0}
   dumbell: {fileID: 1229103523471112300, guid: 64c65cfa307d9d94983af4a84b00cab3, type: 3}
   player: {fileID: 716528179}
 --- !u!61 &1831196525

@@ -1,14 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class machista : MonoBehaviour
 {
-    public float timer;
-    public int[] attacks;
-    public GameObject dumbell;
-    public GameObject player;
+    [Header("Ataques")]
+    [SerializeField] GameObject speechBox;
+    [SerializeField] GameObject speechBox2;
+    [SerializeField] GameObject dumbell;
+    int[] attacks;
+    [Space]
+    float timer = 0f;
+    [SerializeField] GameObject player;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -46,6 +47,7 @@ public class machista : MonoBehaviour
             }
             if (ahido == 1)
             {
+                Instantiate(speechBox);
                 print("FALA");
             }
             if (ahido == 2)
