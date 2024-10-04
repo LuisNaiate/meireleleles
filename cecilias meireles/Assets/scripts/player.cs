@@ -10,41 +10,41 @@ public class player : MonoBehaviour
 
     [Header("player")]
     public Transform foot;
-     Rigidbody2D body_;
+    private Rigidbody2D body_;
     public ParticleSystem dust;
 
-    [Header("movimentação")]    
+    [Header("movimentação")]
     bool olhandoDireita_;
     int direction_ = 1;
     [SerializeField] private float speed_ = 5, jumpstrengh_ = 5, bulletSpeed_ = 15;
     float horizontal_;
 
     [Header("pulo e pulo duplo")]
-    [SerializeField]private  bool groundCheck_;
-    Collider2D footCollision;
+    [SerializeField] private bool groundCheck_;
+    private Collider2D footCollision;
+    [Space]
     private int maxJump_ = 2;
     private int jumpsLeft;
-    public float doubleJump = 2;
-    public bool podePular = true;
+    [SerializeField] private bool podePular = true;
 
     [Header("tiro")]
     public GameObject bullet;
-    bool podeAtirar = true;
-    public float cooldownTiro = 0.5f;
+    private bool podeAtirar = true;
+    private float cooldownTiro = 0.5f;
 
     [Header("tempo")]
-    public float time;
+    [SerializeField] private float time_;
 
     [Header("animação")]
     private Animator animator_;
 
     [Header("checkPointSystem")]
-    public  string fasePraCarregar;
+    public string fasePraCarregar;
     public Transform checkPoint;
 
     [Header("powerUpsObjects")]
 
-    public GameObject tiro, puloDuplo;
+    public GameObject tiroPowerUp, puloDuploPowerUp;
 
     [Header("textos")]
     public TMP_Text coletaveisQtdTxt;
@@ -52,21 +52,23 @@ public class player : MonoBehaviour
     
 
     [Header("gameObjects")]
-    public GameObject paredeFinal;
+    [SerializeField] private GameObject paredeFinal_;
 
     [Header("bossFight")]
-    public GameObject final;
-    public string faseFinal;
+    [SerializeField]private GameObject final_;
+    [SerializeField] private string faseFinal_;
 
     [Header("audio")]
-    public AudioSource audioSourceTiro;
+    private AudioSource audioSourceTiro_;
 
     //Anotações: colocar as animações de levitação no livro
+
+    #region Atribuições de variaveis--------
     private void Awake()
     {
         olhandoDireita_ = true;
        
-        
+        audioSourceTiro_ = GetComponent<AudioSource>();
         animator_ = GetComponent<Animator>();
         body_ = GetComponent<Rigidbody2D>();
         jumpsLeft = maxJump_;
@@ -75,9 +77,10 @@ public class player : MonoBehaviour
         CheckPoint.checkpoint = checkPoint;
         coletaveisQtdTxt.text = qtdOfColetaveis + "/6"; //qtdOfColetaveis.ToString() ;
     }
+        #endregion
 
-    
-        #region CheckPointSystem ---------------------
+
+    #region CheckPointSystem ---------------------
     void Start()
     {
 
@@ -88,11 +91,11 @@ public class player : MonoBehaviour
 
         if (CheckPoint.comLivro == true)
         {
-            tiro.SetActive(false);
+            tiroPowerUp.SetActive(false);
         }
         if (CheckPoint.doublejum == true)
         {
-            puloDuplo.SetActive(false);
+            puloDuploPowerUp.SetActive(false);
         }
 
         checkPoint = CheckPoint.checkpoint;
@@ -102,16 +105,12 @@ public class player : MonoBehaviour
     #region tempo-------
     public void T1me()
     {
-        time += Time.deltaTime;
+        time_ += Time.deltaTime;
     }
     #endregion
     void Update()
     {
 
-        if (qtdOfColetaveis >= 6)
-        {
-            Destroy(paredeFinal);
-        }
 
 
 
@@ -132,31 +131,7 @@ public class player : MonoBehaviour
         }
 
         Flip();
-        #endregion
 
-        //pulo
-
-
-        footCollision = Physics2D.OverlapCircle(foot.position, 0.05f, filtro);
-        groundCheck_ = footCollision;
-
-        if (footCollision != null)
-        {
-
-            
-            if (footCollision.CompareTag("enemy"))
-            {
-                // Mathf.Pow(2, 5);
-                //Mathf.PI;
-                //Mathf.Infinity;
-               
-              
-                body_.AddForce(new Vector2(0, jumpstrengh_ * 120));
-                Destroy(footCollision.gameObject);
-            }
-            
-        }
-        
         //direção
         if (horizontal_ < 0)
         {
@@ -166,9 +141,17 @@ public class player : MonoBehaviour
         {
             direction_ = 1;
         }
+        #endregion
+
 
 
         #region sistemaDePulo------------
+
+        //pulo
+
+        footCollision = Physics2D.OverlapCircle(foot.position, 0.05f, filtro);
+        groundCheck_ = footCollision;
+
         if (Input.GetButtonDown("Jump"))
         {
 
@@ -187,6 +170,26 @@ public class player : MonoBehaviour
             }
        
         }
+
+        if (footCollision != null)
+        {
+
+            
+            if (footCollision.CompareTag("enemy"))
+            {
+                // Mathf.Pow(2, 5);
+                //Mathf.PI;
+                //Mathf.Infinity;
+               
+              
+                body_.AddForce(new Vector2(0, jumpstrengh_ * 120));
+                Destroy(footCollision.gameObject);
+            }
+            
+        }
+        
+
+
         
 
         if (body_.velocity.y < 0 && groundCheck_ == true)
@@ -194,10 +197,12 @@ public class player : MonoBehaviour
             jumpsLeft = maxJump_;
         }
         #endregion
+
+        #region atirar----------
         //atirar
         if (Input.GetButtonDown("Fire1") && CheckPoint.comLivro == true && podeAtirar) 
         {
-            audioSourceTiro.Play();
+            audioSourceTiro_.Play();
             GameObject temp = Instantiate(bullet, transform.position, transform.rotation);
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed_ * direction_, 0);
             podeAtirar = false;
@@ -209,12 +214,14 @@ public class player : MonoBehaviour
         yield return new WaitForSeconds(cooldownTiro);
         podeAtirar = true;
     }
+        #endregion
     //caiuvoltar
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject == final)
+        #region Final da dungeon------
+        if (collision.gameObject == final_)
         {
-            SceneManager.LoadScene(faseFinal);
+            SceneManager.LoadScene(faseFinal_);
         }
         if(collision.gameObject.CompareTag("cole"))
         {
@@ -222,11 +229,22 @@ public class player : MonoBehaviour
             coletaveisQtdTxt.text = qtdOfColetaveis + "/6"; //qtdOfColetaveis.ToString() ;
             
         }
+        if (qtdOfColetaveis >= 6 && collision.gameObject.CompareTag("finalArea"))
+        {
+            Destroy(paredeFinal_);
+        }
+        #endregion
+
+        #region CheckPointSet---------
         if (collision.CompareTag("Checkpoint"))
         {
             CheckPoint.checkpoint.position = gameObject.transform.position;
             CheckPoint.chegouCheckpoint = true;
         }
+        #endregion
+
+        #region Get power ups
+
         if (collision.gameObject.CompareTag("Pulo"))
         {
             CheckPoint.doublejum = true;
@@ -240,8 +258,9 @@ public class player : MonoBehaviour
             CheckPoint.comLivro = true;
             Destroy(collision.gameObject);
         }
-
+        #endregion
         //morrer pro canhão
+        #region morrer pra canão e cair ---
         if (collision.gameObject.CompareTag("cannonBall"))
         {
             SceneManager.LoadScene("fase1");
@@ -252,6 +271,7 @@ public class player : MonoBehaviour
         {
             SceneManager.LoadScene("fase1");
         }
+        #endregion
 
         
 
@@ -263,16 +283,17 @@ public class player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-
+        #region morrer pra inimigo ------
         if (collision.gameObject.CompareTag("enemy"))
         {
             SceneManager.LoadScene("fase1");
         }
+        #endregion
+        #region ficar nas plataformas---- 
         if (collision.gameObject.tag == "plataform")
         {
             gameObject.transform.parent = collision.transform;
         }
-
 
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -282,8 +303,9 @@ public class player : MonoBehaviour
             gameObject.transform.parent = null;
         }
     }
+    #endregion
 
-   
+    #region flipar o sprite ------
     void Flip()
     {
         if (horizontal_ > 0 && !olhandoDireita_ || horizontal_ < 0 && olhandoDireita_)
@@ -294,14 +316,16 @@ public class player : MonoBehaviour
             transform.localScale = localscale;
         }
     }  // virar o sprite
+    #endregion
+    #region particulas----
     void CreateDust()
     {
        dust.Play();
     } // cirar fumaça quando pula
-
+    #endregion
 
 }
-
+#region static
 public static class CheckPoint 
 {
     public static Transform checkpoint;
@@ -309,3 +333,4 @@ public static class CheckPoint
     public static bool doublejum;
     public static bool comLivro = false;
 }
+#endregion

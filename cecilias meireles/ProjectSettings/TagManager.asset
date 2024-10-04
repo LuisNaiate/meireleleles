@@ -45,6 +45,7 @@ TagManager:
   - Pulo
   - Checkpoint
   - cole
+  - finalArea
   layers:
   - Default
   - TransparentFX
