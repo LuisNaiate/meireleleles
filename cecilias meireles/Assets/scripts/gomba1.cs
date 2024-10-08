@@ -4,28 +4,28 @@ using UnityEngine;
 
 public class gomba1 : MonoBehaviour
 {
-   
+    [Header("corpo")]
+    private SpriteRenderer spriteRenderer_;
+    private BoxCollider2D boxCollider_;
+    private Rigidbody2D body_;
+
+    [Header("status")]
     public int damage = 2;
-    public Rigidbody2D body;
     public float speed = 2;
     int direction = -1;
-    private SpriteRenderer spriteRenderer;
-    private BoxCollider2D boxCollider;
     public int life = 2;
 
 
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        boxCollider = GetComponent<BoxCollider2D>();
-
+        spriteRenderer_ = GetComponent<SpriteRenderer>();
+        boxCollider_ = GetComponent<BoxCollider2D>();
+        body_ = GetComponent<Rigidbody2D>();
 
     }
     void Update()
     {
-       
-        body.velocity = new Vector2(speed * direction, body.velocity.y);
-        
+       body_.velocity = new Vector2(speed * direction, body_.velocity.y); 
     }
 
     void morte()
@@ -33,18 +33,18 @@ public class gomba1 : MonoBehaviour
         speed = 0;
         direction = 0;
         damage = 0;
-        spriteRenderer.color = Color.red;
+        spriteRenderer_.color = Color.red;
         gameObject.transform.Rotate(0, 0, -90);
-        body.gravityScale = 0;
-        boxCollider.isTrigger = true;
+        body_.gravityScale = 0;
+        boxCollider_.isTrigger = true;
         Destroy(gameObject, 1);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        life -= bullet.damage;
 
         if (collision.gameObject.CompareTag("bullet"))
         {
+          life -= bullet.damage;
 
             if (life <= 0)
             {

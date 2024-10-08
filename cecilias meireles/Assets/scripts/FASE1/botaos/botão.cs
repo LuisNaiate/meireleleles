@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class botão : MonoBehaviour
 {
     //botão1
-    public GameObject coisaPraDestruir;
+    public GameObject barragem;
     
 
     //vai destruir o botão 1 que ta barrando a passagem
@@ -15,7 +14,7 @@ public class botão : MonoBehaviour
         if(collision.gameObject.CompareTag("bullet"))
         {
             Destroy(gameObject);
-            Destroy(coisaPraDestruir);
+            Destroy(barragem);
             
         }
     }

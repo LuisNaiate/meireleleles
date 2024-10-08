@@ -7,7 +7,6 @@ public class livro2 : MonoBehaviour
     public Animator animator;
 
     
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("player"))

@@ -1,45 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class gomba : MonoBehaviour
 {
-   
+    [Header("corpo")]
+    private Rigidbody2D body_;
+    private BoxCollider2D boxCollider_;
+    private SpriteRenderer spriteRenderer_;
+
+    [Header("status")]
     public int damage = 2;
-    public Rigidbody2D body;
     public float speed = 2;
     int direction = -1;
-    private SpriteRenderer spriteRenderer;
-    private BoxCollider2D boxCollider;
 
-
-    private void Start()
+    #region variaveis privadas
+    void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        boxCollider = GetComponent<BoxCollider2D>();
-
+        spriteRenderer_ = GetComponent<SpriteRenderer>();
+        boxCollider_ = GetComponent<BoxCollider2D>();
+        body_ = GetComponent<Rigidbody2D>();
 
     }
+    #endregion
     void Update()
     {
-       
-        body.velocity = new Vector2(speed * direction, body.velocity.y);
-        
+        body_.velocity = new Vector2(speed * direction, body_.velocity.y);
     }
-
+    #region quando morrer
     void morte()
     {
-        speed = 0;
-        direction = 0;
-        damage = 0;
-        spriteRenderer.color = Color.red;
+        speed = 0 ; direction = 0; damage = 0;
+       
+        spriteRenderer_.color = Color.red;
         gameObject.transform.Rotate(0, 0, -90);
-        body.gravityScale = 0;
-        boxCollider.isTrigger = true;
+        body_.gravityScale = 0;
+        boxCollider_.isTrigger = true;
         Destroy(gameObject, 0.8f);
     }
+    #endregion
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+    #region morte
         if (collision.gameObject.CompareTag("bullet"))
         {
             morte();
@@ -49,8 +51,10 @@ public class gomba : MonoBehaviour
             
 
         }
+        #endregion
+        #region cuidado dos precipicios e trocar de lado
 
-        if(collision.gameObject.CompareTag("precipicio"))
+        if (collision.gameObject.CompareTag("precipicio"))
         {
             direction *= -1;
         }
@@ -62,4 +66,5 @@ public class gomba : MonoBehaviour
             direction *= -1;
         }
     }
+        #endregion
 }
