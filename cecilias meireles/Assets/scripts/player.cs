@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour
 {
+    #region variaveis
     public LayerMask filtro;
 
     [Header("player")]
@@ -60,7 +61,7 @@ public class player : MonoBehaviour
 
     [Header("audio")]
     private AudioSource audioSourceTiro_;
-
+    #endregion
     //Anotações: Colocar as animações do cañhão quando atirar, falta colocar os sprites no projeto
 
     #region Atribuições de variaveis--------
