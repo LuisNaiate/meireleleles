@@ -2,25 +2,33 @@ using UnityEngine;
 
 public class speechBox : MonoBehaviour
 {
-    public float timer;
-    public GameObject player;
-    public float horizontal;
-    public float vertical;
-    public float speed;
-    public Rigidbody2D body;
+    [Header("Timer")]
+    float timer;
+    [Space]
+
+    [Header("GameObjects")]
+    [SerializeField] GameObject player;
+    [Space]
+
+    [Header("Speed")]
+    [SerializeField] float horizontal;
+    [SerializeField] float vertical;
+    [SerializeField] float speed;
+
+    [Header("RigidBody")]
+    [SerializeField] Rigidbody2D body;
     // Start is called before the first frame update
     void Start()
     {
         timer = 0;
-        body.velocity = new Vector2(horizontal * speed, body.velocity.y);
-        body.velocity = new Vector2(vertical * speed, body.velocity.x);
+        body.velocity = new Vector2(horizontal * speed, vertical * speed);
         player = GameObject.FindWithTag("player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (timer >= 7)
+        if (timer >= 3)
         {
             Destroy(gameObject);
             timer = 0;

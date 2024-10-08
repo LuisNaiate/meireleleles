@@ -3,13 +3,20 @@ using UnityEngine;
 public class machista : MonoBehaviour
 {
     [Header("Ataques")]
-    [SerializeField] GameObject speechBox;
-    [SerializeField] GameObject speechBox2;
+    [SerializeField] GameObject[] speechBox;
     [SerializeField] GameObject dumbell;
-    int[] attacks;
+    public int[] attacks;
     [Space]
+
+    [Header("Timer")]
     float timer = 0f;
+    [Space]
+
+    [Header("GameObjects")]
     [SerializeField] GameObject player;
+    [Space]
+
+    [Header("RigidBody")]
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -47,7 +54,7 @@ public class machista : MonoBehaviour
             }
             if (ahido == 1)
             {
-                Instantiate(speechBox);
+                Instantiate(speechBox[Random.Range(0, speechBox.Length)]);
                 print("FALA");
             }
             if (ahido == 2)

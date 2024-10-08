@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9200987178860886671}
   - component: {fileID: 4418292294232654773}
   - component: {fileID: -8148334516823723896}
+  - component: {fileID: -7690247533325025242}
   m_Layer: 0
   m_Name: SpeechBox
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5028648513041118346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.24, y: 1.04, z: 0}
-  m_LocalScale: {x: 2.1322, y: 1.8954974, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,11 +103,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8f8166336a1276244a70cbaedebe0187, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &-8148334516823723896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,9 +120,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c669979369c1ac4b96f119b905c0781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0
   player: {fileID: 0}
-  horizontal: 0
-  vertical: 0
-  speed: 0
+  horizontal: -1
+  vertical: 1
+  speed: 3
   body: {fileID: 4418292294232654773}
+--- !u!61 &-7690247533325025242
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5028648513041118346}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 8f8166336a1276244a70cbaedebe0187, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 1.42}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.6, y: 1.42}
+  m_EdgeRadius: 0

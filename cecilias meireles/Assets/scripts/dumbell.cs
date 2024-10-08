@@ -3,12 +3,12 @@ using UnityEngine;
 public class dumbell : MonoBehaviour
 {
     [Header("Speed")]
-    public float horizontal;
-    public float speed;
+    [SerializeField] float horizontal;
+    [SerializeField] float speed;
     [Space]
-    public float timer;
-    public GameObject player;
-    public Rigidbody2D body;
+    float timer;
+    [SerializeField] GameObject player;
+    [SerializeField] Rigidbody2D body;
     // Start is called before the first frame update
     void Start()
     {
