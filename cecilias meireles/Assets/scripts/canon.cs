@@ -12,6 +12,8 @@ public class canon : MonoBehaviour
     public ParticleSystem dust1;
     public AudioSource audioSource;
     public Transform dust;
+
+
     // private SpriteRenderer SpriteRenderer;
     // private Animator animator_;
     // Start is called before the first frame update
@@ -34,7 +36,7 @@ public class canon : MonoBehaviour
                 temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed, 0);
                 time = 0;
                 CreateDust();
-                audioSource.Play();
+                audioSource.Play(); //animator_.SetBool("atirou", true);
             // }
         }
     }
