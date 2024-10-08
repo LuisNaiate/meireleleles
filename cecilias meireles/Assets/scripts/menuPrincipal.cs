@@ -10,7 +10,8 @@ public class menuPrincipal : MonoBehaviour
     public GameObject painelMenuInicial;
     public GameObject painelOpcoes;
     public AudioMixer audiomixer;
-    
+    public GameObject foraDoCredito;
+    public GameObject dentroDoCredito;
 
 
 
@@ -36,6 +37,16 @@ public class menuPrincipal : MonoBehaviour
     {
         painelOpcoes.SetActive(false);
         painelMenuInicial.SetActive(true);
+    }
+    public void Creditos()
+    {
+        foraDoCredito.SetActive(false);
+        dentroDoCredito.SetActive(true);
+    }
+    public void FecharCreditos()
+    {
+        foraDoCredito.SetActive(true);
+        dentroDoCredito.SetActive(false);
     }
 
     public void sairJogo()
