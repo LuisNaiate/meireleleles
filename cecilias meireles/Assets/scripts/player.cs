@@ -61,7 +61,7 @@ public class player : MonoBehaviour
     [Header("audio")]
     private AudioSource audioSourceTiro_;
 
-    //Anotações: Colocar o sprite do botão
+    //Anotações: Colocar as animações do cañhão quando atirar, falta colocar os sprites no projeto
 
     #region Atribuições de variaveis--------
     private void Awake()

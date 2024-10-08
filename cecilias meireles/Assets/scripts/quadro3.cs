@@ -5,11 +5,7 @@ public class quadro3 : MonoBehaviour
     public GameObject b3;
     public Animator animator;
     
-    void Animar()
-    {
-        animator.SetBool("pegou", true);
-
-    }
+   
 
 
     private void OnTriggerEnter2D(Collider2D collision)

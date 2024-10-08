@@ -1112,15 +1112,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 5924045469954393139, guid: a219f60992c629a4aaee7dcb91ff3e4a, type: 2}
-  m_audioClip: {fileID: 8300000, guid: b95fc0dcc5f4c814bbcfac9d1c4c23bb, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 219b8755ce4f73148a0e5449686b2d27, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.747
+  m_Volume: 0.539
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 93
+  Priority: 123
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1226,9 +1226,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicas:
-  - {fileID: 8300000, guid: b95fc0dcc5f4c814bbcfac9d1c4c23bb, type: 3}
+  - {fileID: 8300000, guid: 219b8755ce4f73148a0e5449686b2d27, type: 3}
   - {fileID: 8300000, guid: 3ae6ac071f570bc4ca7bcfbc3beb5d1a, type: 3}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 9ea1565ad8a685b42aec08d739da98f6, type: 3}
 --- !u!1 &769086397
 GameObject:
   m_ObjectHideFlags: 0
@@ -2203,7 +2203,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.6313726, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2950,7 +2950,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3, y: 121}
+  m_AnchoredPosition: {x: 3, y: 193}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1244791280
@@ -2982,8 +2982,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4288806656
+  m_fontColor: {r: 0, g: 1, b: 0.630743, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4209,7 +4209,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f499240283222024ea5e85ab4de3ebce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 95f61f4680979ed4fb26f9933dfd6496, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
