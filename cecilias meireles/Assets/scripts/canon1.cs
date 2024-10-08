@@ -34,7 +34,7 @@ public class canon1 : MonoBehaviour
                 temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed, 0);
                 time = 0;
                 CreateDust();
-                audioSource.Play();
+                audioSource.Play(); // animator_.SetBool("atirou", true);
             //}
         }
     }
