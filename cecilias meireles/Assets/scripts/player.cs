@@ -61,7 +61,7 @@ public class player : MonoBehaviour
     [Header("audio")]
     private AudioSource audioSourceTiro_;
 
-    //Anotações: colocar as animações de levitação no livro
+    //Anotações: Colocar o sprite do botão
 
     #region Atribuições de variaveis--------
     private void Awake()
