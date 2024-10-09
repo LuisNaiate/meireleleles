@@ -15,12 +15,12 @@ public class canon : MonoBehaviour
 
 
     // private SpriteRenderer SpriteRenderer;
-    // private Animator animator_;
+     private Animator animator_;
     // Start is called before the first frame update
     void Start()
     {
         // SpriteRenderer = GetComponent<SpriteRenderer>();
-        //  animator_ = GetComponent<Animator>();
+        animator_ = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -34,9 +34,10 @@ public class canon : MonoBehaviour
             //  {
             GameObject temp = Instantiate(cannonBall, dust.position, dust.rotation);
                 temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed, 0);
-                time = 0;
+                time = 0; 
                 CreateDust();
-                audioSource.Play(); //animator_.SetBool("atirou", true);
+                audioSource.Play(); 
+             animator_.SetBool("atirou", true);
             // }
         }
     }

@@ -13,12 +13,12 @@ public class canão2 : MonoBehaviour
     public AudioSource audioSource;
     public Transform dust;
   //  private SpriteRenderer SpriteRenderer;
-    //private Animator animator_;
+    private Animator animator_;
     // Start is called before the first frame update
     void Start()
     {
       //  SpriteRenderer = GetComponent<SpriteRenderer>();
-       // animator_ = GetComponent<Animator>();
+      animator_ = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -35,7 +35,8 @@ public class canão2 : MonoBehaviour
                 time = 0;
                 CreateDust();
                 audioSource.Play();
-          //  }
+            animator_.SetBool("atirou", true);
+            //  }
         }
     }
 
