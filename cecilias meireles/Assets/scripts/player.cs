@@ -26,7 +26,7 @@ public class player : MonoBehaviour
     [Space]
     private int maxJump_ = 2;
     private int jumpsLeft;
-    [SerializeField] private bool podePular = true;
+    //[SerializeField] private bool podePular = true;
 
     [Header("tiro")]
     public GameObject bullet;
@@ -62,7 +62,7 @@ public class player : MonoBehaviour
     [Header("audio")]
     private AudioSource audioSourceTiro_;
     #endregion
-    //Anotações: Colocar as animações do cañhão quando atirar, falta colocar os sprites no projeto
+    //Anotações: 
 
     #region Atribuições de variaveis--------
     private void Awake()

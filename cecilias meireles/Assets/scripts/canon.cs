@@ -6,16 +6,16 @@ public class canon : MonoBehaviour
 {
     public float time;
     public GameObject cannonBall;
-   private int bulletSpeed = -15;
+    private int bulletSpeed = -15;
     public static bool atirar;
     public int life = 2;
     public ParticleSystem dust1;
     public AudioSource audioSource;
     public Transform dust;
-
+    [SerializeField] bool pegou = true;
 
     // private SpriteRenderer SpriteRenderer;
-     private Animator animator_;
+    private Animator animator_;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +26,7 @@ public class canon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         time += Time.deltaTime;
 
         if ( time  >= 3) 
@@ -36,12 +37,26 @@ public class canon : MonoBehaviour
                 temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed, 0);
                 time = 0; 
                 CreateDust();
-                audioSource.Play(); 
-             animator_.SetBool("atirou", true);
+                audioSource.Play();
+
+            pegou = true;
+            StartCoroutine(Animacao());
             // }
         }
+        if (pegou == true)
+        {
+            animator_.SetBool("atirou", true);
+        }
+        else if (pegou == false)
+        {
+            animator_.SetBool("atirou", false);
+        }
     }
-
+    IEnumerator Animacao()
+    {
+        yield return new WaitForSeconds(1);
+        pegou = false;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("bullet"))
