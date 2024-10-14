@@ -121,15 +121,7 @@ public class player : MonoBehaviour
         body_.velocity = new Vector2(horizontal_ * speed_, body_.velocity.y);
        
         //animação de andar
-        if(horizontal_ != 0) 
-        {
-            animator_.SetBool("andando", true);
-        }
-        else
-        {
-            animator_.SetBool("andando", false);
-
-        }
+        animator_.SetBool("andando", horizontal_ != 0);
 
         Flip();
 
@@ -210,6 +202,7 @@ public class player : MonoBehaviour
             StartCoroutine(CooldownTiro());
         }
     }
+    
     IEnumerator CooldownTiro()
     {
         yield return new WaitForSeconds(cooldownTiro);
