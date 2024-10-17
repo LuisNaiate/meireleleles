@@ -72,7 +72,7 @@ public class player : MonoBehaviour
 
 
     #endregion
-    //Anotações: 
+    //Anotações: Arrumar a animaçã do quadro 1
 
     #region Atribuições de variaveis--------
     private void Awake()
