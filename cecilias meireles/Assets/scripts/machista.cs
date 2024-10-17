@@ -5,11 +5,13 @@ public class machista : MonoBehaviour
     [Header("Ataques")]
     [SerializeField] GameObject[] speechBox;
     [SerializeField] GameObject dumbell;
+    [SerializeField] GameObject deathZone;
     public int[] attacks;
     [Space]
 
     [Header("Timer")]
     float timer = 0f;
+    float timer2 = 0f;
     [Space]
 
     [Header("GameObjects")]
@@ -35,6 +37,7 @@ public class machista : MonoBehaviour
             Attack();
             timer = 0;
         }
+        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -45,8 +48,9 @@ public class machista : MonoBehaviour
     }
     void Attack()
     {
-           int ahido = Random.Range(0, attacks.Length);
-         
+           
+        
+            int ahido = Random.Range(0, attacks.Length);
             if (ahido == 0)
             {
                 Instantiate(dumbell);
@@ -57,9 +61,9 @@ public class machista : MonoBehaviour
                 Instantiate(speechBox[Random.Range(0, speechBox.Length)]);
                 print("FALA");
             }
-            if (ahido == 2)
-            {
-                print("DISSOLVER");
-            }
+        if (ahido == 2)
+        {
+           Instantiate(deathZone);
+        }
     }
 }
