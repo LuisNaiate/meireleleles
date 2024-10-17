@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 
@@ -17,7 +18,13 @@ public class player : MonoBehaviour
     [Header("movimentação")]
     bool olhandoDireita_;
     int direction_ = 1;
-    [SerializeField] private float speed_ = 5, jumpstrengh_ = 5, bulletSpeed_ = 15;
+    [Space]
+    [Range(0f, 10f)]
+    [SerializeField] private float speed_ = 5;
+    [Space]
+    [SerializeField] float jumpstrengh_ = 5;
+    [Space]
+    [SerializeField] float bulletSpeed_ = 15;
     float horizontal_;
 
     [Header("pulo e pulo duplo")]
@@ -61,6 +68,9 @@ public class player : MonoBehaviour
 
     [Header("audio")]
     private AudioSource audioSourceTiro_;
+
+
+
     #endregion
     //Anotações: 
 
@@ -77,6 +87,8 @@ public class player : MonoBehaviour
         fasePraCarregar = SceneManager.GetActiveScene().name;
         CheckPoint.checkpoint = checkPoint;
         coletaveisQtdTxt.text = qtdOfColetaveis + "/6"; //qtdOfColetaveis.ToString() ;
+
+        
     }
         #endregion
 
@@ -90,14 +102,7 @@ public class player : MonoBehaviour
            gameObject.transform.position = CheckPoint.checkpoint.position;
         }
 
-        if (CheckPoint.comLivro == true)
-        {
-            tiroPowerUp.SetActive(false);
-        }
-        if (CheckPoint.doublejum == true)
-        {
-            puloDuploPowerUp.SetActive(false);
-        }
+      
 
         checkPoint = CheckPoint.checkpoint;
     }
