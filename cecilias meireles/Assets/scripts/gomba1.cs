@@ -51,15 +51,22 @@ public class gomba1 : MonoBehaviour
                 morte();
                 Destroy(collision.gameObject);
             }
-          
-            
+            spriteRenderer_.color = Color.HSVToRGB(0f, 59f, 100);
 
+            StartCoroutine(TempinhoDeVermelho());   
+            Destroy(collision.gameObject);
         }
 
         if(collision.gameObject.CompareTag("precipicio"))
         {
             direction *= -1;
         }
+    }
+
+    IEnumerator TempinhoDeVermelho()
+    {
+        yield return new WaitForSeconds(0.5f);
+        spriteRenderer_.color = Color.white;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
