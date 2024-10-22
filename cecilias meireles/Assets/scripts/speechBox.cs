@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class speechBox : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class speechBox : MonoBehaviour
     void Start()
     {
         timer = 0;
+        transform.position = new Vector2(6, 1);
         body.velocity = new Vector2(horizontal * speed, vertical * speed);
         player = GameObject.FindWithTag("player");
     }
