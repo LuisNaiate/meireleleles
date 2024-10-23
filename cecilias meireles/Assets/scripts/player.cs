@@ -1,7 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering;
+
 using UnityEngine.SceneManagement;
 
 
@@ -72,7 +72,7 @@ public class player : MonoBehaviour
 
 
     #endregion
-    //Anotações: Arrumar a animaçã do quadro 1
+    //Anotações:
 
     #region Atribuições de variaveis--------
     private void Awake()

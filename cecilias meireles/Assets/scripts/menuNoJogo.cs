@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using UnityEngine.Audio;
@@ -9,13 +7,18 @@ using UnityEngine.Audio;
 
 public class menuNoJogo : MonoBehaviour
 {
-
+    #region variaveis e eventos
+    [Header("Events")]
     public UnityEvent Pause, UnPause, opcoes, sairOpcoes;
-    public AudioMixer audiomixer;
 
+    [Header("audioMixer")]
+    [Tooltip("aqui controla o audioMixer")]
+    public AudioMixer audiomixer;
+    #endregion
+
+        #region Pausar o jogo
     private void Update()
     {
-
         if (Input.GetButtonDown("Cancel"))
         {
 
@@ -34,9 +37,10 @@ public class menuNoJogo : MonoBehaviour
 
         }
 
-
-
     }
+    #endregion
+
+    #region controle de tempo
     public void Pausar()
     {
         Pause.Invoke();
@@ -49,6 +53,9 @@ public class menuNoJogo : MonoBehaviour
         Time.timeScale = 1;
 
     }
+    #endregion
+
+    #region opções
     public void Opcoes()
     {
         opcoes.Invoke();
@@ -61,6 +68,8 @@ public class menuNoJogo : MonoBehaviour
 
 
     }
+    #endregion
+    #region sair
     public void Sair()
     {
         SceneManager.LoadScene("Menu");
@@ -69,8 +78,9 @@ public class menuNoJogo : MonoBehaviour
 
 
     }
-    
-   
+    #endregion
+
+    #region controle de volume
     public void SetVolume(float volume)
     {
         audiomixer.SetFloat("Master", volume);
@@ -83,5 +93,5 @@ public class menuNoJogo : MonoBehaviour
     {
         audiomixer.SetFloat("SFX", volume);
     }
-
+    #endregion
 }

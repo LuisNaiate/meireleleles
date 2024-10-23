@@ -1,19 +1,24 @@
 using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using UnityEngine.Audio;
+
 public class canon : MonoBehaviour
 {
-    public float time;
-    public GameObject cannonBall;
-    private int bulletSpeed = -15;
-    public static bool atirar;
-    public int life = 2;
-    public ParticleSystem dust1;
-    public AudioSource audioSource;
-    public Transform dust;
-    [SerializeField] bool pegou = true;
+    #region variaveis e componentes
+    [Header("componetes")]
+    [SerializeField] ParticleSystem dust1;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] Transform dust;
+    [Space]
 
+    [Header("variaveis ")]
+    float time;
+    public GameObject cannonBall;
+    int bulletSpeed = -15;
+    public static bool atirar;
+    int life = 2;
+    [SerializeField] bool pegou = true;
+    #endregion
     // private SpriteRenderer SpriteRenderer;
     private Animator animator_;
     // Start is called before the first frame update
