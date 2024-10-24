@@ -18,10 +18,10 @@ public class canon : MonoBehaviour
     public static bool atirar;
     int life = 2;
     [SerializeField] bool pegou = true;
-    #endregion
     // private SpriteRenderer SpriteRenderer;
     private Animator animator_;
     // Start is called before the first frame update
+    #endregion
     void Start()
     {
         // SpriteRenderer = GetComponent<SpriteRenderer>();
@@ -31,7 +31,7 @@ public class canon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        #region sistema de atirar
         time += Time.deltaTime;
 
         if ( time  >= 3) 
@@ -48,6 +48,9 @@ public class canon : MonoBehaviour
             StartCoroutine(Animacao());
             // }
         }
+        #endregion
+
+        #region sistema da animação quando atira
         if (pegou == true)
         {
             animator_.SetBool("atirou", true);
@@ -57,11 +60,16 @@ public class canon : MonoBehaviour
             animator_.SetBool("atirou", false);
         }
     }
+
+
     IEnumerator Animacao()
     {
         yield return new WaitForSeconds(1);
         pegou = false;
     }
+    #endregion
+
+    #region sistema de morrer
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("bullet"))
@@ -79,7 +87,7 @@ public class canon : MonoBehaviour
             }
         }
     }
-
+    #endregion
     void CreateDust()
     {
         dust1.Play();
