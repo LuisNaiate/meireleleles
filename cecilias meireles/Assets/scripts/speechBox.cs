@@ -30,7 +30,7 @@ public class speechBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer >= 3)
+        if (timer >= 2.5f)
         {
             Destroy(gameObject);
             timer = 0;
