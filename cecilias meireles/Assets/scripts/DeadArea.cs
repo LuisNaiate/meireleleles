@@ -1,24 +1,20 @@
+using System.Collections;
 using UnityEngine;
 
 public class DeadArea : MonoBehaviour
 {
     [SerializeField] GameObject boss;
-    float timer;
+    [SerializeField] float timer;
     // Start is called before the first frame update
     void Start()
     {
-        timer = 0;
+        StartCoroutine(TempoDeESpera());
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        if (timer >= 0.5f)
-        {
-            boss.SetActive(true);
-            Destroy(gameObject);
-            timer = 0;
-        }
+     
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -26,5 +22,13 @@ public class DeadArea : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
+    }
+
+    IEnumerator TempoDeESpera()
+    {
+        yield return new WaitForSeconds(timer);
+        boss.SetActive(true);
+        Destroy(gameObject);
+        
     }
 }

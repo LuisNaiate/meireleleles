@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boss: {fileID: 1960590002913569827, guid: 853ee63b5f027024487c571acb561225, type: 3}
+  timer: 4
 --- !u!61 &4206217662862002611
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -596,7 +596,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716528179}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 524.8106, y: 7.1458, z: -2.21}
+  m_LocalPosition: {x: -10.67, y: -4.04, z: 0}
   m_LocalScale: {x: 1.833153, y: 1.8701622, z: 0.9530872}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -738,17 +738,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f409293e13374f40be35b5de8c22938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  filtro:
+    serializedVersion: 2
+    m_Bits: 119
   foot: {fileID: 1025789978}
   dust: {fileID: 1713255192}
   speed_: 5
   jumpstrengh_: 5
   bulletSpeed_: 15
   groundCheck_: 0
-  doubleJump: 2
-  podePular: 1
   bullet: {fileID: 5499054264433052245, guid: fd8b1d9e1032d3d429846fe3c6717f6a, type: 3}
-  cooldownTiro: 0.5
-  time: 0
+  time_: 0
+  doublejum: 1
+  comLivro: 0
 --- !u!1 &737256772
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,7 +829,7 @@ GameObject:
   m_Component:
   - component: {fileID: 787297661}
   - component: {fileID: 787297660}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Academia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1036,7 +1038,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025789977}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -0.838, z: 0.0051702}
+  m_LocalPosition: {x: -0.009, y: -0.868, z: 0.0051702}
   m_LocalScale: {x: 0.1514588, y: 0.1514588, z: 0.1514588}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1178,7 +1180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495451105}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -535.37, y: -12.24, z: 2.0692165}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

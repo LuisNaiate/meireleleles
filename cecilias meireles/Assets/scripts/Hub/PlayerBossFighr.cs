@@ -9,96 +9,141 @@ using UnityEngine.SceneManagement;
 
 public class PlayerBossFight : MonoBehaviour
 {
-    
+
+    #region variaveis
+    public LayerMask filtro;
 
     [Header("player")]
     public Transform foot;
-    Rigidbody2D body_;
+    private Rigidbody2D body_;
     public ParticleSystem dust;
 
     [Header("movimentação")]
     bool olhandoDireita_;
     int direction_ = 1;
-    [SerializeField] private float speed_ = 5, jumpstrengh_ = 5, bulletSpeed_ = 15;
+    [Space]
+    [Range(0f, 10f)]
+    [SerializeField] private float speed_ = 5;
+    [Space]
+    [SerializeField] float jumpstrengh_ = 5;
+    [Space]
+    [SerializeField] float bulletSpeed_ = 15;
     float horizontal_;
 
     [Header("pulo e pulo duplo")]
     [SerializeField] private bool groundCheck_;
-    Collider2D footCollision;
+    private Collider2D footCollision;
+    [Space]
     private int maxJump_ = 2;
     private int jumpsLeft;
-    public float doubleJump = 2;
-
-    public bool podePular = true;
-
+    //[SerializeField] private bool podePular = true;
 
     [Header("tiro")]
     public GameObject bullet;
-    bool podeAtirar = true;
-    public float cooldownTiro;
-
+    private bool podeAtirar = true;
+    private float cooldownTiro = 0.5f;
 
     [Header("tempo")]
-    public float time;
+    [SerializeField] private float time_;
 
     [Header("animação")]
     private Animator animator_;
 
+   
+    [Header("audio")]
+    private AudioSource audioSourceTiro_;
 
-    //Anotações: estou fazendo o sistema de quando chegar no final aparecer a qtd de livros e quadros que tem, continuar a fazer isso e depois fazer a boss fight
+    public bool doublejum = true;
+    public bool comLivro = true;
 
+
+    #endregion
+    //Anotações:
+
+    #region Atribuições de variaveis--------
     private void Awake()
     {
         olhandoDireita_ = true;
+
+        audioSourceTiro_ = GetComponent<AudioSource>();
         animator_ = GetComponent<Animator>();
         body_ = GetComponent<Rigidbody2D>();
         jumpsLeft = maxJump_;
 
-    }
+       
 
+
+    }
+    #endregion
+
+
+    #region CheckPointSystem ---------------------
     void Start()
     {
 
     }
+    #endregion
 
+    #region tempo-------
     public void T1me()
     {
-        time += Time.deltaTime;
+        time_ += Time.deltaTime;
     }
-
-    void Pulo()
-    {
-    }
-
-    void PuloDuplo()
-    {
-    }
+    #endregion
     void Update()
     {
-      
+
+
+
+
+        #region movimentação e sprites ----------
         // movimentação
         horizontal_ = Input.GetAxis("Horizontal");
         body_.velocity = new Vector2(horizontal_ * speed_, body_.velocity.y);
 
         //animação de andar
-        if (horizontal_ != 0)
-        {
-            animator_.SetBool("andando", true);
-        }
-        else
-        {
-            animator_.SetBool("andando", false);
-
-        }
+        animator_.SetBool("andando", horizontal_ != 0);
 
         Flip();
 
+        //direção
+        if (horizontal_ < 0)
+        {
+            direction_ = -1;
+        }
+        else if (horizontal_ > 0)
+        {
+            direction_ = 1;
+        }
+        #endregion
+
+
+
+        #region sistemaDePulo------------
 
         //pulo
 
-
-        footCollision = Physics2D.OverlapCircle(foot.position, 0.05f);
+        footCollision = Physics2D.OverlapCircle(foot.position, 0.05f, filtro);
         groundCheck_ = footCollision;
+
+        if (Input.GetButtonDown("Jump"))
+        {
+
+            if (doublejum && groundCheck_)
+            {
+                body_.AddForce(new Vector2(0, jumpstrengh_ * 75));
+                CreateDust();
+
+            }
+            else if (doublejum && jumpsLeft > 0)
+            {
+                body_.AddForce(new Vector2(0, jumpstrengh_ * 60));
+                CreateDust();
+                jumpsLeft--;
+
+            }
+
+        }
 
         if (footCollision != null)
         {
@@ -117,84 +162,59 @@ public class PlayerBossFight : MonoBehaviour
 
         }
 
-        //direção
-        if (horizontal_ < 0)
-        {
-            direction_ = -1;
-        }
-        else if (horizontal_ > 0)
-        {
-            direction_ = 1;
-        }
 
 
-        //pular
-        if (Input.GetButtonDown("Jump"))
-        {
-
-            if (!CheckPoint1.doublejum1 && groundCheck_)
-            {
-                body_.AddForce(new Vector2(0, jumpstrengh_ * 90));
-                CreateDust();
-
-            }
-            else if (CheckPoint1.doublejum1 && jumpsLeft > 0)
-            {
-                body_.AddForce(new Vector2(0, jumpstrengh_ * 75));
-                CreateDust();
-                jumpsLeft -= 1;
-
-            }
-
-        }
 
 
         if (body_.velocity.y < 0 && groundCheck_ == true)
         {
             jumpsLeft = maxJump_;
         }
+        #endregion
 
+        #region atirar----------
         //atirar
-        if (Input.GetButtonDown("Fire1") && podeAtirar)
+        if (Input.GetButtonDown("Fire1") && comLivro == true && podeAtirar)
         {
             GameObject temp = Instantiate(bullet, transform.position, transform.rotation);
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed_ * direction_, 0);
             podeAtirar = false;
             StartCoroutine(CooldownTiro());
+            audioSourceTiro_.Play();
         }
     }
 
-     IEnumerator CooldownTiro()
-     {
+    IEnumerator CooldownTiro()
+    {
         yield return new WaitForSeconds(cooldownTiro);
         podeAtirar = true;
-     }
+    }
+    #endregion
+    //caiuvoltar
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+   
+
+    }
+
 
 
     // morrer pros inimigos
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-
+        #region morrer pra inimigo ------
         if (collision.gameObject.CompareTag("enemy"))
         {
             SceneManager.LoadScene("fase1");
         }
-        if (collision.gameObject.tag == "plataform")
-        {
-            gameObject.transform.parent = collision.transform;
-        }
-
+        #endregion
+      
 
     }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "plataform")
-        {
-            gameObject.transform.parent = null;
-        }
-    }
-    // virar o sprite
+   
+
+    #region flipar o sprite ------
     void Flip()
     {
         if (horizontal_ > 0 && !olhandoDireita_ || horizontal_ < 0 && olhandoDireita_)
@@ -204,17 +224,14 @@ public class PlayerBossFight : MonoBehaviour
             localscale.x *= -1;
             transform.localScale = localscale;
         }
-    }
+    }  // virar o sprite
+    #endregion
+    #region particulas----
     void CreateDust()
     {
         dust.Play();
-    }
-    public static class CheckPoint1
-    {
-       
-        public static bool doublejum1;
-        
-    }
+    } // cirar fumaça quando pula
+    #endregion
 
 }
 
