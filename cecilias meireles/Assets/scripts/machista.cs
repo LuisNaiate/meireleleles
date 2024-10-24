@@ -23,6 +23,7 @@ public class machista : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       transform.position = new Vector2(4.773764f, 4.313086f);
        timer = 3;
        rb = GetComponent<Rigidbody2D>();
        player = GameObject.FindWithTag("player");
@@ -56,14 +57,15 @@ public class machista : MonoBehaviour
                 Instantiate(dumbell);
                 print("PESO");
             }
-            if (ahido == 1)
-            {
+        if (ahido == 1)
+        {
                 Instantiate(speechBox[Random.Range(0, speechBox.Length)]);
                 print("FALA");
-            }
+        }
         if (ahido == 2)
         {
            Instantiate(deathZone);
+            gameObject.SetActive(false);
         }
     }
 }
