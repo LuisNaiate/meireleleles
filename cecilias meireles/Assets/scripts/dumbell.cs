@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class dumbell : MonoBehaviour
 {
@@ -25,11 +27,22 @@ public class dumbell : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("player"))
         {
-            Destroy(player);
+          
+            TransicaoDeMorte.morreuBoss = true;
+            Destroy(collision.gameObject);
+            StartCoroutine(TempoParaCarregarCena());
         }
         if (collision.gameObject.CompareTag("wall"))
         {
             Destroy(gameObject);
         }
     }
+
+
+    IEnumerator TempoParaCarregarCena()
+    {
+        yield return new WaitForSeconds(0.3f);
+        SceneManager.LoadScene("Boss");
+    }
+   
 }

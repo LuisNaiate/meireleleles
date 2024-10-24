@@ -77,12 +77,7 @@ public class PlayerBossFight : MonoBehaviour
     #endregion
 
 
-    #region CheckPointSystem ---------------------
-    void Start()
-    {
-
-    }
-    #endregion
+  
 
     #region tempo-------
     public void T1me()
@@ -234,4 +229,8 @@ public class PlayerBossFight : MonoBehaviour
     #endregion
 
 }
+
+
+
+
 

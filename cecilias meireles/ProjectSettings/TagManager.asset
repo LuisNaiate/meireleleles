@@ -46,6 +46,7 @@ TagManager:
   - Checkpoint
   - cole
   - finalArea
+  - boss
   layers:
   - Default
   - TransparentFX

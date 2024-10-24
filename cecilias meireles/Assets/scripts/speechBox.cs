@@ -1,11 +1,11 @@
+using System.Collections;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
+
 
 public class speechBox : MonoBehaviour
 {
-    [Header("Timer")]
-    float timer;
-    [Space]
+   
 
     [Header("GameObjects")]
     [SerializeField] GameObject player;
@@ -21,26 +21,34 @@ public class speechBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = 0;
+        
         transform.position = new Vector2(6, 1);
         body.velocity = new Vector2(horizontal * speed, vertical * speed);
         player = GameObject.FindWithTag("player");
     }
-
+    IEnumerator Estourar()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
+    }
     // Update is called once per frame
     void Update()
     {
-        if (timer >= 2.5f)
-        {
-            Destroy(gameObject);
-            timer = 0;
-        }
+       StartCoroutine(Estourar());
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("player"))
         {
-            Destroy(player);
+            TransicaoDeMorte.morreuBoss = true;
+            Destroy(collision.gameObject);
+            StartCoroutine(TempoParaCarregarCena());
         }
     }
+    IEnumerator TempoParaCarregarCena()
+    {
+        yield return new WaitForSeconds(0.3f);
+        SceneManager.LoadScene("Boss");
+    }
+   
 }

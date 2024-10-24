@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 1960590002913569825}
   - component: {fileID: 1960590002913569826}
   - component: {fileID: 1960590002913569831}
-  - component: {fileID: 1960590002913569830}
+  - component: {fileID: 4619983229181915009}
   m_Layer: 0
   m_Name: boss
-  m_TagString: Untagged
+  m_TagString: boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 840e963d3764fee43bce1f4a0f47c118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 50
   speechBox:
   - {fileID: 8647587085077284787, guid: 75439ad772b12f94c806dee0ca3d0c0a, type: 3}
   - {fileID: 5028648513041118346, guid: b53d131e8b0888a4296abf2e4d8d75cc, type: 3}
@@ -126,8 +127,11 @@ MonoBehaviour:
   deathZone: {fileID: 7884840098351577223, guid: a061d70cdca4c8f42ba33db49a259d0c, type: 3}
   attacks: 000000000000000000000000
   player: {fileID: 0}
---- !u!61 &1960590002913569830
-BoxCollider2D:
+  DangerArea: {fileID: 0}
+  animator: {fileID: 1960590002913569826}
+  animatorDanger: {fileID: 0}
+--- !u!70 &4619983229181915009
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -139,16 +143,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.12, y: 1.42}
-    newSize: {x: 1.12, y: 1.42}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.12, y: 1.42}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.0047269543, y: 0}
+  m_Size: {x: 0.6378459, y: 1.4199997}
+  m_Direction: 0
