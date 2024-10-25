@@ -28,7 +28,7 @@ public class speechBox : MonoBehaviour
     }
     IEnumerator Estourar()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(15);
         Destroy(gameObject);
     }
     // Update is called once per frame
