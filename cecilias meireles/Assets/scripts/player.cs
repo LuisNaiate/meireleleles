@@ -39,7 +39,7 @@ public class player : MonoBehaviour
     public GameObject bullet;
     private bool podeAtirar = true;
     private float cooldownTiro = 0.5f;
-
+    
     [Header("tempo")]
     [SerializeField] private float time_;
 
