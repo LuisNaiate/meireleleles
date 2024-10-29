@@ -56,7 +56,7 @@ public class player : MonoBehaviour
 
     [Header("textos")]
     public TMP_Text coletaveisQtdTxt;
-    public int qtdOfColetaveis;
+    public static int qtdOfColetaveis;
     
 
     [Header("gameObjects")]

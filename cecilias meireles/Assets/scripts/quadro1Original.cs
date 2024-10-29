@@ -13,7 +13,7 @@ public class quadro1Original : MonoBehaviour
 
             b1.SetActive(true);
             //Time.timeScale = 0.0f;
-            Destroy(gameObject, 0.5f);
+           
             animator.SetBool("pegou4", true);
         }
     }
@@ -23,6 +23,6 @@ public class quadro1Original : MonoBehaviour
     {
         
         b1.SetActive(false);
-        Destroy(gameObject);
+        Destroy(gameObject, 0.2f);
     }
 }
