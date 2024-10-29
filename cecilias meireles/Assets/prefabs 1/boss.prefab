@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 840e963d3764fee43bce1f4a0f47c118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 50
+  life: 30
   speechBox:
   - {fileID: 8647587085077284787, guid: 75439ad772b12f94c806dee0ca3d0c0a, type: 3}
   - {fileID: 5028648513041118346, guid: b53d131e8b0888a4296abf2e4d8d75cc, type: 3}
