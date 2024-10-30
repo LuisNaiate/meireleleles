@@ -262,20 +262,26 @@ public class player : MonoBehaviour
         #region morrer pra canão e cair ---
         if (collision.gameObject.CompareTag("cannonBall"))
         {
-            SceneManager.LoadScene("fase1");
+            TransicaoDeMorteJogo.morreuJogo = true;
+            StartCoroutine(TempoParaRenacer());
         }
 
         //caiu no void
         if (collision.gameObject.CompareTag("queda"))
         {
-            SceneManager.LoadScene("fase1");
+            TransicaoDeMorteJogo.morreuJogo = true;
+            StartCoroutine(TempoParaRenacer());
         }
         #endregion
 
         
 
     }
-   
+   IEnumerator TempoParaRenacer()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("fase1");
+    }
     
 
     // morrer pros inimigos
@@ -285,7 +291,8 @@ public class player : MonoBehaviour
         #region morrer pra inimigo ------
         if (collision.gameObject.CompareTag("enemy"))
         {
-            SceneManager.LoadScene("fase1");
+            TransicaoDeMorteJogo.morreuJogo = true;
+            StartCoroutine(TempoParaRenacer());
         }
         #endregion
         #region ficar nas plataformas---- 

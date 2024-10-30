@@ -1174,6 +1174,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: boss
       objectReference: {fileID: 0}
+    - target: {fileID: 1960590002913569831, guid: 853ee63b5f027024487c571acb561225, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 716528179}
+    - target: {fileID: 1960590002913569831, guid: 853ee63b5f027024487c571acb561225, type: 3}
+      propertyPath: DangerArea
+      value: 
+      objectReference: {fileID: 1229778977}
+    - target: {fileID: 1960590002913569831, guid: 853ee63b5f027024487c571acb561225, type: 3}
+      propertyPath: animatorDanger
+      value: 
+      objectReference: {fileID: 1229778978}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 853ee63b5f027024487c571acb561225, type: 3}
 --- !u!1 &1000453255
