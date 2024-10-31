@@ -47,6 +47,7 @@ TagManager:
   - cole
   - finalArea
   - boss
+  - camera
   layers:
   - Default
   - TransparentFX
@@ -89,4 +90,7 @@ TagManager:
     locked: 0
   - name: menu
     uniqueID: 3158721525
+    locked: 0
+  - name: Ui
+    uniqueID: 3162003065
     locked: 0
