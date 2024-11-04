@@ -213,8 +213,14 @@ public class player : MonoBehaviour
         yield return new WaitForSeconds(cooldownTiro);
         podeAtirar = true;
     }
-        #endregion
+    #endregion
     //caiuvoltar
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(foot.position, 0.05f);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         #region Final da dungeon------
