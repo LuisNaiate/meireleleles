@@ -74,6 +74,7 @@ public class canon : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("bullet"))
         {
+
             life -= bullet.damage;
 
             if (life <= 0)
@@ -85,6 +86,7 @@ public class canon : MonoBehaviour
 
             
             }
+            Destroy(collision.gameObject);
         }
     }
     #endregion

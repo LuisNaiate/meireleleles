@@ -1,10 +1,11 @@
+
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class botao4 : MonoBehaviour
 {
     public GameObject plataformas;
+    [SerializeField] Animator animator;
     void Start()
     {
         
@@ -21,6 +22,13 @@ public class botao4 : MonoBehaviour
         if(collision.gameObject.CompareTag("bullet"))
         {
             plataformas.SetActive(true);
+            animator.SetBool("botaoPlataforma", true);
+            StartCoroutine(AnimacaoDaCamera());
         }
+    }
+    IEnumerator AnimacaoDaCamera()
+    {
+        yield return new WaitForSeconds(5);
+        animator.SetBool("botaoPlataforma", false);
     }
 }
