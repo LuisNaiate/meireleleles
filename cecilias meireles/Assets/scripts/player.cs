@@ -161,9 +161,12 @@ public class player : MonoBehaviour
             }
             else if(CheckPoint.doublejum && jumpsLeft >0)
             {
-                body_.AddForce(new Vector2(0, jumpstrengh_ * 100));
-                CreateDust();
-                jumpsLeft --;
+                //if (body_.velocity.y > 0 && groundCheck_ == false)
+               // {
+                 jumpsLeft--;
+                 body_.AddForce(new Vector2(0, jumpstrengh_ * 100));
+                 CreateDust();                     
+               // }
 
             }
        
@@ -313,6 +316,7 @@ public class player : MonoBehaviour
         if (collision.gameObject.tag == "plataform")
         {
             gameObject.transform.parent = null;
+           
         }
     }
     #endregion
