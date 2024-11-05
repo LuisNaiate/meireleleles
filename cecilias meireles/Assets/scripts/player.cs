@@ -32,7 +32,7 @@ public class player : MonoBehaviour
     private Collider2D footCollision;
     [Space]
     private int maxJump_ = 2;
-    private int jumpsLeft;
+   [SerializeField] private int jumpsLeft;
     //[SerializeField] private bool podePular = true;
 
     [Header("tiro")]
