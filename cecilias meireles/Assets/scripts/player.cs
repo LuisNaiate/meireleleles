@@ -39,7 +39,12 @@ public class player : MonoBehaviour
     public GameObject bullet;
     private bool podeAtirar = true;
     private float cooldownTiro = 0.5f;
-    
+    [Space]
+    [SerializeField] Transform LivroSegurando;
+    [SerializeField] GameObject LivroSegurandoObject;
+
+    [Space]
+
     [Header("tempo")]
     [SerializeField] private float time_;
 
@@ -70,7 +75,7 @@ public class player : MonoBehaviour
     private AudioSource audioSourceTiro_;
 
 
-
+    [SerializeField] Transform parentePlayer;
     #endregion
     //Anotações:
 
@@ -201,10 +206,14 @@ public class player : MonoBehaviour
 
         #region atirar----------
         //atirar
+        if(CheckPoint.comLivro == true)
+        {
+            LivroSegurandoObject.SetActive(true);
+        }
         if (Input.GetButtonDown("Fire1") && CheckPoint.comLivro == true && podeAtirar) 
         {
             audioSourceTiro_.Play();
-            GameObject temp = Instantiate(bullet, transform.position, transform.rotation);
+            GameObject temp = Instantiate(bullet, LivroSegurando.position, LivroSegurando.rotation);
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed_ * direction_, 0);
             podeAtirar = false;
             StartCoroutine(CooldownTiro());
@@ -308,6 +317,8 @@ public class player : MonoBehaviour
         if (collision.gameObject.tag == "plataform")
         {
             gameObject.transform.parent = collision.transform;
+            
+
         }
 
     }
@@ -316,7 +327,7 @@ public class player : MonoBehaviour
         if (collision.gameObject.tag == "plataform")
         {
             gameObject.transform.parent = null;
-           
+            gameObject.transform.parent = parentePlayer;
         }
     }
     #endregion
