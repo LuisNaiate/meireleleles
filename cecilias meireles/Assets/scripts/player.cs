@@ -216,6 +216,14 @@ public class player : MonoBehaviour
             GameObject temp = Instantiate(bullet, LivroSegurando.position, LivroSegurando.rotation);
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed_ * direction_, 0);
             podeAtirar = false;
+            if(direction_ < 0)
+            {
+                temp.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else
+            {
+                temp.GetComponent<SpriteRenderer>().flipX = false;
+            }
             StartCoroutine(CooldownTiro());
         }
     }
