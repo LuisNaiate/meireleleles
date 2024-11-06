@@ -13,6 +13,9 @@ public class menuPrincipal : MonoBehaviour
     [Space] public AudioMixer audiomixer;
     [Space] public GameObject foraDoCredito;
     [Space] public GameObject dentroDoCredito;
+    [Space] public GameObject assets;
+    
+
     #endregion
 
     [SerializeField]
@@ -47,6 +50,19 @@ public class menuPrincipal : MonoBehaviour
     {
         foraDoCredito.SetActive(true);
         dentroDoCredito.SetActive(false);
+    }
+    #endregion
+    #region Assets
+    public void Assets()
+    {
+        dentroDoCredito.SetActive(false);
+        assets.SetActive(true);
+    }
+
+    public void AssetsFora()
+    {
+        dentroDoCredito.SetActive(true);
+        assets.SetActive(false);
     }
     #endregion
 
