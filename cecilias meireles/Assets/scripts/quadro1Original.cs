@@ -2,27 +2,20 @@ using UnityEngine;
 
 public class quadro1Original : MonoBehaviour
 {
+    #region variaveis
     public GameObject b1;
     public Animator animator;
+    #endregion
 
-
+    #region quando o player pegar
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("player"))
         {
-
             b1.SetActive(true);
-            //Time.timeScale = 0.0f;
-           
             animator.SetBool("pegou4", true);
         }
     }
+    #endregion
 
-    
-    public void TimeRun()
-    {
-        
-        b1.SetActive(false);
-        Destroy(gameObject, 0.2f);
-    }
 }

@@ -22,10 +22,13 @@ public class gomba : MonoBehaviour
 
     }
     #endregion
+
+    #region movimentação
     void Update()
     {
         body_.velocity = new Vector2(speed * direction, body_.velocity.y);
     }
+    #endregion
     #region quando morrer
     void morte()
     {

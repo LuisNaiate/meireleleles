@@ -15,7 +15,7 @@ public class gomba1 : MonoBehaviour
     int direction = -1;
     public int life = 2;
 
-
+    #region atribuições de variaveis 
     private void Start()
     {
         spriteRenderer_ = GetComponent<SpriteRenderer>();
@@ -23,11 +23,16 @@ public class gomba1 : MonoBehaviour
         body_ = GetComponent<Rigidbody2D>();
 
     }
+    #endregion
+
+    #region movimentação
     void Update()
     {
        body_.velocity = new Vector2(speed * direction, body_.velocity.y); 
     }
+    #endregion
 
+    #region quando morrer
     void morte()
     {
         speed = 0;
@@ -39,9 +44,12 @@ public class gomba1 : MonoBehaviour
         boxCollider_.isTrigger = true;
         Destroy(gameObject, 1);
     }
+    #endregion
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
+        #region quando for atigido pelo tiro
         if (collision.gameObject.CompareTag("bullet"))
         {
           life -= bullet.damage;
@@ -56,17 +64,13 @@ public class gomba1 : MonoBehaviour
             StartCoroutine(TempinhoDeVermelho());   
             Destroy(collision.gameObject);
         }
+        #endregion
 
-        if(collision.gameObject.CompareTag("precipicio"))
+        #region trocar de direção
+        if (collision.gameObject.CompareTag("precipicio"))
         {
             direction *= -1;
         }
-    }
-
-    IEnumerator TempinhoDeVermelho()
-    {
-        yield return new WaitForSeconds(0.5f);
-        spriteRenderer_.color = Color.white;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -75,4 +79,12 @@ public class gomba1 : MonoBehaviour
             direction *= -1;
         }
     }
+    #endregion
+    #region corroutina
+    IEnumerator TempinhoDeVermelho()
+    {
+        yield return new WaitForSeconds(0.5f);
+        spriteRenderer_.color = Color.white;
+    }
+    #endregion
 }

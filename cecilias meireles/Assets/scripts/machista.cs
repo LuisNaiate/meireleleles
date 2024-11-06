@@ -4,13 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class machista : MonoBehaviour
 {
-
+    #region variaveis 
     [Header("status")]
     public int life = 50;
     [Header("Ataques")]
     [SerializeField] GameObject[] speechBox;
-    [SerializeField] GameObject dumbell;
-    [SerializeField] GameObject deathZone;
+    [Space]
+    [Space][SerializeField] GameObject dumbell;
+    [Space][SerializeField] GameObject deathZone;
     public int[] attacks;
     [Space]
 
@@ -32,43 +33,48 @@ public class machista : MonoBehaviour
     [SerializeField] Animator animatorDanger;
 
     public static bool Voltou;
-    // Start is called before the first frame update
+    #endregion
+
+    
     void Start()
     {
-       //transform.position = new Vector2(4.773764f, 4.313086f);
-       timer = 3;
+        #region atribuições de variaveis 
+        timer = 3;
        rb = GetComponent<Rigidbody2D>();
        player = GameObject.FindWithTag("player");
         animator = GetComponent<Animator>();
+        #endregion
+
+        #region ataque e animação
         DangerArea.SetActive(false);
         if (Voltou == true)
         {
             animator.SetBool("Voltou", true);
         }
         else return;
+        #endregion
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
+        #region tempo para atacar
         timer += Time.deltaTime;
         if (timer >= 5)
         {
             Attack();
             timer = 0;
         }
+        #endregion
 
-        
-        if(animator.GetBool("Voltou") == true)
+        #region quando voltar 
+        if (animator.GetBool("Voltou") == true)
         {
             StartCoroutine(VoltouTempo());
         }
+        #endregion
     }
-    IEnumerator VoltouTempo()
-    {
-        yield return new WaitForSeconds(2);
-        animator.SetBool("Voltou", false);
-    }
+    #region se for acertado pelo tiro
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("bullet"))
@@ -81,6 +87,9 @@ public class machista : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+    #endregion
+
+    #region se colidir com o player
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("player"))
@@ -90,12 +99,8 @@ public class machista : MonoBehaviour
             StartCoroutine(TempoParaCarregarCena());
         }
     }
-
-    IEnumerator TempoParaCarregarCena()
-    {
-        yield return new WaitForSeconds(0.3f);
-        SceneManager.LoadScene("Boss");
-    }
+    #endregion
+    #region qual ataque vai executar
     void Attack()
     {
         
@@ -119,23 +124,19 @@ public class machista : MonoBehaviour
                 break;
         }
 
-        /*
-       if (ahido == 0)
-        {
-                Instantiate(dumbell);
-                print("PESO");
-        }
-        if (ahido == 1)
-        {
-                Instantiate(speechBox[Random.Range(0, speechBox.Length)]);
-                print("FALA");
-        }
-        if (ahido == 2)
-        {
-           Instantiate(deathZone);
-            gameObject.SetActive(false);
-        }
-        */
+       
+    }
+    #endregion
+    #region coroutinas
+    IEnumerator TempoParaCarregarCena()
+    {
+        yield return new WaitForSeconds(0.3f);
+        SceneManager.LoadScene("Boss");
+    }
+    IEnumerator VoltouTempo()
+    {
+        yield return new WaitForSeconds(2);
+        animator.SetBool("Voltou", false);
     }
     IEnumerator Ataque3()
     {
@@ -153,4 +154,5 @@ public class machista : MonoBehaviour
         Instantiate(deathZone);
         gameObject.SetActive(false);
     }
+    #endregion
 }

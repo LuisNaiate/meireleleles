@@ -24,7 +24,7 @@ public class canon : MonoBehaviour
     #endregion
     void Start()
     {
-        // SpriteRenderer = GetComponent<SpriteRenderer>();
+       
         animator_ = GetComponent<Animator>();
     }
 
@@ -90,6 +90,8 @@ public class canon : MonoBehaviour
         }
     }
     #endregion
+
+
     void CreateDust()
     {
         dust1.Play();

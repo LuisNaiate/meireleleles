@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour
 {
-    #region variaveis
+    #region [[SerializeField] variaveis
     public LayerMask filtro;
 
     [Header("player")]

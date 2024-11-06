@@ -4,23 +4,27 @@ using UnityEngine.SceneManagement;
 
 public class DeadArea : MonoBehaviour
 {
+    #region variaveis 
     [SerializeField] GameObject boss;
     [SerializeField] float timer;
     machista machista;
+    #endregion
+
+    #region encontrar o boss 
     private void Awake()
     {
         boss = GameObject.FindGameObjectWithTag("boss");
     }
+    #endregion
+
+    #region quando o ataque ativar 
     void Start()
     {
         StartCoroutine(TempoDeEspera());
     }
+    #endregion
 
-    
-    void Update()
-    {
-    
-    }
+    #region quando colidir com o player
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("player"))
@@ -30,7 +34,10 @@ public class DeadArea : MonoBehaviour
            StartCoroutine(TempoParaCarregarCena());
         }
     }
-   IEnumerator TempoParaCarregarCena()
+    #endregion
+
+    #region Coroutinas (nomes autoexplicativo)
+    IEnumerator TempoParaCarregarCena()
     {
         yield return new WaitForSeconds(0.3f);
         SceneManager.LoadScene("Boss");
@@ -44,4 +51,5 @@ public class DeadArea : MonoBehaviour
         Destroy(gameObject);
         
     }
+    #endregion
 }
