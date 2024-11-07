@@ -8,6 +8,7 @@ public class PretoSair : MonoBehaviour
     [Header("Variaveis")]
     Transform player;
     public GameObject entrou, saiu;
+    public GameObject light1, light2;
     #endregion
 
     #region atribuitions
@@ -24,15 +25,19 @@ public class PretoSair : MonoBehaviour
         {
             entrou.SetActive(true);
             saiu.SetActive(false);
+            light1.SetActive(false); 
+            light2.SetActive(true);
         }
         else
         {
 
             entrou.SetActive(false);
             saiu.SetActive(true);
-
+            light1.SetActive(true);
+            light2.SetActive(false);
         }
+    }
     }
     #endregion
 
-}
+

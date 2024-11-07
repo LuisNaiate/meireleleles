@@ -76,6 +76,8 @@ public class player : MonoBehaviour
 
 
     [SerializeField] Transform parentePlayer;
+
+   
     #endregion
     //Anotações:
 
@@ -122,7 +124,7 @@ public class player : MonoBehaviour
     void Update()
     {
 
-
+        
 
 
         #region movimentação e sprites ----------
@@ -213,7 +215,7 @@ public class player : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && CheckPoint.comLivro == true && podeAtirar) 
         {
             audioSourceTiro_.Play();
-            GameObject temp = Instantiate(bullet, LivroSegurando.position, LivroSegurando.rotation);
+            GameObject temp = Instantiate(bullet, LivroSegurando.position, gameObject.transform.rotation);
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed_ * direction_, 0);
             podeAtirar = false;
             if(direction_ < 0)

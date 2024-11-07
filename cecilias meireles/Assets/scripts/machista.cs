@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,6 +34,9 @@ public class machista : MonoBehaviour
     [SerializeField] Animator animatorDanger;
 
     public static bool Voltou;
+
+
+    
     #endregion
 
     
@@ -47,15 +51,17 @@ public class machista : MonoBehaviour
 
         #region ataque e animação
         DangerArea.SetActive(false);
+
         if (Voltou == true)
         {
+            
             animator.SetBool("Voltou", true);
         }
         else return;
         #endregion
     }
-
     
+
     void Update()
     {
         #region tempo para atacar

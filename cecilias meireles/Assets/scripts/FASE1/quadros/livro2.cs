@@ -6,7 +6,20 @@ public class livro2 : MonoBehaviour
     public GameObject a2;
     public Animator animator;
 
-    
+    private void Start()
+    {
+        if (pegou2 == true)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+    private void Update()
+    {
+        if (Input.GetButtonDown("Quit"))
+        {
+            TimeRun();
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("player"))
@@ -25,5 +38,6 @@ public class livro2 : MonoBehaviour
         //Time.timeScale = 1.0f;
         a2.SetActive(false);
         Destroy(gameObject);
+        pegou2 = true;
     }
 }

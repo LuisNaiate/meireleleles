@@ -38,6 +38,7 @@ public class PlayerBossFight : MonoBehaviour
     public GameObject bullet;
     private bool podeAtirar = true;
     private float cooldownTiro = 0.5f;
+    [SerializeField] Transform LivroSegurando;
 
     [Header("tempo")]
     [SerializeField] private float time_;
@@ -52,7 +53,7 @@ public class PlayerBossFight : MonoBehaviour
     public bool doublejum = true;
     public bool comLivro = true;
 
-
+    [SerializeField] Transform parentePlayer;
     #endregion
     //Anotações:
 
@@ -167,9 +168,17 @@ public class PlayerBossFight : MonoBehaviour
         //atirar
         if (Input.GetButtonDown("Fire1") && comLivro == true && podeAtirar)
         {
-            GameObject temp = Instantiate(bullet, transform.position, transform.rotation);
+            GameObject temp = Instantiate(bullet, LivroSegurando.position, gameObject.transform.rotation);
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed_ * direction_, 0);
             podeAtirar = false;
+            if (direction_ < 0)
+            {
+                temp.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else
+            {
+                temp.GetComponent<SpriteRenderer>().flipX = false;
+            }
             StartCoroutine(CooldownTiro());
             audioSourceTiro_.Play();
         }
@@ -200,10 +209,22 @@ public class PlayerBossFight : MonoBehaviour
             SceneManager.LoadScene("fase1");
         }
         #endregion
-      
+        if (collision.gameObject.tag == "plataform")
+        {
+            gameObject.transform.parent = collision.transform;
+
+
+        }
 
     }
-   
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "plataform")
+        {
+            gameObject.transform.parent = null;
+            gameObject.transform.parent = parentePlayer;
+        }
+    }
 
     #region flipar o sprite ------
     void Flip()

@@ -48,6 +48,7 @@ public class DeadArea : MonoBehaviour
         yield return new WaitForSeconds(timer);
         boss.SetActive(true);
         machista.Voltou = true;
+    
         Destroy(gameObject);
         
     }
