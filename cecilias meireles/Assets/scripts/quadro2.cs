@@ -6,6 +6,7 @@ public class quadro2 : MonoBehaviour
     public GameObject b2;
     public Animator animator;
     public static bool pegouQuadro2 = false;
+    bool pegouLivro = false;
     #endregion
 
     private void Start()
@@ -17,9 +18,13 @@ public class quadro2 : MonoBehaviour
     }
     private void Update()
     {
+        if(pegouLivro == true)
+        {
+
         if (Input.GetButtonDown("Quit"))
         {
             TimeRun();
+        }
         }
     }
     #region quando o player pegar
@@ -29,8 +34,8 @@ public class quadro2 : MonoBehaviour
         {
 
             b2.SetActive(true);
-    
-         
+
+            pegouLivro = true;
             animator.SetBool("pegou5", true);
         }
     }

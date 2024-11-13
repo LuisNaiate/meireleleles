@@ -8,6 +8,7 @@ public class quadro1 : MonoBehaviour
     public static bool pegou1 = false;
     public GameObject livro1;
     public Animator anim;
+    bool pegouLivro = false;
     #endregion
 
     #region Quando pegar o livro
@@ -20,9 +21,13 @@ public class quadro1 : MonoBehaviour
     }
     private void Update()
     {
+        if(pegouLivro == true)
+        {
+
         if (Input.GetButtonDown("Quit"))
         {
             TimeRun();
+        }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,7 +36,7 @@ public class quadro1 : MonoBehaviour
         {
             livro1.SetActive(true);
             //Time.timeScale = 0.0f;
-            
+            pegouLivro = true;
            anim.SetBool("pegou1", true);
            
         }

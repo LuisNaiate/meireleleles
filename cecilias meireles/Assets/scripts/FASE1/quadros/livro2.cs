@@ -5,6 +5,7 @@ public class livro2 : MonoBehaviour
     public static bool pegou2 = false;
     public GameObject a2;
     public Animator animator;
+    bool pegouLivro = false;
 
     private void Start()
     {
@@ -13,16 +14,18 @@ public class livro2 : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-    private void Update()
+     void Update()
     {
-        while (a2 == true)
+        if(pegouLivro == true)
         {
 
-        if (Input.GetButtonDown("Quit"))
-        {
+         if (Input.GetButtonDown("Quit"))
+         {
             TimeRun();
+          }
         }
-        }
+        
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -32,7 +35,7 @@ public class livro2 : MonoBehaviour
          
             a2.SetActive(true);
             //Time.timeScale = 0.0f;
-            
+            pegouLivro = true;
             animator.SetBool("pegou2", true);
         }
     }

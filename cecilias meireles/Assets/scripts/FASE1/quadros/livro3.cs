@@ -6,6 +6,7 @@ public class livro3 : MonoBehaviour
     public static bool pegou3 = false;
     public GameObject a3;
     public Animator animator;
+    bool pegouLivro = false;
     #endregion
     private void Start()
     {
@@ -17,9 +18,13 @@ public class livro3 : MonoBehaviour
 
     private void Update()
     {
+        if (pegouLivro == true)
+        {
         if (Input.GetButtonDown("Quit"))
         {
             TimeRun();
+        }
+            
         }
     }
     #region quando o player pegar
@@ -28,9 +33,9 @@ public class livro3 : MonoBehaviour
         if (collision.gameObject.CompareTag("player"))
         {
             a3.SetActive(true);
-         
-           
-            animator.SetBool("pegou3", true);
+
+            pegouLivro = true;
+                animator.SetBool("pegou3", true);
 
         }
     }

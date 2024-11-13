@@ -6,6 +6,7 @@ public class quadro3 : MonoBehaviour
     public GameObject b3;
     public Animator animator;
     public static bool pegouQuadro3 = false;
+    bool pegouLivro = false;
     #endregion
 
     private void Start()
@@ -17,7 +18,7 @@ public class quadro3 : MonoBehaviour
     }
     private void Update()
     {
-        while(b3 == true)
+        if(pegouLivro == true)
         {
 
          if (Input.GetButtonDown("Quit"))
@@ -33,8 +34,8 @@ public class quadro3 : MonoBehaviour
         {
             
             b3.SetActive(true);
-   
-           
+
+            pegouLivro = true;
             animator.SetBool("pegou6", true);
         }
     }
