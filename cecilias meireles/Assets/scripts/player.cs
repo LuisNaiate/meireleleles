@@ -291,14 +291,16 @@ public class player : MonoBehaviour
         if (collision.gameObject.CompareTag("cannonBall"))
         {
             TransicaoDeMorteJogo.morreuJogo = true;
-            StartCoroutine(TempoParaRenacer());
+            //StartCoroutine(TempoParaRenacer());
+            SceneManager.LoadScene("fase1");
         }
 
         //caiu no void
         if (collision.gameObject.CompareTag("queda"))
         {
             TransicaoDeMorteJogo.morreuJogo = true;
-            StartCoroutine(TempoParaRenacer());
+            //StartCoroutine(TempoParaRenacer());
+            SceneManager.LoadScene("fase1");
         }
         #endregion
 
@@ -320,7 +322,8 @@ public class player : MonoBehaviour
         if (collision.gameObject.CompareTag("enemy"))
         {
             TransicaoDeMorteJogo.morreuJogo = true;
-            StartCoroutine(TempoParaRenacer());
+            //StartCoroutine(TempoParaRenacer());
+            SceneManager.LoadScene("fase1");
         }
         #endregion
         #region ficar nas plataformas---- 
