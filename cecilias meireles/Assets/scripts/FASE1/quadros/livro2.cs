@@ -15,9 +15,13 @@ public class livro2 : MonoBehaviour
     }
     private void Update()
     {
+        while (a2 == true)
+        {
+
         if (Input.GetButtonDown("Quit"))
         {
             TimeRun();
+        }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

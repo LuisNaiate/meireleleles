@@ -17,9 +17,13 @@ public class quadro3 : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetButtonDown("Quit"))
+        while(b3 == true)
         {
+
+         if (Input.GetButtonDown("Quit"))
+         {
             TimeRun();
+         }
         }
     }
     #region quando o player pegar
