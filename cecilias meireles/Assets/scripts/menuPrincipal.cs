@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class menuPrincipal : MonoBehaviour
 {
@@ -17,10 +18,21 @@ public class menuPrincipal : MonoBehaviour
     public GameObject colecionaveis;
     public GameObject volume;
     public GameObject controler;
-
+    public GameObject colecionaveisBtn;
+    public static bool terminouJogo = false;
     #endregion
 
-    [SerializeField]
+
+    private void Update()
+    {
+        if (terminouJogo)
+        {
+            colecionaveisBtn.SetActive(true);
+
+        }
+    }
+   
+
     #region jogar 
     public void jogar()
     {

@@ -2245,7 +2245,7 @@ RectTransform:
   - {fileID: 496913468}
   - {fileID: 1447004374}
   m_Father: {fileID: 1644829951}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4021,7 +4021,7 @@ Transform:
   - {fileID: 1323308567}
   - {fileID: 1734393466}
   m_Father: {fileID: 1644829951}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &859694591
 GameObject:
@@ -4896,7 +4896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &978933035
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4910,9 +4910,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 84378783}
-  - {fileID: 1849889858}
   m_Father: {fileID: 1644829951}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5455,7 +5454,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1410569571}
         m_TargetAssemblyTypeName: menuPrincipal, Assembly-CSharp
-        m_MethodName: fecharOpcoes
+        m_MethodName: FecharVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5653,7 +5652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1116283331
 Transform:
   m_ObjectHideFlags: 0
@@ -5872,7 +5871,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Op\xE7\xF5es\n"
+  m_text: volume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 53a7528653e63d749a3dab7d669c1978, type: 2}
   m_sharedMaterial: {fileID: 2551135839866059364, guid: 53a7528653e63d749a3dab7d669c1978, type: 2}
@@ -7097,7 +7096,7 @@ RectTransform:
   - {fileID: 1043942998}
   - {fileID: 814001579}
   m_Father: {fileID: 1644829951}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7588,6 +7587,7 @@ MonoBehaviour:
   colecionaveis: {fileID: 555917844}
   volume: {fileID: 1849889857}
   controler: {fileID: 1116283330}
+  colecionaveisBtn: {fileID: 1923273390}
 --- !u!1 &1433835923
 GameObject:
   m_ObjectHideFlags: 0
@@ -9160,6 +9160,7 @@ RectTransform:
   - {fileID: 2052097583}
   - {fileID: 1410569570}
   - {fileID: 1116283331}
+  - {fileID: 1849889858}
   - {fileID: 978933035}
   - {fileID: 836855044}
   - {fileID: 1362749962}
@@ -10339,7 +10340,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849889857}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 50.377342, y: 154.33925, z: 3.2091925}
+  m_LocalPosition: {x: 50.37734, y: 154.33923, z: 3.2091923}
   m_LocalScale: {x: 0.41666663, y: 0.41666663, z: 0.41666663}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10349,8 +10350,8 @@ Transform:
   - {fileID: 493035613}
   - {fileID: 1755224812}
   - {fileID: 877245039}
-  m_Father: {fileID: 978933035}
-  m_RootOrder: 1
+  m_Father: {fileID: 1644829951}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1879311995
 GameObject:
@@ -10739,7 +10740,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1923273391
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11830,7 +11831,7 @@ RectTransform:
   - {fileID: 799625294}
   - {fileID: 1517537578}
   m_Father: {fileID: 1644829951}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

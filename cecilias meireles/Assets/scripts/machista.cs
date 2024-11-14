@@ -88,6 +88,7 @@ public class machista : MonoBehaviour
             life -= bullet.damage;
             if(life <= 0)
             {
+                menuPrincipal.terminouJogo = true;
                 Destroy(gameObject);
             }
             Destroy(collision.gameObject);

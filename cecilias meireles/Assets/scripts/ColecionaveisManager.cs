@@ -21,6 +21,7 @@ public class ColecionaveisManager : MonoBehaviour
     public Button proximo;
     public Button anterior;
     public Button voltar;
+    
     #endregion
 
     private void Start()
