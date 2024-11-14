@@ -36,7 +36,7 @@ public class menuPrincipal : MonoBehaviour
     #region jogar 
     public void jogar()
     {
-        SceneManager.LoadScene("Fase1");
+        SceneManager.LoadScene("Cutscene1");
     }
     #endregion
 

@@ -36,7 +36,7 @@ public class Cutscene3 : MonoBehaviour
                 cameraPos.position = new Vector2(16, 0);
                 break;
             case 9:
-                SceneManager.LoadScene("fase1");
+                SceneManager.LoadScene("menu");
                 break;
 
 
