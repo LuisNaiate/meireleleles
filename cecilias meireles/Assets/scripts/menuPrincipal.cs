@@ -15,6 +15,8 @@ public class menuPrincipal : MonoBehaviour
     [Space] public GameObject dentroDoCredito;
     [Space] public GameObject assets;
     public GameObject colecionaveis;
+    public GameObject volume;
+    public GameObject controler;
 
     #endregion
 
@@ -27,6 +29,7 @@ public class menuPrincipal : MonoBehaviour
     #endregion
 
     #region opções
+
     public void Opcoes()
     {
         painelMenuInicial.SetActive(false);
@@ -37,6 +40,29 @@ public class menuPrincipal : MonoBehaviour
     {
         painelOpcoes.SetActive(false);
         painelMenuInicial.SetActive(true);
+    }
+
+    public void AbrirVolume()
+    {
+        volume.SetActive(true);
+        painelOpcoes.SetActive(false) ;
+
+    }
+    public void AbrirControler()
+    {
+        controler.SetActive(true);
+        painelOpcoes.SetActive(false);
+
+    }
+    public void FecharVolume()
+    {
+        volume.SetActive(false);
+        painelOpcoes.SetActive(true);
+    }
+    public void FecharControle()
+    {
+        controler.SetActive(false);
+        painelOpcoes.SetActive(true);
     }
     #endregion
 

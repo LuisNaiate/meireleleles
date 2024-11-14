@@ -5,7 +5,7 @@ public class gomba : MonoBehaviour
 {
     [Header("corpo")]
     private Rigidbody2D body_;
-    private BoxCollider2D boxCollider_;
+    private CapsuleCollider2D capsuleCollider_;
     private SpriteRenderer spriteRenderer_;
 
     [Header("status")]
@@ -17,7 +17,7 @@ public class gomba : MonoBehaviour
     void Start()
     {
         spriteRenderer_ = GetComponent<SpriteRenderer>();
-        boxCollider_ = GetComponent<BoxCollider2D>();
+        capsuleCollider_ = GetComponent<CapsuleCollider2D>();
         body_ = GetComponent<Rigidbody2D>();
 
     }
@@ -37,7 +37,7 @@ public class gomba : MonoBehaviour
         spriteRenderer_.color = Color.red;
         gameObject.transform.Rotate(0, 0, -90);
         body_.gravityScale = 0;
-        boxCollider_.isTrigger = true;
+        capsuleCollider_.isTrigger = true;
         Destroy(gameObject, 0.8f);
     }
     #endregion
