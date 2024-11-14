@@ -1079,7 +1079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicou: 0
-  camera: {fileID: 927911789}
+  cameraPos: {fileID: 927911789}
 --- !u!1 &1741741737
 GameObject:
   m_ObjectHideFlags: 0
