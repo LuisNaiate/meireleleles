@@ -2,6 +2,7 @@
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.UI;
 
 public class ColecionaveisManager : MonoBehaviour
 {
@@ -15,10 +16,20 @@ public class ColecionaveisManager : MonoBehaviour
 
     [Header("arrays")]
     public GameObject[] colecionaveis;
-   
+
+    [Header("buttons")]
+    public Button proximo;
+    public Button anterior;
+    public Button voltar;
     #endregion
 
-
+    private void Start()
+    {
+        proximo.onClick.AddListener(Proximo);
+        anterior.onClick.AddListener(Anterior);
+        voltar.onClick.AddListener(Voltar);
+    }
+   
     public void Proximo()
     {
         qual++;
@@ -45,16 +56,19 @@ public class ColecionaveisManager : MonoBehaviour
                 case 1:
                 colecionaveis[1].SetActive(true);
                 colecionaveis[0].SetActive(false);
+                colecionaveis[2].SetActive(false);
                 break;
 
                 case 2:
                 colecionaveis[2].SetActive(true);
                 colecionaveis[1].SetActive(false);
+                colecionaveis[3].SetActive(false);
                 break;
 
                 case 3:
                 colecionaveis[3].SetActive(true);
                 colecionaveis[2].SetActive(false);
+                colecionaveis[4].SetActive(false);
                 break;
 
                 case 4:

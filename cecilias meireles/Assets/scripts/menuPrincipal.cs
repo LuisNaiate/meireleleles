@@ -14,7 +14,7 @@ public class menuPrincipal : MonoBehaviour
     [Space] public GameObject foraDoCredito;
     [Space] public GameObject dentroDoCredito;
     [Space] public GameObject assets;
-    
+    public GameObject colecionaveis;
 
     #endregion
 
@@ -63,6 +63,11 @@ public class menuPrincipal : MonoBehaviour
     {
         dentroDoCredito.SetActive(true);
         assets.SetActive(false);
+    }
+    public void Colecionaveis()
+    {
+        painelMenuInicial.SetActive(false);
+        colecionaveis.SetActive(true);
     }
     #endregion
 
