@@ -3132,7 +3132,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 5924045469954393139, guid: a219f60992c629a4aaee7dcb91ff3e4a, type: 2}
   m_audioClip: {fileID: 8300000, guid: 219b8755ce4f73148a0e5449686b2d27, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.539
+  m_Volume: 0.334
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3245,8 +3245,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicas:
   - {fileID: 8300000, guid: 219b8755ce4f73148a0e5449686b2d27, type: 3}
+  - {fileID: 8300000, guid: 28afeabfad947e24582c9cab47bf7599, type: 3}
   - {fileID: 8300000, guid: 3ae6ac071f570bc4ca7bcfbc3beb5d1a, type: 3}
+  - {fileID: 8300000, guid: c20f138ddbc24964390fe3edb21383bb, type: 3}
   - {fileID: 8300000, guid: 9ea1565ad8a685b42aec08d739da98f6, type: 3}
+  - {fileID: 8300000, guid: 134ac98df77a4554d812339ff872836f, type: 3}
 --- !u!1 &769086397
 GameObject:
   m_ObjectHideFlags: 0

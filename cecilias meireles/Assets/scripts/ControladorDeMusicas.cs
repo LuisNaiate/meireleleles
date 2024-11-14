@@ -54,15 +54,24 @@ public class ControladorDeMusicas : MonoBehaviour
 
         switch (sceneIndex)
         {
-            case 0: // Exemplo para a primeira cena.
+            case 0: // Exemplo para a primeira cena. // menu
                 audioSource.clip = musicas[0]; // Seleciona a música para a cena 0.
                 break;
-            case 1: // Exemplo para a segunda cena.
+            case 1: // Exemplo para a segunda cena. cutscene 1
                 audioSource.clip = musicas[1]; // Seleciona a música para a cena 1.
                 break;
-            case 2: // Exemplo para a terceira cena.
+            case 2: // Exemplo para a terceira cena. fase
                 audioSource.clip = musicas[2]; // Seleciona a música para a cena 2.
                 break;
+            case 3: // cutscene 2
+                audioSource.clip = musicas[3];
+                break;
+            case 4: //  boss
+                audioSource.clip = musicas[4];
+                break;
+            case 5: //custcene 3
+                audioSource.clip = musicas[5];
+                break ;
             default:
                 audioSource.clip = null; // Nenhuma música para cenas não especificadas.
                 break;
