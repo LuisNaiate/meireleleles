@@ -23,7 +23,7 @@ public class TransicaoDeMorteJogo : MonoBehaviour
     {
         cameraSeguir = GameObject.FindGameObjectWithTag("camera").transform;
         fase = SceneManager.GetActiveScene().name;
-        if(fase == "Boss")
+        if(fase == "Boss" || fase == "menu")
         {
             Destroy(gameObject);
         }
