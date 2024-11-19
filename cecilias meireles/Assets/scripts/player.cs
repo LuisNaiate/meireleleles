@@ -253,6 +253,10 @@ public class player : MonoBehaviour
         {
             qtdOfColetaveis++;
             coletaveisQtdTxt.text = qtdOfColetaveis + "/6"; //qtdOfColetaveis.ToString() ;
+            if(qtdOfColetaveis > 6)
+            {
+                qtdOfColetaveis = 6;
+            }
             
         }
         if (qtdOfColetaveis >= 6 && collision.gameObject.CompareTag("finalArea"))
