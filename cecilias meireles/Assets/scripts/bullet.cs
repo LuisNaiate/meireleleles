@@ -30,7 +30,7 @@ public class bullet : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("wall"))
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 0.001f);
         }
     }
 }

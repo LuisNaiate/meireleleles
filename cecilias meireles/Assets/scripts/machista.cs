@@ -89,7 +89,8 @@ public class machista : MonoBehaviour
             if(life <= 0)
             {
                 menuPrincipal.terminouJogo = true;
-                Destroy(gameObject);
+                SceneManager.LoadScene("Cutscene3");
+                Destroy(gameObject, 0.09f);
             }
             Destroy(collision.gameObject);
         }
