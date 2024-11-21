@@ -1,9 +1,6 @@
 
 using UnityEngine;
-using TMPro;
-using System;
 using UnityEngine.UI;
-
 public class ColecionaveisManager : MonoBehaviour
 {
     #region variaveis

@@ -11,7 +11,7 @@ public class PlayerBossFight : MonoBehaviour
 
     [Header("player")]
     public Transform foot;
-    private Rigidbody2D body_;
+     Rigidbody2D body_;
     public ParticleSystem dust;
 
     [Header("movimentação")]
@@ -19,7 +19,7 @@ public class PlayerBossFight : MonoBehaviour
     int direction_ = 1;
     [Space]
     [Range(0f, 10f)]
-    [SerializeField] private float speed_ = 5;
+    [SerializeField]  float speed_ = 5;
     [Space]
     [SerializeField] float jumpstrengh_ = 5;
     [Space]
@@ -27,28 +27,28 @@ public class PlayerBossFight : MonoBehaviour
     float horizontal_;
 
     [Header("pulo e pulo duplo")]
-    [SerializeField] private bool groundCheck_;
-    private Collider2D footCollision;
+    [SerializeField]  bool groundCheck_;
+     Collider2D footCollision;
     [Space]
-    private int maxJump_ = 2;
+     int maxJump_ = 2;
     [SerializeField]  private int jumpsLeft;
     //[SerializeField] private bool podePular = true;
 
     [Header("tiro")]
     public GameObject bullet;
-    private bool podeAtirar = true;
-    private float cooldownTiro = 0.5f;
+     bool podeAtirar = true;
+     float cooldownTiro = 0.5f;
     [SerializeField] Transform LivroSegurando;
 
     [Header("tempo")]
     [SerializeField] private float time_;
 
     [Header("animação")]
-    private Animator animator_;
+     Animator animator_;
 
    
     [Header("audio")]
-    private AudioSource audioSourceTiro_;
+     AudioSource audioSourceTiro_;
 
     public bool doublejum = true;
     public bool comLivro = true;
@@ -129,7 +129,7 @@ public class PlayerBossFight : MonoBehaviour
             }
             else if (doublejum && jumpsLeft > 0)
             {
-                body_.AddForce(new Vector2(0, jumpstrengh_ * 60));
+                body_.AddForce(new Vector2(0, jumpstrengh_ * 50));
                 CreateDust();
                 jumpsLeft--;
 

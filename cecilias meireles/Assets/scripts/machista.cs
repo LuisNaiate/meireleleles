@@ -1,5 +1,5 @@
 using System.Collections;
-using Unity.VisualScripting;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -35,7 +35,7 @@ public class machista : MonoBehaviour
 
     public static bool Voltou;
 
-
+    [SerializeField] SpriteRenderer sprite;
     
     #endregion
 
@@ -47,6 +47,7 @@ public class machista : MonoBehaviour
        rb = GetComponent<Rigidbody2D>();
        player = GameObject.FindWithTag("player");
         animator = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
         #endregion
 
         #region ataque e animação
@@ -86,6 +87,8 @@ public class machista : MonoBehaviour
         if(collision.gameObject.CompareTag("bullet"))
         {
             life -= bullet.damage;
+            sprite.color = Color.red;
+            StartCoroutine(TempoDeDano());
             if(life <= 0)
             {
                 menuPrincipal.terminouJogo = true;
@@ -136,6 +139,12 @@ public class machista : MonoBehaviour
     }
     #endregion
     #region coroutinas
+
+    IEnumerator TempoDeDano()
+    {
+        yield return new WaitForSeconds(0.2f);
+        sprite.color = Color.white;
+    }
     IEnumerator TempoParaCarregarCena()
     {
         yield return new WaitForSeconds(0.3f);

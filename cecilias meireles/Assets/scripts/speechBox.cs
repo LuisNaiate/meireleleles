@@ -18,7 +18,7 @@ public class speechBox : MonoBehaviour
 
     [Header("RigidBody")]
     [SerializeField] Rigidbody2D body;
-    // Start is called before the first frame update
+
     void Start()
     {
         
@@ -31,7 +31,7 @@ public class speechBox : MonoBehaviour
         yield return new WaitForSeconds(15);
         Destroy(gameObject);
     }
-    // Update is called once per frame
+
     void Update()
     {
        StartCoroutine(Estourar());

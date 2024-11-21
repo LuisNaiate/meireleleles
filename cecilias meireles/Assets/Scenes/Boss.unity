@@ -382,6 +382,11 @@ Transform:
   m_Father: {fileID: 1825396258}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &250692085 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1960590002913569825, guid: 853ee63b5f027024487c571acb561225, type: 3}
+  m_PrefabInstance: {fileID: 978616980}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &260066538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1798,6 +1803,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1960590002913569825, guid: 853ee63b5f027024487c571acb561225, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960590002913569825, guid: 853ee63b5f027024487c571acb561225, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960590002913569825, guid: 853ee63b5f027024487c571acb561225, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1960590002913569827, guid: 853ee63b5f027024487c571acb561225, type: 3}
       propertyPath: m_Name
       value: boss
@@ -1814,6 +1831,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 716528179}
+    - target: {fileID: 1960590002913569831, guid: 853ee63b5f027024487c571acb561225, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 250692085}
     - target: {fileID: 1960590002913569831, guid: 853ee63b5f027024487c571acb561225, type: 3}
       propertyPath: DangerArea
       value: 

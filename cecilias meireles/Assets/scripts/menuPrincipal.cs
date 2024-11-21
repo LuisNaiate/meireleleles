@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
-using UnityEngine.UI;
 
 public class menuPrincipal : MonoBehaviour
 {
@@ -37,6 +36,13 @@ public class menuPrincipal : MonoBehaviour
     public void jogar()
     {
         SceneManager.LoadScene("Cutscene1");
+        if(terminouJogo )
+        {
+            CheckPoint.doublejum = false;
+            CheckPoint.comLivro = false;
+            CheckPoint.chegouCheckpoint = false;
+            player.qtdOfColetaveis = 0;
+        }
     }
     #endregion
 

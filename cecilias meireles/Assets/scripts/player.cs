@@ -1,7 +1,6 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-
 using UnityEngine.SceneManagement;
 
 
@@ -12,7 +11,7 @@ public class player : MonoBehaviour
 
     [Header("player")]
     public Transform foot;
-    private Rigidbody2D body_;
+     Rigidbody2D body_;
     public ParticleSystem dust;
 
     [Header("movimentação")]
@@ -20,7 +19,7 @@ public class player : MonoBehaviour
     int direction_ = 1;
     [Space]
     [Range(0f, 10f)]
-    [SerializeField] private float speed_ = 5;
+    [SerializeField]  float speed_ = 5;
     [Space]
     [SerializeField] float jumpstrengh_ = 5;
     [Space]
@@ -28,17 +27,17 @@ public class player : MonoBehaviour
     float horizontal_;
 
     [Header("pulo e pulo duplo")]
-    [SerializeField] private bool groundCheck_;
-    private Collider2D footCollision;
+    [SerializeField]  bool groundCheck_;
+     Collider2D footCollision;
     [Space]
-    private int maxJump_ = 2;
-   [SerializeField] private int jumpsLeft;
+     int maxJump_ = 2;
+   [SerializeField]  int jumpsLeft;
     //[SerializeField] private bool podePular = true;
 
     [Header("tiro")]
     public GameObject bullet;
-    private bool podeAtirar = true;
-    private float cooldownTiro = 0.5f;
+     bool podeAtirar = true;
+     float cooldownTiro = 0.5f;
     [Space]
     [SerializeField] Transform LivroSegurando;
     [SerializeField] GameObject LivroSegurandoObject;
@@ -49,7 +48,7 @@ public class player : MonoBehaviour
     [SerializeField] private float time_;
 
     [Header("animação")]
-    private Animator animator_;
+     Animator animator_;
 
     [Header("checkPointSystem")]
     public string fasePraCarregar;
@@ -65,14 +64,14 @@ public class player : MonoBehaviour
     
 
     [Header("gameObjects")]
-    [SerializeField] private GameObject paredeFinal_;
+    [SerializeField]  GameObject paredeFinal_;
 
     [Header("bossFight")]
-    [SerializeField]private GameObject final_;
-    [SerializeField] private string faseFinal_;
+    [SerializeField] GameObject final_;
+    [SerializeField]  string faseFinal_;
 
     [Header("audio")]
-    private AudioSource audioSourceTiro_;
+     AudioSource audioSourceTiro_;
 
 
     [SerializeField] Transform parentePlayer;
@@ -124,7 +123,10 @@ public class player : MonoBehaviour
     void Update()
     {
 
-        
+        if (qtdOfColetaveis > 6)
+        {
+            qtdOfColetaveis = 6;
+        }
 
 
         #region movimentação e sprites ----------
@@ -253,10 +255,7 @@ public class player : MonoBehaviour
         {
             qtdOfColetaveis++;
             coletaveisQtdTxt.text = qtdOfColetaveis + "/6"; //qtdOfColetaveis.ToString() ;
-            if(qtdOfColetaveis > 6)
-            {
-                qtdOfColetaveis = 6;
-            }
+           
             
         }
         if (qtdOfColetaveis >= 6 && collision.gameObject.CompareTag("finalArea"))
@@ -293,7 +292,7 @@ public class player : MonoBehaviour
         #region morrer pra canão e cair ---
         if (collision.gameObject.CompareTag("cannonBall"))
         {
-            TransicaoDeMorteJogo.morreuJogo = true;
+          
             //StartCoroutine(TempoParaRenacer());
             SceneManager.LoadScene("fase1");
         }
@@ -301,7 +300,7 @@ public class player : MonoBehaviour
         //caiu no void
         if (collision.gameObject.CompareTag("queda"))
         {
-            TransicaoDeMorteJogo.morreuJogo = true;
+            
             //StartCoroutine(TempoParaRenacer());
             SceneManager.LoadScene("fase1");
         }
@@ -324,7 +323,7 @@ public class player : MonoBehaviour
         #region morrer pra inimigo ------
         if (collision.gameObject.CompareTag("enemy"))
         {
-            TransicaoDeMorteJogo.morreuJogo = true;
+           
             //StartCoroutine(TempoParaRenacer());
             SceneManager.LoadScene("fase1");
         }

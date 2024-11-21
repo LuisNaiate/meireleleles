@@ -7,7 +7,7 @@ public class DeadArea : MonoBehaviour
     #region variaveis 
     [SerializeField] GameObject boss;
     [SerializeField] float timer;
-    machista machista;
+    public machista machista;
     #endregion
 
     #region encontrar o boss 
