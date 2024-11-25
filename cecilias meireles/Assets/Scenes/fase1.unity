@@ -59882,7 +59882,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Time: 0.2
   m_Parameters:
     serializedVersion: 3
@@ -63487,7 +63487,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453466785}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5, y: 9.54, z: 0}
+  m_LocalPosition: {x: -2.59, y: 0.4, z: 0}
   m_LocalScale: {x: 4.671885, y: 4.671885, z: 4.671885}
   m_ConstrainProportionsScale: 0
   m_Children: []
