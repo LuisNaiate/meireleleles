@@ -307,12 +307,7 @@ public class player : MonoBehaviour
         
 
     }
-   IEnumerator TempoParaRenacer()
-    {
-        yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene("fase1");
-    }
-    
+   
 
     // morrer pros inimigos
     private void OnCollisionEnter2D(Collision2D collision)
@@ -372,8 +367,8 @@ public class player : MonoBehaviour
 public static class CheckPoint 
 {
     public static Transform checkpoint;
-    public static bool chegouCheckpoint;
-    public static bool doublejum;
+    public static bool chegouCheckpoint = false;
+    public static bool doublejum = false;
     public static bool comLivro = false;
 }
 #endregion

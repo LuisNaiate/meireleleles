@@ -19,6 +19,8 @@ public class menuPrincipal : MonoBehaviour
     public GameObject controler;
     public GameObject colecionaveisBtn;
     public static bool terminouJogo = false;
+
+    [SerializeField] bool primeiraVez = true;
     #endregion
 
 
@@ -35,8 +37,18 @@ public class menuPrincipal : MonoBehaviour
     #region jogar 
     public void jogar()
     {
+
+        if (primeiraVez) 
+        {
+            CheckPoint.doublejum = false;
+            CheckPoint.comLivro = false;
+            CheckPoint.chegouCheckpoint = false;
+            player.qtdOfColetaveis = 0;
+
+            primeiraVez = false;
+        }
         SceneManager.LoadScene("Cutscene1");
-        if(terminouJogo )
+        if(terminouJogo)
         {
             CheckPoint.doublejum = false;
             CheckPoint.comLivro = false;
