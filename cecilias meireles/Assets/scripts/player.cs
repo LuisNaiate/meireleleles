@@ -161,7 +161,6 @@ public class player : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-
             if (!CheckPoint.doublejum && groundCheck_)
             {
                 body_.AddForce(new Vector2(0, jumpstrengh_ * 120));
@@ -170,7 +169,6 @@ public class player : MonoBehaviour
             }
             else if(CheckPoint.doublejum && jumpsLeft >0)
             {
-               
                  jumpsLeft--;
                  body_.AddForce(new Vector2(0, jumpstrengh_ * 100));
                  CreateDust();                     
@@ -196,14 +194,13 @@ public class player : MonoBehaviour
             }
             
         }
-        
 
 
-        
 
-        if (body_.velocity.y < 0 && groundCheck_ == true)
+
+        if (body_.velocity.y < 0 && groundCheck_)
         {
-            jumpsLeft = maxJump_;
+            
         }
         #endregion
 
@@ -246,6 +243,7 @@ public class player : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         #region Final da dungeon------
         if (collision.gameObject == final_)
         {
@@ -319,7 +317,10 @@ public class player : MonoBehaviour
     // morrer pros inimigos
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
+        if (collision.gameObject.CompareTag("ground"))
+        {
+            jumpsLeft = maxJump_;
+        }
         #region morrer pra inimigo ------
         if (collision.gameObject.CompareTag("enemy"))
         {
