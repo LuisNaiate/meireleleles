@@ -13,6 +13,7 @@ public class player : MonoBehaviour
     public Transform foot;
      Rigidbody2D body_;
     public ParticleSystem dust;
+    public static bool podeFlipar = true;
 
     [Header("movimentação")]
     bool olhandoDireita_;
@@ -346,7 +347,7 @@ public class player : MonoBehaviour
     #region flipar o sprite ------
     void Flip()
     {
-        if (horizontal_ > 0 && !olhandoDireita_ || horizontal_ < 0 && olhandoDireita_)
+        if (horizontal_ > 0 && !olhandoDireita_ || horizontal_ < 0 && olhandoDireita_ && podeFlipar)
         {
             olhandoDireita_ = !olhandoDireita_;
             Vector2 localscale = transform.localScale;
