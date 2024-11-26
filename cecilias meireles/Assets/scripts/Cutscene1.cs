@@ -8,7 +8,7 @@ public class Cutscene1 : MonoBehaviour
     public void Clicou()
     {
         clicou++;
-      switch (clicou)
+        switch (clicou)
         {
             case 1:
                 cameraPos.position = new Vector2(0, 0);
@@ -28,7 +28,14 @@ public class Cutscene1 : MonoBehaviour
             case 6:
                 SceneManager.LoadScene("fase1");
                 break;
-            
+
+        }
+    }
+    public void Update()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            Clicou();
         }
     }
 }

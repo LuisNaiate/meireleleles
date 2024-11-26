@@ -41,5 +41,12 @@ public class Cutscene3 : MonoBehaviour
 
 
         }
+    } 
+    private void Update()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            Clicou();
+        }
     }
 }
