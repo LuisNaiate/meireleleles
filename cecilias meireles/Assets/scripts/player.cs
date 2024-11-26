@@ -76,6 +76,7 @@ public class player : MonoBehaviour
 
 
     [SerializeField] Transform parentePlayer;
+    
 
    
     #endregion
@@ -123,6 +124,12 @@ public class player : MonoBehaviour
     #endregion
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            gameObject.GetComponent<Desenvolvedor>().enabled = true; 
+        
+        }
+
 
         if (qtdOfColetaveis > 6)
         {
@@ -313,7 +320,7 @@ public class player : MonoBehaviour
     // morrer pros inimigos
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("ground"))
+        if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("plataform"))
         {
             jumpsLeft = maxJump_;
         }
