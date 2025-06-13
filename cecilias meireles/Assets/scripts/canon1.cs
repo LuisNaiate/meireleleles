@@ -31,7 +31,7 @@ public class canon1 : MonoBehaviour
             // if (SpriteRenderer != null)
             // {
                 GameObject temp = Instantiate(cannonBall, dust.position, dust.rotation);
-                temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed, 0);
+                temp.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(bulletSpeed, 0);
                 time = 0;
                 CreateDust();
                 audioSource.Play(); // animator_.SetBool("atirou", true);

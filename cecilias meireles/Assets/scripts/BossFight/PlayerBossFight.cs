@@ -14,7 +14,7 @@ public class PlayerBossFight : MonoBehaviour
      Rigidbody2D body_;
     public ParticleSystem dust;
 
-    [Header("movimentação")]
+    [Header("movimentaï¿½ï¿½o")]
     bool olhandoDireita_;
     int direction_ = 1;
     [Space]
@@ -43,7 +43,7 @@ public class PlayerBossFight : MonoBehaviour
     [Header("tempo")]
     [SerializeField] private float time_;
 
-    [Header("animação")]
+    [Header("animaï¿½ï¿½o")]
      Animator animator_;
 
    
@@ -55,9 +55,9 @@ public class PlayerBossFight : MonoBehaviour
 
     [SerializeField] Transform parentePlayer;
     #endregion
-    //Anotações:
+    //Anotaï¿½ï¿½es:
 
-    #region Atribuições de variaveis--------
+    #region Atribuiï¿½ï¿½es de variaveis--------
     private void Awake()
     {
         olhandoDireita_ = true;
@@ -88,17 +88,17 @@ public class PlayerBossFight : MonoBehaviour
 
 
 
-        #region movimentação e sprites ----------
-        // movimentação
+        #region movimentaï¿½ï¿½o e sprites ----------
+        // movimentaï¿½ï¿½o
         horizontal_ = Input.GetAxis("Horizontal");
-        body_.velocity = new Vector2(horizontal_ * speed_, body_.velocity.y);
+        body_.linearVelocity = new Vector2(horizontal_ * speed_, body_.linearVelocity.y);
 
-        //animação de andar
+        //animaï¿½ï¿½o de andar
         animator_.SetBool("andando", horizontal_ != 0);
 
         Flip();
 
-        //direção
+        //direï¿½ï¿½o
         if (horizontal_ < 0)
         {
             direction_ = -1;
@@ -158,7 +158,7 @@ public class PlayerBossFight : MonoBehaviour
 
 
 
-        if (body_.velocity.y < 0 && groundCheck_ == true)
+        if (body_.linearVelocity.y < 0 && groundCheck_ == true)
         {
             jumpsLeft = maxJump_;
         }
@@ -169,7 +169,7 @@ public class PlayerBossFight : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && comLivro == true && podeAtirar)
         {
             GameObject temp = Instantiate(bullet, LivroSegurando.position, gameObject.transform.rotation);
-            temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed_ * direction_, 0);
+            temp.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(bulletSpeed_ * direction_, 0);
             podeAtirar = false;
             if (direction_ < 0)
             {
@@ -242,7 +242,7 @@ public class PlayerBossFight : MonoBehaviour
     void CreateDust()
     {
         dust.Play();
-    } // cirar fumaça quando pula
+    } // cirar fumaï¿½a quando pula
     #endregion
 
 }

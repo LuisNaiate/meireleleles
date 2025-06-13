@@ -140,7 +140,7 @@ public class player : MonoBehaviour
         #region movimentação e sprites ----------
         // movimentação
         horizontal_ = Input.GetAxis("Horizontal");
-        body_.velocity = new Vector2(horizontal_ * speed_, body_.velocity.y);
+        body_.linearVelocity = new Vector2(horizontal_ * speed_, body_.linearVelocity.y);
        
         //animação de andar
         animator_.SetBool("andando", horizontal_ != 0);
@@ -206,7 +206,7 @@ public class player : MonoBehaviour
 
 
 
-        if (body_.velocity.y < 0 && groundCheck_)
+        if (body_.linearVelocity.y < 0 && groundCheck_)
         {
             
         }
@@ -222,7 +222,7 @@ public class player : MonoBehaviour
         {
             audioSourceTiro_.Play();
             GameObject temp = Instantiate(bullet, LivroSegurando.position, gameObject.transform.rotation);
-            temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed_ * direction_, 0);
+            temp.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(bulletSpeed_ * direction_, 0);
             podeAtirar = false;
             if(direction_ < 0)
             {

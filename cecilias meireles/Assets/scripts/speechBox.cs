@@ -23,7 +23,7 @@ public class speechBox : MonoBehaviour
     {
         
         transform.position = new Vector2(6, 1);
-        body.velocity = new Vector2(horizontal * speed, vertical * speed);
+        body.linearVelocity = new Vector2(horizontal * speed, vertical * speed);
         player = GameObject.FindWithTag("player");
     }
     IEnumerator Estourar()

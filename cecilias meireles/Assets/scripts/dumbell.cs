@@ -14,7 +14,7 @@ public class dumbell : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        body.velocity = new Vector2(horizontal * speed, body.velocity.y);
+        body.linearVelocity = new Vector2(horizontal * speed, body.linearVelocity.y);
         player = GameObject.FindWithTag("player");
     }
 

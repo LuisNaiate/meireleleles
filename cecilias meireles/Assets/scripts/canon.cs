@@ -39,7 +39,7 @@ public class canon : MonoBehaviour
             // if(SpriteRenderer  != null) 
             //  {
             GameObject temp = Instantiate(cannonBall, dust.position, dust.rotation);
-                temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed, 0);
+                temp.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(bulletSpeed, 0);
                 time = 0; 
                 CreateDust();
                 audioSource.Play();
@@ -50,7 +50,7 @@ public class canon : MonoBehaviour
         }
         #endregion
 
-        #region sistema da animação quando atira
+        #region sistema da animaï¿½ï¿½o quando atira
         if (pegou == true)
         {
             animator_.SetBool("atirou", true);

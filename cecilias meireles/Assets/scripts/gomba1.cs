@@ -15,7 +15,7 @@ public class gomba1 : MonoBehaviour
     int direction = -1;
     public int life = 2;
 
-    #region atribuições de variaveis 
+    #region atribuiï¿½ï¿½es de variaveis 
     private void Start()
     {
         spriteRenderer_ = GetComponent<SpriteRenderer>();
@@ -25,10 +25,10 @@ public class gomba1 : MonoBehaviour
     }
     #endregion
 
-    #region movimentação
+    #region movimentaï¿½ï¿½o
     void Update()
     {
-       body_.velocity = new Vector2(speed * direction, body_.velocity.y); 
+       body_.linearVelocity = new Vector2(speed * direction, body_.linearVelocity.y); 
     }
     #endregion
 
@@ -66,7 +66,7 @@ public class gomba1 : MonoBehaviour
         }
         #endregion
 
-        #region trocar de direção
+        #region trocar de direï¿½ï¿½o
         if (collision.gameObject.CompareTag("precipicio"))
         {
             direction *= -1;
